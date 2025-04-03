@@ -1,0 +1,244 @@
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 100px 0;
+    text-align: center;
+}
+.hero h1 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.hero .lead {
+    font-size: 1.25rem;
+    color: #555;
+}
+.hero-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Smoother Typewriter Animation */
+.typewriter-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: 
+      typing 1.8s forwards,
+      blinkCursor 0.7s 1.8s infinite;
+  }
+  
+  .typewriter-subtext {
+    
+    animation-delay: 0.3s; 
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  
+
+/* About Me Section */
+.about {
+    background: #fff;
+}
+
+.about h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.about ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.about ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.about ul li:before {
+    content: "•";
+    color: #3498db;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -3px;
+}
+
+/* About Me Note Box */
+.note-box {
+    border-left: 3px solid #3498db;  /* Accent bar */
+    font-size: 0.9rem;
+}
+.note-box i {
+    color: #3498db;  /* Matches accent bar */
+}
+
+/* Staggered Fade-In */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Projects Section */
+.projects .project-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+}
+
+.projects .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.projects .project-content {
+    padding: 1.5rem;
+}
+
+.projects h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.projects .text-muted {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Tech Badges */
+.tech-badges .badge {
+    margin-right: 5px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Project Links */
+.project-links .btn {
+    margin-right: 8px;
+    font-size: 0.85rem;
+}
+
+/* Modal Styling */
+.modal-content {
+    border: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Education Section */
+.education .card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.education .card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-highlight {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.awards-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.awards-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+}
+
+.awards-list li:before {
+    content: "•";
+    color: #3498db;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.btn-certification {
+    background-color: #0077b5;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.btn-certification:hover {
+    background-color: #005582;
+    color: white;
+}
+
+/* Contact Section */
+.contact {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
+}
+
+.contact-item {
+    transition: transform 0.3s;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-item i {
+    transition: color 0.3s;
+}
+
+.contact-item:hover i {
+    color: #3498db;
+}
+
+/* CV Download Button */
+.btn-cv-download {
+    background-color: #3498db;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: transform 0.3s, background-color 0.3s;
+}
+.btn-cv-download:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
