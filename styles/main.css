@@ -230,15 +230,44 @@
     color: #3498db;
 }
 
-/* CV Download Button */
-.btn-cv-download {
-    background-color: #3498db;
-    border: none;
-    padding: 10px 20px;
-    font-weight: 500;
-    transition: transform 0.3s, background-color 0.3s;
-}
-.btn-cv-download:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
-}
+/* === Contact Cards === */
+.contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+  }
+  
+  .contact-card:hover .icon-box {
+    transform: scale(1.1);
+  }
+  
+  .bg-linkedin { background: #0077b5; }
+  .bg-primary { background: #3498db; }
+  .bg-dark { background: #2c3e50; }
+  
+  /* Button tweaks */
+  .btn-outline-light {
+    border-width: 1px;
+    transition: all 0.3s;
+  }
+  
+  .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
