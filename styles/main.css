@@ -271,3 +271,21 @@
   .btn-outline-light:hover {
     background: rgba(255, 255, 255, 0.1);
   }
+
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+  }
+  .tech-badge:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  .tech-badge i {
+    font-size: 1.2rem;
+  }
