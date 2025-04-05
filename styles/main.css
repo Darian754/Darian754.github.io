@@ -289,3 +289,22 @@
   .tech-badge i {
     font-size: 1.2rem;
   }
+
+  .difference-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .difference-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .difference-list li:before {
+    content: "▹";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
