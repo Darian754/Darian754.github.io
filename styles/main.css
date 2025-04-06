@@ -357,3 +357,15 @@
     columns: 1;
   }
 }
+
+/* New badge colors */
+.bg-python { background: #3776AB; color: white; }
+.bg-nlp { background: #4CC9F0; color: #2c2c2c; }
+.bg-api { background: #6E40C9; color: white; }
+.bg-data { background: #FF9E1B; color: #2c2c2c; }
+
+/* Enhance disabled button styling */
+.btn-outline-secondary.disabled {
+  border-color: #6c757d;
+  color: #6c757d;
+}
