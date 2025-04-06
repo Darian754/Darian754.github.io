@@ -316,3 +316,44 @@
   footer a {
     color: #3498db;
   }
+
+  .status-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #3498db;
+    color: white;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  
+  .btn.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  /* Technology Badge Colors */
+.bg-net { background: #512bd4; color: white; }
+.bg-signalr { background: #5E17EB; color: white; }
+.bg-react { background: #61dafb; color: #2c2c2c; }
+.bg-postgres { background: #336791; color: white; }
+.bg-azure { background: #0089D6; color: white; }
+
+.features-list {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  columns: 2;
+}
+
+.features-list li::before {
+  content: "▹";
+  color: #3498db;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .features-list {
+    columns: 1;
+  }
+}
