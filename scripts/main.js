@@ -1,30 +1,29 @@
-// Smoother typing with random speed variations
+// ============================
+// Typewriter Effect
+// ============================
 document.querySelectorAll('.typewriter-text').forEach((el, index) => {
     const text = el.textContent;
     el.textContent = '';
     let i = 0;
-    const speed = index === 0 ? 100 : 60;
-    //const speed = 80 + Math.random() * 40; // Randomize speed between 80-120ms
+    const speed = index === 0 ? 100 : 60; // Name slower, subtitle faster
     
     function type() {
-      if (i < text.length) {
-        el.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, speed);
-      }
+        if (i < text.length) {
+            el.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
     }
-    
-    setTimeout(type, index === 0 ? 0 : 300); // 0.3s delay for subtitle
-  });
 
+    setTimeout(type, index === 0 ? 0 : 300); // Delay subtitle slightly
+});
 
-
-
-
-// Scroll-triggered animations
+// ============================
+// Scroll-triggered Animations
+// ============================
 document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll('.animate-on-scroll');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
