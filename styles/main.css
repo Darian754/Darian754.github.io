@@ -1,47 +1,51 @@
-/* Hero Section */
+/* =========================
+   Hero Section
+========================= */
 .hero {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     padding: 100px 0;
     text-align: center;
 }
+
 .hero h1 {
     font-weight: 700;
     margin-bottom: 20px;
 }
+
 .hero .lead {
     font-size: 1.25rem;
     color: #555;
 }
+
 .hero-links {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
-/* Smoother Typewriter Animation */
+/* =========================
+   Typewriter Animation
+========================= */
 .typewriter-text {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
     width: 0;
-    animation: 
-      typing 1.8s forwards,
-      blinkCursor 0.7s 1.8s infinite;
-  }
-  
-  .typewriter-subtext {
-    
-    animation-delay: 0.3s; 
-  }
-  
-  @keyframes typing {
+    animation: typing 1.8s forwards, blinkCursor 0.7s 1.8s infinite;
+}
+
+.typewriter-subtext {
+    animation-delay: 0.3s;
+}
+
+@keyframes typing {
     from { width: 0; }
     to { width: 100%; }
-  }
-  
-  
+}
 
-/* About Me Section */
+/* =========================
+   About Section
+========================= */
 .about {
     background: #fff;
 }
@@ -71,16 +75,53 @@
     top: -3px;
 }
 
-/* About Me Note Box */
+/* About Note Box */
 .note-box {
-    border-left: 3px solid #3498db;  /* Accent bar */
+    border-left: 3px solid #3498db;
     font-size: 0.9rem;
 }
+
 .note-box i {
-    color: #3498db;  /* Matches accent bar */
+    color: #3498db;
 }
 
-/* Staggered Fade-In */
+/* =========================
+   Experience Section
+========================= */
+.experience {
+    background: #fff;
+}
+
+.experience-item {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.experience-item h3 {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+}
+
+.experience-meta {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.experience-item ul {
+    padding-left: 1.2rem;
+    margin-bottom: 0;
+}
+
+.experience-item ul li {
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+/* =========================
+   Scroll Animation
+========================= */
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);
@@ -92,55 +133,9 @@
     transform: translateY(0);
 }
 
-/* Projects Section */
-.projects .project-card {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    height: 100%;
-}
-
-.projects .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.projects .project-content {
-    padding: 1.5rem;
-}
-
-.projects h3 {
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-}
-
-.projects .text-muted {
-    color: #6c757d;
-    font-size: 0.9rem;
-}
-
-/* Tech Badges */
-.tech-badges .badge {
-    margin-right: 5px;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
-/* Project Links */
-.project-links .btn {
-    margin-right: 8px;
-    font-size: 0.85rem;
-}
-
-/* Modal Styling */
-.modal-content {
-    border: none;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Education Section */
+/* =========================
+   Education Section
+========================= */
 .education .card {
     border: none;
     border-radius: 10px;
@@ -200,7 +195,9 @@
     color: white;
 }
 
-/* Contact Section */
+/* =========================
+   Contact Section
+========================= */
 .contact {
     background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
 }
@@ -230,49 +227,42 @@
     color: #3498db;
 }
 
-/* === Contact Cards === */
+/* Contact Cards */
 .contact-card {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
-  }
-  
-  .contact-card:hover {
+}
+
+.contact-card:hover {
     transform: translateY(-8px);
     border-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .icon-box {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
-  }
-  
-  .contact-card:hover .icon-box {
+}
+
+.contact-card:hover .icon-box {
     transform: scale(1.1);
-  }
-  
-  .bg-linkedin { background: #0077b5; }
-  .bg-primary { background: #3498db; }
-  .bg-dark { background: #2c3e50; }
-  
-  /* Button tweaks */
-  .btn-outline-light {
+}
+
+.bg-linkedin { background: #0077b5; }
+.bg-primary { background: #3498db; }
+.bg-dark { background: #2c3e50; }
+
+/* Buttons */
+.btn-outline-light {
     border-width: 1px;
     transition: all 0.3s;
-  }
-  
-  .btn-outline-light:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
+}
 
-  .tech-badge {
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================
+   Misc
+========================= */
+.tech-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -281,91 +271,41 @@
     border-radius: 20px;
     font-size: 0.9rem;
     transition: all 0.3s;
-  }
-  .tech-badge:hover {
+}
+
+.tech-badge:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
-  }
-  .tech-badge i {
-    font-size: 1.2rem;
-  }
+}
 
-  .difference-list {
+.tech-badge i {
+    font-size: 1.2rem;
+}
+
+.difference-list {
     list-style-type: none;
     padding-left: 0;
-  }
-  
-  .difference-list li {
+}
+
+.difference-list li {
     position: relative;
     padding-left: 1.5rem;
     margin-bottom: 0.8rem;
-  }
-  
-  .difference-list li:before {
+}
+
+.difference-list li:before {
     content: "▹";
     color: #3498db;
     position: absolute;
     left: 0;
     font-weight: bold;
-  }
+}
 
-  footer {
+footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
-  }
-  footer a {
+}
+
+footer a {
     color: #3498db;
-  }
-
-  .status-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #3498db;
-    color: white;
-    padding: 3px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: bold;
-  }
-  
-  .btn.disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  /* Technology Badge Colors */
-.bg-net { background: #512bd4; color: white; }
-.bg-signalr { background: #5E17EB; color: white; }
-.bg-react { background: #61dafb; color: #2c2c2c; }
-.bg-postgres { background: #336791; color: white; }
-.bg-azure { background: #0089D6; color: white; }
-
-.features-list {
-  list-style-type: none;
-  padding-left: 1.5rem;
-  columns: 2;
-}
-
-.features-list li::before {
-  content: "▹";
-  color: #3498db;
-  margin-right: 0.5rem;
-}
-
-@media (max-width: 768px) {
-  .features-list {
-    columns: 1;
-  }
-}
-
-/* New badge colors */
-.bg-python { background: #3776AB; color: white; }
-.bg-nlp { background: #4CC9F0; color: #2c2c2c; }
-.bg-api { background: #6E40C9; color: white; }
-.bg-data { background: #FF9E1B; color: #2c2c2c; }
-
-/* Enhance disabled button styling */
-.btn-outline-secondary.disabled {
-  border-color: #6c757d;
-  color: #6c757d;
 }
