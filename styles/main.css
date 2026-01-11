@@ -1,31 +1,20 @@
-/* ============================
-   Global Styles
-   ============================ */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #2c3e50;
-    scroll-behavior: smooth;
-    background-color: #f8f9fa;
-}
-
-/* ============================
+/* =========================
    Hero Section
-   ============================ */
+========================= */
 .hero {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    padding: 100px 0 60px;
+    padding: 100px 0;
     text-align: center;
 }
 .hero h1 {
     font-weight: 700;
-    font-size: 2.8rem;
-    margin-bottom: 15px;
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 .hero .lead {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: #555;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .hero p {
     font-size: 1rem;
@@ -34,21 +23,13 @@ body {
 .hero-links {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
-}
-.hero-links .btn {
-    padding: 10px 22px;
-    font-weight: 500;
-    transition: all 0.3s;
-}
-.hero-links .btn:hover {
-    transform: translateY(-3px);
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-/* ============================
-   Typewriter Effect
-   ============================ */
+/* =========================
+   Typewriter Animation
+========================= */
 .typewriter-text {
     display: inline-block;
     overflow: hidden;
@@ -56,58 +37,87 @@ body {
     width: 0;
     animation: typing 1.8s forwards, blinkCursor 0.7s 1.8s infinite;
 }
+
 .typewriter-subtext {
     display: inline-block;
-    animation-delay: 0.3s;
 }
+
 @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
 }
+
 @keyframes blinkCursor {
-    0%, 50%, 100% { border-right: 2px solid #2c3e50; }
-    25%, 75% { border-right: transparent; }
+    0%, 100% { border-right-color: transparent; }
+    50% { border-right-color: #3498db; }
 }
 
-/* ============================
+/* =========================
    About Me Section
-   ============================ */
+========================= */
 .about {
     background: #fff;
-    padding-bottom: 60px;
 }
-.about h2 {
+
+.about h2, .about h3 {
     color: #2c3e50;
 }
-.about h3 {
-    color: #2c3e50;
-    margin-bottom: 12px;
+
+.about ul {
+    list-style-type: none;
+    padding-left: 0;
 }
-.about p {
-    color: #555;
-    margin-bottom: 15px;
+
+.about ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px;
 }
+
+.about ul li:before {
+    content: "•";
+    color: #3498db;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -3px;
+}
+
+/* Note Box */
 .note-box {
     border-left: 3px solid #3498db;
     font-size: 0.9rem;
-    background: #f1f3f6;
-    padding: 12px 15px;
-    margin-top: 20px;
+    background: #f8f9fa;
 }
+
 .note-box i {
     color: #3498db;
-    margin-right: 5px;
 }
+
+/* Scroll-triggered animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Difference List */
 .difference-list {
     list-style-type: none;
     padding-left: 0;
-    margin-top: 10px;
 }
+
 .difference-list li {
     position: relative;
     padding-left: 1.5rem;
     margin-bottom: 0.8rem;
 }
+
 .difference-list li:before {
     content: "▹";
     color: #3498db;
@@ -116,130 +126,178 @@ body {
     font-weight: bold;
 }
 
-/* ============================
-   Technical Badges
-   ============================ */
+/* Tech Badges */
 .tech-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(52, 152, 219, 0.1);
-    padding: 6px 12px;
+    background: rgba(52, 152, 219, 0.15);
+    padding: 8px 12px;
     border-radius: 20px;
     font-size: 0.9rem;
-    margin-bottom: 6px;
     transition: all 0.3s;
 }
+
 .tech-badge:hover {
-    background: rgba(52, 152, 219, 0.2);
+    background: rgba(52, 152, 219, 0.3);
     transform: translateY(-2px);
 }
+
 .tech-badge i {
     font-size: 1.2rem;
 }
 
-/* ============================
-   Scroll Animations
-   ============================ */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.animate-on-scroll.in-view {
-    opacity: 1;
-    transform: translateY(0);
+/* =========================
+   Experience & Education
+========================= */
+.experience-item, .education .card {
+    margin-bottom: 30px;
 }
 
-/* ============================
-   Responsive Adjustments
-   ============================ */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2rem; }
-    .hero .lead { font-size: 1.1rem; }
-    .tech-badge { font-size: 0.85rem; padding: 5px 10px; }
+.experience-item ul {
+    padding-left: 1.2rem;
 }
-/* ============================
-   Contact Section
-   ============================ */
-.contact {
-    background: #1c1c1c;
-    color: #fff;
-    padding: 80px 0;
-}
-.contact h2 {
-    color: #fff;
-    margin-bottom: 50px;
-}
-.contact-card {
-    background: #2c2c2c;
-    border-radius: 12px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-.contact-card .icon-box {
-    width: 70px;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 1.8rem;
-}
-.contact-card h4 {
-    margin-top: 15px;
+
+.experience-item ul li {
     margin-bottom: 8px;
-    color: #fff;
 }
-.contact-card p {
-    color: #ccc;
+
+.education .card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.education .card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+/* Awards List */
+.awards-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.awards-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+}
+
+.awards-list li:before {
+    content: "•";
+    color: #3498db;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* Certification Button */
+.btn-certification {
+    background-color: #0077b5;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.btn-certification:hover {
+    background-color: #005582;
+}
+
+/* =========================
+   Contact Section
+========================= */
+.contact {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
+    color: white;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card h4 {
+    margin-top: 10px;
     margin-bottom: 10px;
 }
+
 .contact-card a.btn {
     font-size: 0.85rem;
-    padding: 6px 14px;
+}
+
+/* Icon Box Hover */
+.contact-card .icon-box {
+    transition: transform 0.3s;
+}
+
+.contact-card:hover .icon-box {
+    transform: scale(1.1);
+}
+
+.bg-linkedin { background: #0077b5; }
+.bg-primary { background: #3498db; }
+.bg-dark { background: #2c3e50; }
+
+/* Button tweaks */
+.btn-outline-light {
+    border-width: 1px;
     transition: all 0.3s;
 }
-.contact-card a.btn:hover {
-    background-color: #3498db;
-    border-color: #3498db;
-    color: #fff;
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
-/* Contact Icon Colors */
-.icon-box.bg-primary { background-color: #3498db; color: #fff; }
-.icon-box.bg-linkedin { background-color: #0a66c2; color: #fff; }
-.icon-box.bg-dark { background-color: #333; color: #fff; }
-
-/* ============================
+/* =========================
    Footer
-   ============================ */
+========================= */
 footer {
-    background: #1c1c1c;
-    color: #aaa;
-    padding: 25px 0;
-    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
+
 footer a {
     color: #3498db;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-footer a:hover {
-    color: #1abc9c;
-}
-footer .container p {
-    margin-bottom: 0;
 }
 
-/* ============================
-   Responsive Adjustments
-   ============================ */
+/* =========================
+   Utility / Responsive
+========================= */
 @media (max-width: 768px) {
-    .contact h2 { font-size: 1.8rem; margin-bottom: 30px; }
-    .contact-card { margin-bottom: 20px; }
-    .contact-card .icon-box { width: 60px; height: 60px; font-size: 1.5rem; }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .typewriter-text {
+        font-size: 1.8rem;
+    }
+    .tech-badge {
+        font-size: 0.8rem;
+    }
 }
