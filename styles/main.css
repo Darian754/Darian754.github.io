@@ -1,240 +1,161 @@
-/* ==========================
-   General Reset & Typography
-========================== */
+/* ============================
+   Global Styles
+   ============================ */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #2c3e50;
     scroll-behavior: smooth;
+    background-color: #f8f9fa;
 }
 
-h1, h2, h3, h4 {
-    font-weight: 600;
-}
-
-p {
-    margin-bottom: 1rem;
-}
-
-a {
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-/* ==========================
+/* ============================
    Hero Section
-========================== */
+   ============================ */
 .hero {
-    background: linear-gradient(135deg, #1f3c88, #4b79a1);
-    color: #fff;
-    padding: 120px 0 80px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 100px 0 60px;
     text-align: center;
-    position: relative;
 }
-
 .hero h1 {
-    font-size: 3rem;
+    font-weight: 700;
+    font-size: 2.8rem;
     margin-bottom: 15px;
 }
-
-.hero p.lead {
-    font-size: 1.25rem;
-    margin-bottom: 15px;
+.hero .lead {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 10px;
 }
-
 .hero p {
     font-size: 1rem;
-    max-width: 650px;
-    margin: 0 auto 20px;
+    color: #444;
 }
-
+.hero-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
 .hero-links .btn {
-    min-width: 150px;
+    padding: 10px 22px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.hero-links .btn:hover {
+    transform: translateY(-3px);
 }
 
-/* Typewriter Effect */
+/* ============================
+   Typewriter Effect
+   ============================ */
 .typewriter-text {
     display: inline-block;
     overflow: hidden;
-    border-right: .15em solid #fff;
     white-space: nowrap;
-    animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
+    width: 0;
+    animation: typing 1.8s forwards, blinkCursor 0.7s 1.8s infinite;
 }
-
+.typewriter-subtext {
+    display: inline-block;
+    animation-delay: 0.3s;
+}
 @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
 }
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: #fff; }
+@keyframes blinkCursor {
+    0%, 50%, 100% { border-right: 2px solid #2c3e50; }
+    25%, 75% { border-right: transparent; }
 }
 
-/* ==========================
-   About Section
-========================== */
+/* ============================
+   About Me Section
+   ============================ */
 .about {
-    background-color: #f9f9f9;
+    background: #fff;
+    padding-bottom: 60px;
 }
-
 .about h2 {
-    font-size: 2.25rem;
-    font-weight: 600;
+    color: #2c3e50;
 }
-
 .about h3 {
-    font-size: 1.25rem;
-    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+.about p {
+    color: #555;
+    margin-bottom: 15px;
+}
+.note-box {
+    border-left: 3px solid #3498db;
+    font-size: 0.9rem;
+    background: #f1f3f6;
+    padding: 12px 15px;
     margin-top: 20px;
 }
+.note-box i {
+    color: #3498db;
+    margin-right: 5px;
+}
+.difference-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+.difference-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+.difference-list li:before {
+    content: "▹";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
 
+/* ============================
+   Technical Badges
+   ============================ */
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(52, 152, 219, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    transition: all 0.3s;
+}
+.tech-badge:hover {
+    background: rgba(52, 152, 219, 0.2);
+    transform: translateY(-2px);
+}
+.tech-badge i {
+    font-size: 1.2rem;
+}
+
+/* ============================
+   Scroll Animations
+   ============================ */
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.6s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
-.animate-on-scroll.visible {
+.animate-on-scroll.in-view {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Technical Toolkit badges */
-.tech-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: #e0e0e0;
-    font-size: 0.85rem;
-    margin-bottom: 5px;
-    transition: all 0.3s ease;
-}
-
-.tech-badge i {
-    margin-right: 6px;
-    font-size: 1rem;
-}
-
-.tech-badge:hover {
-    background-color: #1f3c88;
-    color: #fff;
-    cursor: default;
-}
-
-/* Note Box */
-.note-box {
-    border-left: 4px solid #1f3c88;
-}
-
-/* ==========================
-   Experience & Education Cards
-========================== */
-.experience-item, .card {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.experience-item:hover, .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-}
-
-.experience-meta {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-/* Awards list styling */
-.awards-list {
-    padding-left: 1.2rem;
-}
-
-.awards-list li {
-    margin-bottom: 0.5rem;
-}
-
-/* Icon Boxes */
-.icon-box {
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-/* ==========================
-   Contact Section
-========================== */
-.contact-card {
-    background-color: #212529;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-.contact-card h4 {
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-
-.contact-card .icon-box {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.bg-linkedin {
-    background-color: #0a66c2 !important;
-}
-
-/* ==========================
-   Footer
-========================== */
-footer {
-    font-size: 0.85rem;
-}
-
-footer a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-footer a:hover {
-    color: #f0f0f0;
-}
-
-/* ==========================
-   Utilities
-========================== */
-.bg-light {
-    background-color: #f8f9fa !important;
-}
-.mt-4 { margin-top: 1.5rem !important; }
-.mb-0 { margin-bottom: 0 !important; }
-
-/* ==========================
-   Responsive
-========================== */
+/* ============================
+   Responsive Adjustments
+   ============================ */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.25rem; }
-    .hero p.lead { font-size: 1rem; }
-    .tech-badge { font-size: 0.8rem; padding: 4px 8px; }
+    .hero h1 { font-size: 2rem; }
+    .hero .lead { font-size: 1.1rem; }
+    .tech-badge { font-size: 0.85rem; padding: 5px 10px; }
 }
