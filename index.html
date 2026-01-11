@@ -134,185 +134,66 @@
               </div>
         </div>
     </section>
+<!-- Experience Section -->
+<section id="experience" class="experience py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 animate-on-scroll">Experience</h2>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5 animate-on-scroll">My Projects</h2>
-            <div class="row g-4 justify-content-center">  <!-- Added justify-content-center -->
-                <!-- Project 1: Password Manager -->
-                <div class="col-md-6 animate-on-scroll" data-delay="0.1">
-                    <div class="project-card">
-                        <div class="project-content">
-                            <div class="tech-badges mb-2">
-                                <span class="badge bg-primary">Python</span>
-                                <span class="badge bg-secondary">Cryptography</span>
-                                <span class="badge bg-info">PySimpleGUI</span>
-                            </div>
-                            <h3>Secure Password Manager</h3>
-                            <p>Encrypted password storage with master-key authentication.</p>
-                            <div class="project-links mt-3">
-                                <a href="https://github.com/Darian754/password-manager" target="_blank" class="btn btn-sm btn-outline-dark">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalPasswordManager">
-                                    Details
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Project 2: Expense Tracker -->
-                <div class="col-md-6 animate-on-scroll" data-delay="0.3">
-                    <div class="project-card">
-                        <div class="project-content">
-                            <div class="tech-badges mb-2">
-                                <span class="badge bg-primary">Flask</span>
-                                <span class="badge bg-secondary">SQLite</span>
-                                <span class="badge bg-info">Bootstrap</span>
-                            </div>
-                            <h3>Personal Expense Tracker</h3>
-                            <p>Full-stack finance tracker with budget visualization.</p>
-                            <div class="project-links mt-3">
-                                <a href="https://github.com/Darian754/personal_expense_tracker" target="_blank" class="btn btn-sm btn-outline-dark">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalExpenseTracker">
-                                    Details
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Currently Working On -->
-    <section id="works-in-progress" class="py-5 bg-light">
-        <div class="container">
-          <h2 class="text-center mb-5 animate-on-scroll">Currently Working On</h2>
-          <div class="row g-4 justify-content-center">
-            
-            <!-- Real-Time Code Editor Project -->
-            <div class="col-md-8 animate-on-scroll" data-delay="0.3">
-              <div class="project-card">
-                <div class="status-badge">In Development</div>
-                <div class="project-content">
-                  <h3>Real-Time Collaborative Code Editor</h3>
-                  <div class="tech-badges mb-3">
-                    <span class="badge bg-net">ASP.NET Core 8</span>
-                    <span class="badge bg-signalr">SignalR</span>
-                    <span class="badge bg-react">React/Blazor</span>
-                    <span class="badge bg-postgres">PostgreSQL</span>
-                    <span class="badge bg-azure">Azure</span>
-                  </div>
-                  <p class="mb-3">
-                    A Google Docs-like coding environment enabling real-time collaboration with:
-                  </p>
-                  <ul class="features-list">
-                    <li>Live cursor sharing & synchronized editing</li>
-                    <li>JWT authentication + private coding rooms</li>
-                    <li>Version history snapshots</li>
-                    <li>Multi-language syntax highlighting</li>
-                    <li>Cloud-native Docker deployment</li>
-                  </ul>
-                  <div class="mt-4">
-                    <a href="#" class="btn btn-outline-primary btn-sm disabled" aria-disabled="true">
-                      Demo will be availible upon completion
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Add this inside the same <div class="row"> after your code editor project -->
-                <div class="col-md-8 animate-on-scroll" data-delay="0.3">
-                    <div class="project-card">
-                      <div class="status-badge">In Development</div>
-                      <div class="project-content">
-                        <h3>AI-Powered Podcast Curator</h3>
-                        <div class="tech-badges mb-3">
-                          <span class="badge bg-python">Python</span>
-                          <span class="badge bg-nlp">NLP</span>
-                          <span class="badge bg-api">REST APIs</span>
-                          <span class="badge bg-data">Web Scraping</span>
-                        </div>
-                        <p class="mb-3">
-                          An intelligent system that automatically discovers and processes podcast content:
-                        </p>
-                        <ul class="features-list">
-                            <li>AI transcription pipeline (AssemblyAI API integration)</li>
-                            <li>Smart episode filtering with regex/NLP</li>
-                            <li>Efficient web scraping (BeautifulSoup + Requests)</li>
-                            <li>Modular design for easy feature expansion</li>
-                          
-                        </ul>
-                        <div class="mt-4">
-                          <a href="#" class="btn btn-outline-primary btn-sm disabled" aria-disabled="true">
-                            Demo will be availible upon completion
-
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-      
-          </div>
-        </div>
-      </section>
-
-    
-    <!-- Modals (Keep these!) -->
-    <div class="modal fade" id="modalPasswordManager" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Secure Password Manager</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p><strong>Tech Stack:</strong> Python, Cryptography (Fernet), PySimpleGUI</p>
-                    <ul>
-                        <li>Implemented per-entry and full-file encryption using Fernet.</li>
-                        <li>Designed master password authentication with PBKDF2 hashing.</li>
-                        <li>Created a user-friendly GUI for password management.</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <a href="https://github.com/Darian754/password-manager" target="_blank" class="btn btn-dark">
-                        <i class="fab fa-github"></i> View Repository
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="modal fade" id="modalExpenseTracker" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Personal Expense Tracker</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p><strong>Tech Stack:</strong> Flask, SQLite, Bootstrap, Matplotlib</p>
-                    <ul>
-                        <li>Developed user authentication and CRUD operations for expenses.</li>
-                        <li>Integrated Matplotlib for dynamic budget visualization.</li>
-                        <li>Deployed using Flask's built-in server (local/testing).</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <a href="https://github.com/Darian754/personal_expense_tracker" target="_blank" class="btn btn-dark">
-                        <i class="fab fa-github"></i> View Repository
-                    </a>
-                </div>
-            </div>
-        </div>
+    <!-- ThoroughTec -->
+    <div class="experience-item mb-5 animate-on-scroll">
+      <h3>Junior C# Software Developer</h3>
+      <p class="experience-meta">
+        ThoroughTec Simulation · Cape Town · 2025 – Present
+      </p>
+      <ul>
+        <li>
+          Develop and maintain deterministic AI behaviour systems for simulation
+          characters using priority-based decision trees.
+        </li>
+        <li>
+          Implement character logic and supporting systems in C# and Unity, with a
+          focus on scalability and maintainability.
+        </li>
+        <li>
+          Work with JSON-based data for configuration and system integration.
+        </li>
+        <li>
+          Collaborate with cross-functional teams in an Agile environment, following
+          Microsoft coding standards.
+        </li>
+      </ul>
     </div>
 
+    <!-- Easy CloudEnergy -->
+    <div class="experience-item animate-on-scroll">
+      <h3>Software Developer Intern</h3>
+      <p class="experience-meta">
+        Easy CloudEnergy (Germany) · Remote · 2023 – 2025
+      </p>
+      <ul>
+        <li>
+          Developed application features using C# and .NET Core within a production
+          codebase.
+        </li>
+        <li>
+          Contributed to an internal dashboard used to visualise and monitor system
+          data.
+        </li>
+        <li>
+          Debugged and resolved software defects, improving application stability and
+          reliability.
+        </li>
+        <li>
+          Worked within a structured development process, collaborating with team
+          members to deliver features on time.
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+  
     <!-- Education & Achievements Section -->
     <section id="education" class="education py-5">
         <div class="container">
