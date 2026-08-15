@@ -3,273 +3,1159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darian Chetty | Software Developer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta
+        name="description"
+        content="Darian Chetty — Software Developer and Systems Architect. Portfolio, technical experience, academic profile and systems architecture interests."
+    >
+
+    <meta name="author" content="Darian Chetty">
+
+    <title>Darian Chetty | Software Developer & Systems Architect</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    >
+
+    <!-- Site CSS -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="styles/hero.css">
+    <link rel="stylesheet" href="styles/project.css">
 </head>
+
 <body>
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <h1><span class="typewriter-text">Darian Chetty</span></h1>
-        <p class="lead"><span class="typewriter-text typewriter-subtext">Junior C#/.NET Software Developer</span></p>
-        <p>Building maintainable, scalable software solutions with a focus on clean code and problem-solving.</p>
-        <div class="hero-links">
-            <a href="#experience" class="btn btn-primary mt-3">View My Experience</a>
-            <a href="https://www.linkedin.com/in/darian-chetty-7a05852a8/" target="_blank" class="btn btn-outline-primary mt-3 ms-2">LinkedIn</a>
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="site-header">
+    <nav class="navbar container">
+
+        <a href="#home" class="brand">
+            <span class="brand-mark">D</span>
+            <span>Darian Chetty</span>
+        </a>
+
+        <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+        >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="nav-menu" id="navMenu">
+
+            <a href="#about" class="nav-link">About</a>
+            <a href="#expertise" class="nav-link">Expertise</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#academic" class="nav-link">Academic</a>
+            <a href="#contact" class="nav-link">Contact</a>
+
+            <a href="#contact" class="nav-cta">
+                Let's Connect
+            </a>
+
         </div>
-    </div>
-</section>
+    </nav>
+</header>
 
-<!-- About Me Section -->
-<section id="about" class="about py-5">
-    <div class="container">
-        <h2 class="text-center mb-4 animate-on-scroll">About Me</h2>
-        <div class="row">
-            <div class="col-lg-6">
-                <h3 class="animate-on-scroll" data-delay="0.2">My Background</h3>
-                <p class="animate-on-scroll" data-delay="0.3">
-                    I am a BSc Computer Science and Information Technology graduate with professional experience as a Junior C#/.NET Software Developer. I specialize in building production-ready systems, internal dashboards, and maintainable application logic. My experience spans Unity, ASP.NET Core, SQL, and JSON, all within Agile teams focused on delivering reliable software.
-                </p>
-                <h3 class="mt-4 animate-on-scroll" data-delay="0.4">Why I Develop</h3>
-                <p class="animate-on-scroll" data-delay="0.5">
-                    I am passionate about transforming complex problems into practical solutions. Development allows me to combine analytical thinking with creativity, ensuring software is both functional and scalable.
-                </p>
+
+<main>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-grid"></div>
+
+    <div class="container hero-container">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                <span class="status-dot"></span>
+                Software Engineering • Systems Architecture
             </div>
-            <div class="col-lg-6">
-                <h3 class="animate-on-scroll" data-delay="0.6">My Approach</h3>
-                <p class="animate-on-scroll" data-delay="0.7">
-                    I focus on writing clean, maintainable code and designing systems that are reliable and scalable. I thrive on collaboration in cross-functional Agile teams and enjoy solving challenging technical problems with precision and care.
-                </p>
-                <h3 class="mt-4 animate-on-scroll" data-delay="0.8">Technical Toolkit</h3>
-<p class="animate-on-scroll" data-delay="0.9">
-    Languages, frameworks, tools, and skills I use regularly:
-</p>
-<div class="d-flex flex-wrap gap-2 animate-on-scroll" data-delay="1.0">
-    <!-- Core Languages -->
-    <span class="tech-badge" title="C#"><i class="devicon-csharp-plain colored"></i> C#</span>
 
-    <!-- Frameworks / Platforms -->
-    <span class="tech-badge" title=".NET"><i class="devicon-dot-net-plain colored"></i> .NET</span>
-    <span class="tech-badge" title=".NET Core"><i class="devicon-dot-net-plain colored"></i> .NET Core</span>
-    <span class="tech-badge" title="ASP.NET Core"><i class="devicon-dot-net-plain colored"></i> ASP.NET Core</span>
-    <span class="tech-badge" title="MVC"><i class="fas fa-layer-group"></i> MVC</span>
+            <h1>
+                Building software.
+                <span>Designing systems.</span>
+            </h1>
 
-    <!-- Development / OOP -->
-    <span class="tech-badge" title="Application Development"><i class="fas fa-laptop-code"></i> App Dev</span>
-    <span class="tech-badge" title="OOP"><i class="fas fa-project-diagram"></i> OOP</span>
-    <span class="tech-badge" title="Agile Methodologies"><i class="fas fa-users"></i> Agile</span>
+            <p class="hero-role">
+                Software Developer <span>&</span> Systems Architect
+            </p>
 
-    <!-- Data & Tools -->
-    <span class="tech-badge" title="SQL"><i class="devicon-mysql-plain colored"></i> SQL</span>
-    <span class="tech-badge" title="JSON"><i class="fas fa-database"></i> JSON</span>
-    <span class="tech-badge" title="Debugging"><i class="fas fa-bug"></i> Debugging</span>
-    <span class="tech-badge" title="Clean Code Principles"><i class="fas fa-code"></i> Clean Code</span>
-    <span class="tech-badge" title="Visual Studio"><i class="devicon-visualstudio-plain colored"></i> VS</span>
-    <span class="tech-badge" title="Source Control"><i class="devicon-git-plain colored"></i> Git</span>
-    <span class="tech-badge" title="Code Reviews"><i class="fas fa-check-circle"></i> Reviews</span>
-    <span class="tech-badge" title="Collaboration"><i class="fas fa-handshake"></i> Collaboration</span>
-</div>
+            <p class="hero-description">
+                I build maintainable software systems and work across
+                application development, infrastructure, deployment and
+                data to solve complex technical problems.
+            </p>
 
+            <div class="hero-actions">
 
-                <div class="note-box p-3 mt-4 bg-light rounded animate-on-scroll" data-delay="1.1">
-                    <p class="small text-muted mb-0">
-                        <i class="fas fa-info-circle me-2"></i>
-                        <strong>Note:</strong> Projects from university and internships are not publicly available but can be discussed in detail upon request.
-                    </p>
+                <a href="#work" class="btn btn-primary">
+                    Explore My Work
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a
+                    href="https://github.com/Darian754"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary"
+                >
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+
+            </div>
+
+            <div class="hero-meta">
+
+                <div>
+                    <span class="meta-label">Education</span>
+                    <strong>BSc Computer Science & IT</strong>
                 </div>
+
+                <div>
+                    <span class="meta-label">University</span>
+                    <strong>University of KwaZulu-Natal</strong>
+                </div>
+
             </div>
+
         </div>
-    </div>
-</section>
 
-<!-- Experience Section -->
-<section id="experience" class="experience py-5 bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5 animate-on-scroll">Experience</h2>
 
-    <!-- ThoroughTec -->
-    <div class="experience-item mb-5 animate-on-scroll">
-      <h3>Junior C# Software Developer</h3>
-      <p class="experience-meta">ThoroughTec Simulation · 2025 – Present</p>
-      <ul>
-        <li>Develop and maintain deterministic AI behaviour systems for simulation characters using priority-based decision trees.</li>
-        <li>Implement character logic and supporting systems in C# and Unity, with a focus on scalability and maintainability.</li>
-        <li>Work with JSON-based data for configuration and system integration.</li>
-        <li>Collaborate with cross-functional teams in an Agile environment, following Microsoft coding standards.</li>
-      </ul>
-    </div>
+        <!-- Technical visual -->
 
-    <!-- Easy CloudEnergy -->
-    <div class="experience-item animate-on-scroll">
-      <h3>Software Developer Intern</h3>
-      <p class="experience-meta">Easy CloudEnergy (Germany) · Remote · 2023 – 2025</p>
-      <ul>
-        <li>Developed application features using C# and .NET Core within a production codebase.</li>
-        <li>Contributed to an internal dashboard used to visualise and monitor system data.</li>
-        <li>Debugged and resolved software defects, improving application stability and reliability.</li>
-        <li>Worked within a structured development process, collaborating with team members to deliver features on time.</li>
-      </ul>
-    </div>
+        <div class="hero-visual">
 
-  </div>
-</section>
+            <div class="terminal-window">
 
-<!-- Education & Achievements Section -->
-<section id="education" class="education py-5">
-    <div class="container">
-        <h2 class="text-center mb-5 animate-on-scroll">Education & Achievements</h2>
-        <!-- Education -->
-        <div class="row mb-4 animate-on-scroll" data-delay="0.1">
-            <div class="col-lg-8 mx-auto">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="icon-box bg-primary text-white me-3">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <h3 class="card-title mb-0">Education</h3>
-                        </div>
-                        <p class="card-text">
-                            <strong>BSc in Computer Science & IT</strong><br>
-                            University of KwaZulu-Natal<br>
-                            <span class="text-highlight">Degree Completed</span> | Relevant Coursework: Algorithms, Data Structures, Software Development
-                        </p>
+                <div class="terminal-header">
+
+                    <div class="terminal-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Academic Awards -->
-        <div class="row mb-4 animate-on-scroll" data-delay="0.2">
-            <div class="col-lg-8 mx-auto">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="icon-box bg-success text-white me-3">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <h3 class="card-title mb-0">Academic Excellence</h3>
-                        </div>
-                        <ul class="awards-list mb-0">
-                            <li><strong>All-Round Excellence Award</strong> (4x Recipient)</li>
-                            <li><strong>Full Colors for Academics</strong></li>
-                        </ul>
+                    <span>systems.config</span>
+
+                </div>
+
+                <div class="terminal-body">
+
+                    <div>
+                        <span class="code-muted">01</span>
+                        <span class="code-key">architecture</span>:
+                        <span class="code-value">"scalable"</span>
                     </div>
+
+                    <div>
+                        <span class="code-muted">02</span>
+                        <span class="code-key">software</span>:
+                        <span class="code-value">"maintainable"</span>
+                    </div>
+
+                    <div>
+                        <span class="code-muted">03</span>
+                        <span class="code-key">deployment</span>:
+                        <span class="code-value">"automated"</span>
+                    </div>
+
+                    <div>
+                        <span class="code-muted">04</span>
+                        <span class="code-key">infrastructure</span>:
+                        <span class="code-value">"containerized"</span>
+                    </div>
+
+                    <div>
+                        <span class="code-muted">05</span>
+                        <span class="code-key">mindset</span>:
+                        <span class="code-value">"continuous improvement"</span>
+                    </div>
+
+                    <div class="terminal-cursor">
+                        _
+                    </div>
+
                 </div>
+
             </div>
+
+            <div class="floating-chip chip-one">
+                <i class="devicon-csharp-plain"></i>
+                C#
+            </div>
+
+            <div class="floating-chip chip-two">
+                <i class="devicon-docker-plain"></i>
+                Docker
+            </div>
+
+            <div class="floating-chip chip-three">
+                <i class="devicon-kubernetes-plain"></i>
+                Kubernetes
+            </div>
+
         </div>
 
-        <!-- Certifications -->
-        <div class="row mb-4 animate-on-scroll" data-delay="0.3">
-            <div class="col-lg-8 mx-auto">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="icon-box bg-info text-white me-3">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <h3 class="card-title mb-0">Certifications</h3>
-                        </div>
+    </div>
+
+
+    <div class="hero-scroll">
+        <span>Scroll to explore</span>
+        <i class="fa-solid fa-arrow-down"></i>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO / STATS
+========================= -->
+
+<section class="intro-strip">
+
+    <div class="container stats-grid">
+
+        <div class="stat">
+            <strong data-count="3">0</strong>
+            <span>Core Focus Areas</span>
+        </div>
+
+        <div class="stat">
+            <strong>2025</strong>
+            <span>Professional Software Engineering</span>
+        </div>
+
+        <div class="stat">
+            <strong>2024</strong>
+            <span>BSc Completed</span>
+        </div>
+
+        <div class="stat">
+            <strong>∞</strong>
+            <span>Learning Mindset</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section section-light" id="about">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="section-kicker">01 / ABOUT</span>
+
+            <h2>
+                From writing software
+                to understanding systems.
+            </h2>
+
+            <p>
+                My development journey has increasingly moved beyond
+                individual features and toward understanding how complete
+                software systems are designed, deployed and maintained.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-main reveal">
+
+                <p class="large-copy">
+                    I am a Computer Science graduate and professional
+                    software developer with a strong interest in systems
+                    architecture, software engineering and modern
+                    infrastructure.
+                </p>
+
+                <p>
+                    I enjoy working on technically complex problems where
+                    good engineering requires more than simply making code
+                    work. Maintainability, scalability, reliability and
+                    clear system design are equally important.
+                </p>
+
+                <p>
+                    My professional experience has given me exposure to
+                    application development as well as the systems and
+                    infrastructure surrounding modern software delivery.
+                </p>
+
+            </div>
+
+
+            <div class="about-panel reveal">
+
+                <div class="about-panel-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+
+                <span class="panel-label">
+                    CURRENT DIRECTION
+                </span>
+
+                <h3>
+                    Software Engineering
+                    → Systems Architecture
+                </h3>
+
+                <p>
+                    Developing deeper expertise in how software systems
+                    should be designed, structured and evolved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXPERTISE
+========================= -->
+
+<section class="section section-dark" id="expertise">
+
+    <div class="container">
+
+        <div class="section-heading section-heading-dark reveal">
+
+            <span class="section-kicker">02 / EXPERTISE</span>
+
+            <h2>
+                More than just the code.
+            </h2>
+
+            <p>
+                I work across several layers of the software development
+                lifecycle, from application logic through to deployment
+                and infrastructure.
+            </p>
+
+        </div>
+
+
+        <div class="expertise-grid">
+
+            <article class="expertise-card reveal">
+
+                <span class="expertise-number">01</span>
+
+                <div class="expertise-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                <h3>Software Engineering</h3>
+
+                <p>
+                    Building maintainable applications with an emphasis
+                    on clean code, structured design and reliable behaviour.
+                </p>
+
+                <div class="tag-list">
+                    <span>C#</span>
+                    <span>.NET</span>
+                    <span>ASP.NET Core</span>
+                    <span>Vue</span>
+                    <span>Node.js</span>
+                </div>
+
+            </article>
+
+
+            <article class="expertise-card reveal">
+
+                <span class="expertise-number">02</span>
+
+                <div class="expertise-icon">
+                    <i class="fa-solid fa-sitemap"></i>
+                </div>
+
+                <h3>Systems Architecture</h3>
+
+                <p>
+                    Thinking about how components interact, how systems
+                    evolve, and how technical decisions affect scalability
+                    and maintainability.
+                </p>
+
+                <div class="tag-list">
+                    <span>System Design</span>
+                    <span>APIs</span>
+                    <span>Integration</span>
+                    <span>OOP</span>
+                </div>
+
+            </article>
+
+
+            <article class="expertise-card reveal">
+
+                <span class="expertise-number">03</span>
+
+                <div class="expertise-icon">
+                    <i class="fa-solid fa-cubes"></i>
+                </div>
+
+                <h3>Infrastructure & Delivery</h3>
+
+                <p>
+                    Working with containerized applications and deployment
+                    pipelines to support repeatable and reliable delivery.
+                </p>
+
+                <div class="tag-list">
+                    <span>Docker</span>
+                    <span>Kubernetes</span>
+                    <span>CI/CD</span>
+                    <span>Devtron</span>
+                    <span>Nx</span>
+                </div>
+
+            </article>
+
+
+            <article class="expertise-card reveal">
+
+                <span class="expertise-number">04</span>
+
+                <div class="expertise-icon">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+
+                <h3>Data & Integration</h3>
+
+                <p>
+                    Working with relational databases, APIs, configuration
+                    data and the interfaces connecting software systems.
+                </p>
+
+                <div class="tag-list">
+                    <span>MariaDB</span>
+                    <span>MSSQL</span>
+                    <span>SQL</span>
+                    <span>JSON</span>
+                    <span>REST</span>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ARCHITECTURE
+========================= -->
+
+<section class="section architecture-section" id="architecture">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="section-kicker">03 / SYSTEM THINKING</span>
+
+            <h2>
+                I think in systems,
+                not isolated components.
+            </h2>
+
+            <p>
+                Good architecture is about understanding relationships,
+                boundaries, dependencies and the consequences of technical
+                decisions.
+            </p>
+
+        </div>
+
+
+        <div class="architecture-layout">
+
+            <div class="architecture-copy reveal">
+
+                <div class="architecture-point">
+                    <span>01</span>
+                    <div>
+                        <h3>Separation of concerns</h3>
                         <p>
-                            Cybersecurity and technical certifications:
-                            <a href="https://www.linkedin.com/in/darian-chetty-7a05852a8/details/certifications/" 
-                               target="_blank" 
-                               class="btn btn-certification mt-2">
-                                <i class="fab fa-linkedin me-2"></i> View All Certifications
-                            </a>
+                            Structure systems so individual components have
+                            clear responsibilities and can evolve independently.
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Athletic Highlights -->
-        <div class="row animate-on-scroll" data-delay="0.4">
-            <div class="col-lg-8 mx-auto">
-                <div class="card shadow-sm bg-light">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="icon-box bg-warning text-white me-3">
-                                <i class="fas fa-volleyball-ball"></i>
-                            </div>
-                            <h3 class="card-title mb-0">Athletic Highlights</h3>
-                        </div>
-                        <ul class="awards-list mb-0">
-                            <li>KZN & SA Volleyball Player</li>
-                            <li>MVP (2x) | Most Improved Player</li>
-                        </ul>
+                <div class="architecture-point">
+                    <span>02</span>
+                    <div>
+                        <h3>Scalability</h3>
+                        <p>
+                            Consider how architecture behaves as systems,
+                            users and workloads grow.
+                        </p>
                     </div>
                 </div>
+
+                <div class="architecture-point">
+                    <span>03</span>
+                    <div>
+                        <h3>Operational thinking</h3>
+                        <p>
+                            Architecture does not end when code compiles.
+                            Deployment, monitoring and reliability matter too.
+                        </p>
+                    </div>
+                </div>
+
             </div>
+
+
+            <div class="architecture-diagram reveal">
+
+                <div class="diagram-node frontend">
+                    <i class="fa-solid fa-display"></i>
+                    <span>Frontend</span>
+                    <small>Vue / Web</small>
+                </div>
+
+                <div class="diagram-line vertical"></div>
+
+                <div class="diagram-node api">
+                    <i class="fa-solid fa-server"></i>
+                    <span>Application Layer</span>
+                    <small>.NET / Node</small>
+                </div>
+
+                <div class="diagram-split">
+
+                    <div class="diagram-branch"></div>
+                    <div class="diagram-branch"></div>
+
+                </div>
+
+                <div class="diagram-databases">
+
+                    <div class="diagram-node small-node">
+                        <i class="fa-solid fa-database"></i>
+                        <span>MariaDB</span>
+                    </div>
+
+                    <div class="diagram-node small-node">
+                        <i class="fa-solid fa-database"></i>
+                        <span>MSSQL</span>
+                    </div>
+
+                </div>
+
+                <div class="deployment-row">
+
+                    <div class="deployment-item">
+                        <i class="devicon-docker-plain"></i>
+                        Docker
+                    </div>
+
+                    <div class="deployment-arrow">→</div>
+
+                    <div class="deployment-item">
+                        <i class="devicon-kubernetes-plain"></i>
+                        Kubernetes
+                    </div>
+
+                    <div class="deployment-arrow">→</div>
+
+                    <div class="deployment-item">
+                        <i class="fa-solid fa-rocket"></i>
+                        CI/CD
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- Contact Section --> 
-<section id="contact" class="contact py-5 bg-dark text-white">
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section class="section section-light" id="experience">
+
     <div class="container">
-        <h2 class="text-center mb-5 animate-on-scroll">Get In Touch</h2>
-        <div class="row justify-content-center g-4">
-            <!-- Email -->
-            <div class="col-sm-6 col-md-4 animate-on-scroll" data-delay="0.1">
-                <div class="contact-card text-center p-4 h-100">
-                    <div class="icon-box bg-primary mb-3 mx-auto">
-                        <i class="fas fa-envelope fa-2x"></i>
-                    </div>
-                    <h4>Email</h4>
-                    <p class="mb-2">darianc754@gmail.com</p>
-                    <a href="mailto:darianc754@gmail.com" class="btn btn-sm btn-outline-light mt-2">Send Message</a>
-                </div>
-            </div>
-            <!-- LinkedIn -->
-            <div class="col-sm-6 col-md-4 animate-on-scroll" data-delay="0.2">
-                <div class="contact-card text-center p-4 h-100">
-                    <div class="icon-box bg-linkedin mb-3 mx-auto">
-                        <i class="fab fa-linkedin-in fa-2x"></i>
-                    </div>
-                    <h4>LinkedIn</h4>
-                    <p class="mb-2">Connect Professionally</p>
-                    <a href="https://linkedin.com/in/darian-chetty-7a05852a8" target="_blank" 
-                       class="btn btn-sm btn-outline-light mt-2">Visit Profile</a>
-                </div>
-            </div>
-            <!-- GitHub -->
-            <div class="col-sm-6 col-md-4 animate-on-scroll" data-delay="0.3">
-                <div class="contact-card text-center p-4 h-100">
-                    <div class="icon-box bg-dark mb-3 mx-auto">
-                        <i class="fab fa-github fa-2x"></i>
-                    </div>
-                    <h4>GitHub</h4>
-                    <p class="mb-2">View My Code</p>
-                    <a href="https://github.com/Darian754" target="_blank" 
-                       class="btn btn-sm btn-outline-light mt-2">See Projects</a>
-                </div>
-            </div>
+
+        <div class="section-heading reveal">
+
+            <span class="section-kicker">04 / EXPERIENCE</span>
+
+            <h2>
+                Professional experience
+                built around real systems.
+            </h2>
+
         </div>
+
+
+        <div class="timeline">
+
+            <article class="timeline-item reveal">
+
+                <div class="timeline-marker"></div>
+
+                <div class="timeline-content">
+
+                    <div class="timeline-meta">
+                        2025 — Present
+                    </div>
+
+                    <h3>
+                        Software Developer
+                    </h3>
+
+                    <h4>
+                        ThoroughTec Simulation
+                    </h4>
+
+                    <p>
+                        Professional software development within complex
+                        simulation systems, with responsibilities spanning
+                        application logic, system behaviour and technical
+                        problem solving.
+                    </p>
+
+                    <div class="timeline-tags">
+                        <span>C#</span>
+                        <span>Unity</span>
+                        <span>System Design</span>
+                        <span>Software Engineering</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="timeline-item reveal">
+
+                <div class="timeline-marker"></div>
+
+                <div class="timeline-content">
+
+                    <div class="timeline-meta">
+                        2023 — 2025
+                    </div>
+
+                    <h3>
+                        Software Developer Intern
+                    </h3>
+
+                    <h4>
+                        Easy CloudEnergy · Remote
+                    </h4>
+
+                    <p>
+                        Contributed to production software using C# and
+                        .NET, supported internal dashboards, investigated
+                        defects and worked within a structured development
+                        process.
+                    </p>
+
+                    <div class="timeline-tags">
+                        <span>C#</span>
+                        <span>.NET</span>
+                        <span>SQL</span>
+                        <span>Debugging</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
     </div>
+
 </section>
 
-<!-- Footer -->
-<footer class="bg-dark text-white py-3">
-    <div class="container text-center">
-        <p class="mb-0 small">
-            &copy; <span id="year"></span> Darian Chetty. All rights reserved.
-            <span class="d-block d-md-inline mt-1 mt-md-0">Built using HTML, CSS, and JavaScript</span>
-        </p>
+
+<!-- =========================
+     WORK / CASE STUDIES
+========================= -->
+
+<section class="section section-dark" id="work">
+
+    <div class="container">
+
+        <div class="section-heading section-heading-dark reveal">
+
+            <span class="section-kicker">05 / SELECTED WORK</span>
+
+            <h2>
+                The problems I like solving.
+            </h2>
+
+            <p>
+                A technical portfolio should show not only what tools
+                were used, but how problems were approached.
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+            <article class="project-card project-featured reveal">
+
+                <div class="project-visual project-visual-blue">
+
+                    <div class="visual-window">
+
+                        <div class="visual-top">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="visual-content">
+
+                            <div class="visual-code short"></div>
+                            <div class="visual-code medium"></div>
+                            <div class="visual-code long"></div>
+                            <div class="visual-code medium"></div>
+                            <div class="visual-code short"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <span class="project-type">
+                        SOFTWARE ENGINEERING
+                    </span>
+
+                    <h3>
+                        Production Application Systems
+                    </h3>
+
+                    <p>
+                        Designing and implementing maintainable software
+                        components with a focus on clear architecture,
+                        reliable behaviour and long-term maintainability.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>C#</span>
+                        <span>.NET</span>
+                        <span>REST</span>
+                        <span>SQL</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card reveal">
+
+                <div class="project-icon">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+
+                <span class="project-type">
+                    INFRASTRUCTURE
+                </span>
+
+                <h3>
+                    Containerized Delivery
+                </h3>
+
+                <p>
+                    Working across Docker, Kubernetes and CI/CD tooling
+                    to understand the path from source code to deployed
+                    software.
+                </p>
+
+                <div class="project-tech">
+                    <span>Docker</span>
+                    <span>Kubernetes</span>
+                    <span>CI/CD</span>
+                    <span>Devtron</span>
+                </div>
+
+            </article>
+
+
+            <article class="project-card reveal">
+
+                <div class="project-icon">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
+
+                <span class="project-type">
+                    SYSTEM DESIGN
+                </span>
+
+                <h3>
+                    Systems Architecture
+                </h3>
+
+                <p>
+                    Exploring how services, data stores and application
+                    components should interact to form maintainable
+                    software systems.
+                </p>
+
+                <div class="project-tech">
+                    <span>Architecture</span>
+                    <span>APIs</span>
+                    <span>Databases</span>
+                    <span>Integration</span>
+                </div>
+
+            </article>
+
+        </div>
+
     </div>
+
+</section>
+
+
+<!-- =========================
+     ACADEMIC PROFILE
+========================= -->
+
+<section class="section section-light" id="academic">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="section-kicker">06 / ACADEMIC PROFILE</span>
+
+            <h2>
+                The academic foundation.
+            </h2>
+
+        </div>
+
+
+        <div class="academic-grid">
+
+            <div class="academic-main reveal">
+
+                <div class="degree-mark">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <span class="academic-label">
+                    UNIVERSITY OF KWAZULU-NATAL
+                </span>
+
+                <h3>
+                    BSc Computer Science & IT
+                </h3>
+
+                <p>
+                    A foundation in computer science, software development
+                    and analytical problem solving that continues to shape
+                    my professional work.
+                </p>
+
+                <div class="academic-subjects">
+
+                    <span>Algorithms</span>
+                    <span>Data Structures</span>
+                    <span>Software Development</span>
+                    <span>Computer Science</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="academic-side">
+
+                <div class="achievement-card reveal">
+
+                    <i class="fa-solid fa-award"></i>
+
+                    <div>
+                        <span>ACADEMIC ACHIEVEMENT</span>
+                        <strong>All-Round Excellence Award</strong>
+                        <small>4× Recipient</small>
+                    </div>
+
+                </div>
+
+
+                <div class="achievement-card reveal">
+
+                    <i class="fa-solid fa-medal"></i>
+
+                    <div>
+                        <span>ACADEMIC ACHIEVEMENT</span>
+                        <strong>Full Colours for Academics</strong>
+                        <small>University Achievement</small>
+                    </div>
+
+                </div>
+
+
+                <div class="achievement-card reveal">
+
+                    <i class="fa-solid fa-volleyball"></i>
+
+                    <div>
+                        <span>BEYOND THE CLASSROOM</span>
+                        <strong>Competitive Volleyball</strong>
+                        <small>KZN & South African level</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="interests-block reveal">
+
+            <div>
+
+                <span class="section-kicker">
+                    CURRENT ACADEMIC INTERESTS
+                </span>
+
+                <h3>
+                    Where I want to go deeper.
+                </h3>
+
+            </div>
+
+            <div class="interest-list">
+
+                <span>Systems Architecture</span>
+                <span>Software Engineering</span>
+                <span>Distributed Systems</span>
+                <span>Cybersecurity</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY HONOURS
+========================= -->
+
+<section class="honours-section">
+
+    <div class="container">
+
+        <div class="honours-layout">
+
+            <div class="honours-label reveal">
+                <span>07 / NEXT STEP</span>
+                <strong>HONOURS</strong>
+            </div>
+
+
+            <div class="honours-content reveal">
+
+                <h2>
+                    From professional experience
+                    to deeper academic understanding.
+                </h2>
+
+                <p>
+                    My professional work has increasingly exposed me to
+                    problems that extend beyond individual features and
+                    into the design of complete software systems.
+                </p>
+
+                <p>
+                    I want to develop a deeper understanding of the
+                    principles behind scalable, maintainable and secure
+                    systems, while connecting academic research with
+                    practical engineering experience.
+                </p>
+
+                <p>
+                    Honours represents the next step in that progression:
+                    strengthening my theoretical foundation while
+                    developing the research and analytical skills required
+                    to contribute at a higher technical level.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="section contact-section" id="contact">
+
+    <div class="container">
+
+        <div class="contact-box reveal">
+
+            <div>
+
+                <span class="section-kicker">
+                    08 / CONTACT
+                </span>
+
+                <h2>
+                    Let's connect.
+                </h2>
+
+                <p>
+                    Whether you're interested in my work, technical
+                    background, or academic direction, I'd be glad to
+                    connect.
+                </p>
+
+            </div>
+
+
+            <div class="contact-actions">
+
+                <a
+                    href="mailto:darianc754@gmail.com"
+                    class="contact-link"
+                >
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>
+                        <small>Email</small>
+                        darianc754@gmail.com
+                    </span>
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/darian-chetty-7a05852a8/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <span>
+                        <small>LinkedIn</small>
+                        Professional Profile
+                    </span>
+                </a>
+
+
+                <a
+                    href="https://github.com/Darian754"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                >
+                    <i class="fa-brands fa-github"></i>
+                    <span>
+                        <small>GitHub</small>
+                        Projects & Code
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="site-footer">
+
+    <div class="container footer-inner">
+
+        <div>
+            <strong>Darian Chetty</strong>
+            <span>Software Developer & Systems Architect</span>
+        </div>
+
+        <span>
+            © <span id="year"></span> Darian Chetty
+        </span>
+
+    </div>
+
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="scripts/main.js"></script>
 
-<!-- Dynamic Year Script -->
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<script src="scripts/main.js"></script>
 
 </body>
 </html>
