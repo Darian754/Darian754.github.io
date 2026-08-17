@@ -4,36 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Darian Chetty — Software Developer and Systems Architect. Portfolio, technical experience, academic profile and systems architecture interests."
-    >
+    <meta name="description"
+          content="Darian Chetty — Business Solutions Developer focused on software engineering, systems architecture, distributed systems and infrastructure.">
 
     <meta name="author" content="Darian Chetty">
 
-    <title>Darian Chetty | Software Developer & Systems Architect</title>
+    <title>Darian Chetty | Business Solutions Developer</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    <!-- Bootstrap -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
-    <!-- Icons -->
+    <!-- Font Awesome -->
     <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    >
-
-    <!-- Site CSS -->
+    <!-- Main Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/hero.css">
     <link rel="stylesheet" href="styles/project.css">
@@ -41,108 +31,140 @@
 
 <body>
 
-<!-- =========================
+<!-- =========================================================
      NAVIGATION
-========================= -->
+========================================================= -->
 
-<header class="site-header">
-    <nav class="navbar container">
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
 
-        <a href="#home" class="brand">
-            <span class="brand-mark">D</span>
+        <a class="navbar-brand" href="#home">
+            <span class="brand-mark">DC</span>
             <span>Darian Chetty</span>
         </a>
 
         <button
-            class="nav-toggle"
-            id="navToggle"
-            aria-label="Open navigation"
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-controls="navbarContent"
             aria-expanded="false"
+            aria-label="Toggle navigation"
         >
-            <i class="fa-solid fa-bars"></i>
+            <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="nav-menu" id="navMenu">
+        <div class="collapse navbar-collapse" id="navbarContent">
 
-            <a href="#about" class="nav-link">About</a>
-            <a href="#expertise" class="nav-link">Expertise</a>
-            <a href="#experience" class="nav-link">Experience</a>
-            <a href="#work" class="nav-link">Work</a>
-            <a href="#academic" class="nav-link">Academic</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <ul class="navbar-nav ms-auto align-items-lg-center">
 
-            <a href="#contact" class="nav-cta">
-                Let's Connect
-            </a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#architecture">Architecture</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#experience">Experience</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#academic">Academic</a>
+                </li>
+
+                <li class="nav-item ms-lg-3">
+                    <a class="nav-contact" href="#contact">
+                        Let's Connect
+                    </a>
+                </li>
+
+            </ul>
 
         </div>
-    </nav>
-</header>
+    </div>
+</nav>
 
 
-<main>
-
-<!-- =========================
+<!-- =========================================================
      HERO
-========================= -->
+========================================================= -->
 
-<section class="hero" id="home">
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section id="home" class="hero">
 
     <div class="hero-grid"></div>
 
+    <div class="hero-glow hero-glow-a"></div>
+    <div class="hero-glow hero-glow-b"></div>
+
     <div class="container hero-container">
 
-        <div class="hero-content">
+        <!-- HERO COPY -->
+        <div class="hero-copy">
 
             <div class="eyebrow">
                 <span class="status-dot"></span>
-                Software Engineering • Systems Architecture
+                SYSTEM ONLINE · SOFTWARE ENGINEERING · ARCHITECTURE
+            </div>
+
+            <div class="hero-kicker">
+                BUSINESS SOLUTIONS DEVELOPER
             </div>
 
             <h1>
-                Building software.
-                <span>Designing systems.</span>
+                <span class="typewriter-text">Darian</span>
+                <span class="typewriter-text">Chetty</span>
             </h1>
 
-            <p class="hero-role">
-                Software Developer <span>&</span> Systems Architect
-            </p>
-
             <p class="hero-description">
-                I build maintainable software systems and work across
-                application development, infrastructure, deployment and
-                data to solve complex technical problems.
+                I design and develop software solutions across application,
+                infrastructure and distributed system components, with a focus
+                on scalable, maintainable and well-architected systems.
             </p>
 
             <div class="hero-actions">
 
-                <a href="#work" class="btn btn-primary">
+                <a href="#experience" class="btn btn-primary-custom">
+                    <i class="fa-solid fa-code"></i>
                     Explore My Work
-                    <i class="fa-solid fa-arrow-right"></i>
                 </a>
 
-                <a
-                    href="https://github.com/Darian754"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-secondary"
-                >
-                    <i class="fa-brands fa-github"></i>
-                    GitHub
+                <a href="#architecture" class="btn btn-outline-custom">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    Explore My Architecture
                 </a>
 
             </div>
 
-            <div class="hero-meta">
+            <div class="hero-metrics">
 
                 <div>
-                    <span class="meta-label">Education</span>
-                    <strong>BSc Computer Science & IT</strong>
+                    <span>Current Role</span>
+                    <strong>Business Solutions Developer</strong>
                 </div>
 
                 <div>
-                    <span class="meta-label">University</span>
-                    <strong>University of KwaZulu-Natal</strong>
+                    <span>Engineering Focus</span>
+                    <strong>Systems & Architecture</strong>
+                </div>
+
+                <div>
+                    <span>Environment</span>
+                    <strong>Cloud · Containers · CI/CD</strong>
                 </div>
 
             </div>
@@ -150,8 +172,7 @@
         </div>
 
 
-        <!-- Technical visual -->
-
+        <!-- SYSTEM VISUAL -->
         <div class="hero-visual">
 
             <div class="terminal-window">
@@ -164,63 +185,155 @@
                         <span></span>
                     </div>
 
-                    <span>systems.config</span>
+                    <span>system-architecture.json</span>
 
                 </div>
 
                 <div class="terminal-body">
 
-                    <div>
-                        <span class="code-muted">01</span>
-                        <span class="code-key">architecture</span>:
-                        <span class="code-value">"scalable"</span>
+                    <div class="terminal-line">
+                        <span class="ln">01</span>
+                        <span>{</span>
                     </div>
 
-                    <div>
-                        <span class="code-muted">02</span>
-                        <span class="code-key">software</span>:
-                        <span class="code-value">"maintainable"</span>
+                    <div class="terminal-line">
+                        <span class="ln">02</span>
+                        <span>
+                            <span class="key">"role"</span>:
+                            <span class="value">
+                                "Business Solutions Developer"
+                            </span>,
+                        </span>
                     </div>
 
-                    <div>
-                        <span class="code-muted">03</span>
-                        <span class="code-key">deployment</span>:
-                        <span class="code-value">"automated"</span>
+                    <div class="terminal-line">
+                        <span class="ln">03</span>
+                        <span>
+                            <span class="key">"frontend"</span>:
+                            <span class="value">"Vue.js"</span>,
+                        </span>
                     </div>
 
-                    <div>
-                        <span class="code-muted">04</span>
-                        <span class="code-key">infrastructure</span>:
-                        <span class="code-value">"containerized"</span>
+                    <div class="terminal-line">
+                        <span class="ln">04</span>
+                        <span>
+                            <span class="key">"backend"</span>:
+                            <span class="value">"Node.js / REST"</span>,
+                        </span>
                     </div>
 
-                    <div>
-                        <span class="code-muted">05</span>
-                        <span class="code-key">mindset</span>:
-                        <span class="code-value">"continuous improvement"</span>
+                    <div class="terminal-line">
+                        <span class="ln">05</span>
+                        <span>
+                            <span class="key">"containers"</span>:
+                            <span class="value">"Docker"</span>,
+                        </span>
+                    </div>
+
+                    <div class="terminal-line">
+                        <span class="ln">06</span>
+                        <span>
+                            <span class="key">"orchestration"</span>:
+                            <span class="value">"Kubernetes"</span>,
+                        </span>
+                    </div>
+
+                    <div class="terminal-line">
+                        <span class="ln">07</span>
+                        <span>
+                            <span class="key">"deployment"</span>:
+                            <span class="value">"CI/CD · Devtron"</span>,
+                        </span>
+                    </div>
+
+                    <div class="terminal-line">
+                        <span class="ln">08</span>
+                        <span>
+                            <span class="key">"data"</span>:
+                            <span class="value">"MSSQL · MariaDB"</span>
+                        </span>
+                    </div>
+
+                    <div class="terminal-line">
+                        <span class="ln">09</span>
+                        <span>}</span>
                     </div>
 
                     <div class="terminal-cursor">
-                        _
+                        ▌
                     </div>
 
                 </div>
 
             </div>
 
+
+            <!-- Floating technical indicators -->
+
             <div class="floating-chip chip-one">
-                <i class="devicon-csharp-plain"></i>
-                C#
+                <i class="fa-solid fa-server"></i>
+                Distributed Systems
             </div>
 
             <div class="floating-chip chip-two">
-                <i class="devicon-docker-plain"></i>
-                Docker
+                <i class="fa-brands fa-docker"></i>
+                Containerised
             </div>
 
             <div class="floating-chip chip-three">
-                <i class="devicon-kubernetes-plain"></i>
-                Kubernetes
+                <i class="fa-solid fa-database"></i>
+                MSSQL · MariaDB
+            </div>
+
+
+            <!-- Robot -->
+
+            <div class="robot-companion" id="robotCompanion">
+
+                <div class="robot-speech" id="robotSpeech">
+                    Hey. I'm Darian's AI companion.
+                </div>
+
+                <div class="robot-shadow"></div>
+
+                <div class="robot-antenna"></div>
+
+                <div class="robot-head">
+
+                    <div class="robot-ear left"></div>
+                    <div class="robot-ear right"></div>
+
+                    <div class="robot-face">
+
+                        <div class="robot-eye">
+                            <span></span>
+                        </div>
+
+                        <div class="robot-eye">
+                            <span></span>
+                        </div>
+
+                        <div class="robot-mouth"></div>
+
+                    </div>
+
+                </div>
+
+                <div class="robot-neck"></div>
+
+                <div class="robot-body">
+
+                    <div class="robot-chest">
+                        DC
+                    </div>
+
+                    <div class="robot-light"></div>
+
+                </div>
+
+                <div class="robot-arm arm-left"></div>
+                <div class="robot-arm arm-right"></div>
+
             </div>
 
         </div>
@@ -229,118 +342,148 @@
 
 
     <div class="hero-scroll">
-        <span>Scroll to explore</span>
+
+        <span>SCROLL TO EXPLORE</span>
+
         <i class="fa-solid fa-arrow-down"></i>
-    </div>
-
-</section>
-
-
-<!-- =========================
-     INTRO / STATS
-========================= -->
-
-<section class="intro-strip">
-
-    <div class="container stats-grid">
-
-        <div class="stat">
-            <strong data-count="3">0</strong>
-            <span>Core Focus Areas</span>
-        </div>
-
-        <div class="stat">
-            <strong>2025</strong>
-            <span>Professional Software Engineering</span>
-        </div>
-
-        <div class="stat">
-            <strong>2024</strong>
-            <span>BSc Completed</span>
-        </div>
-
-        <div class="stat">
-            <strong>∞</strong>
-            <span>Learning Mindset</span>
-        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- =========================================================
+     PROFESSIONAL SNAPSHOT
+========================================================= -->
 
-<section class="section section-light" id="about">
+<section class="snapshot-section">
 
     <div class="container">
 
-        <div class="section-heading reveal">
+        <div class="snapshot-grid">
 
-            <span class="section-kicker">01 / ABOUT</span>
+            <div class="snapshot-item animate-on-scroll">
+                <span class="snapshot-number">2026</span>
+                <span class="snapshot-label">Current Role</span>
+            </div>
+
+            <div class="snapshot-item animate-on-scroll">
+                <span class="snapshot-number">3</span>
+                <span class="snapshot-label">Professional Roles</span>
+            </div>
+
+            <div class="snapshot-item animate-on-scroll">
+                <span class="snapshot-number">BSc</span>
+                <span class="snapshot-label">Computer Science & IT</span>
+            </div>
+
+            <div class="snapshot-item animate-on-scroll">
+                <span class="snapshot-number">∞</span>
+                <span class="snapshot-label">Always Learning</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about" class="section about-section">
+
+    <div class="container">
+
+        <div class="section-heading animate-on-scroll">
+
+            <span class="section-label">01 · ABOUT</span>
 
             <h2>
                 From writing software
-                to understanding systems.
+                <span>to designing systems.</span>
             </h2>
 
             <p>
-                My development journey has increasingly moved beyond
-                individual features and toward understanding how complete
-                software systems are designed, deployed and maintained.
+                My work has evolved from application development into
+                broader software and systems engineering, where I work
+                across application, architecture, infrastructure and
+                database layers.
             </p>
 
         </div>
 
 
-        <div class="about-grid">
+        <div class="row g-5">
 
-            <div class="about-main reveal">
+            <div class="col-lg-7">
 
-                <p class="large-copy">
-                    I am a Computer Science graduate and professional
-                    software developer with a strong interest in systems
-                    architecture, software engineering and modern
-                    infrastructure.
-                </p>
+                <div class="about-copy animate-on-scroll">
 
-                <p>
-                    I enjoy working on technically complex problems where
-                    good engineering requires more than simply making code
-                    work. Maintainability, scalability, reliability and
-                    clear system design are equally important.
-                </p>
+                    <p>
+                        I currently work as a Business Solutions Developer
+                        at LCL Logistics, where I design and develop
+                        software solutions across backend, frontend and
+                        distributed system components.
+                    </p>
 
-                <p>
-                    My professional experience has given me exposure to
-                    application development as well as the systems and
-                    infrastructure surrounding modern software delivery.
-                </p>
+                    <p>
+                        This involves translating business and technical
+                        requirements into maintainable solutions while
+                        working across application development,
+                        infrastructure, deployment and data.
+                    </p>
+
+                    <p>
+                        My previous experience in C# software development
+                        and simulation systems gave me a strong foundation
+                        in software engineering, system design and
+                        maintainable code.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <div class="about-panel reveal">
+            <div class="col-lg-5">
 
-                <div class="about-panel-icon">
-                    <i class="fa-solid fa-layer-group"></i>
+                <div class="engineering-card animate-on-scroll">
+
+                    <div class="engineering-card-icon">
+                        <i class="fa-solid fa-diagram-project"></i>
+                    </div>
+
+                    <h3>How I approach engineering</h3>
+
+                    <div class="approach-step">
+                        <span>01</span>
+                        <p>Understand the problem</p>
+                    </div>
+
+                    <div class="approach-step">
+                        <span>02</span>
+                        <p>Identify constraints</p>
+                    </div>
+
+                    <div class="approach-step">
+                        <span>03</span>
+                        <p>Design the solution</p>
+                    </div>
+
+                    <div class="approach-step">
+                        <span>04</span>
+                        <p>Build and validate</p>
+                    </div>
+
+                    <div class="approach-step">
+                        <span>05</span>
+                        <p>Improve for maintainability</p>
+                    </div>
+
                 </div>
-
-                <span class="panel-label">
-                    CURRENT DIRECTION
-                </span>
-
-                <h3>
-                    Software Engineering
-                    → Systems Architecture
-                </h3>
-
-                <p>
-                    Developing deeper expertise in how software systems
-                    should be designed, structured and evolved.
-                </p>
 
             </div>
 
@@ -351,26 +494,27 @@
 </section>
 
 
-<!-- =========================
-     EXPERTISE
-========================= -->
+<!-- =========================================================
+     TECHNICAL EXPERTISE
+========================================================= -->
 
-<section class="section section-dark" id="expertise">
+<section id="expertise" class="section expertise-section">
 
     <div class="container">
 
-        <div class="section-heading section-heading-dark reveal">
+        <div class="section-heading animate-on-scroll">
 
-            <span class="section-kicker">02 / EXPERTISE</span>
+            <span class="section-label">02 · EXPERTISE</span>
 
             <h2>
-                More than just the code.
+                Working across
+                <span>the stack.</span>
             </h2>
 
             <p>
-                I work across several layers of the software development
-                lifecycle, from application logic through to deployment
-                and infrastructure.
+                My current role requires me to work across multiple
+                technical layers rather than within a single development
+                discipline.
             </p>
 
         </div>
@@ -378,108 +522,112 @@
 
         <div class="expertise-grid">
 
-            <article class="expertise-card reveal">
+            <!-- APPLICATION -->
+
+            <div class="expertise-card animate-on-scroll">
+
+                <div class="expertise-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
 
                 <span class="expertise-number">01</span>
 
-                <div class="expertise-icon">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-
-                <h3>Software Engineering</h3>
+                <h3>Application Development</h3>
 
                 <p>
-                    Building maintainable applications with an emphasis
-                    on clean code, structured design and reliable behaviour.
+                    Building and maintaining applications across frontend,
+                    backend and API layers.
                 </p>
 
-                <div class="tag-list">
-                    <span>C#</span>
-                    <span>.NET</span>
-                    <span>ASP.NET Core</span>
-                    <span>Vue</span>
+                <div class="technology-list">
+                    <span>JavaScript</span>
+                    <span>Vue.js</span>
                     <span>Node.js</span>
+                    <span>REST APIs</span>
                 </div>
 
-            </article>
+            </div>
 
 
-            <article class="expertise-card reveal">
+            <!-- ARCHITECTURE -->
 
-                <span class="expertise-number">02</span>
+            <div class="expertise-card featured animate-on-scroll">
 
                 <div class="expertise-icon">
                     <i class="fa-solid fa-sitemap"></i>
                 </div>
 
+                <span class="expertise-number">02</span>
+
                 <h3>Systems Architecture</h3>
 
                 <p>
-                    Thinking about how components interact, how systems
-                    evolve, and how technical decisions affect scalability
-                    and maintainability.
+                    Translating requirements into robust, scalable and
+                    maintainable software and infrastructure solutions.
                 </p>
 
-                <div class="tag-list">
+                <div class="technology-list">
                     <span>System Design</span>
-                    <span>APIs</span>
+                    <span>Distributed Systems</span>
                     <span>Integration</span>
-                    <span>OOP</span>
+                    <span>Scalability</span>
                 </div>
 
-            </article>
+            </div>
 
 
-            <article class="expertise-card reveal">
+            <!-- INFRASTRUCTURE -->
+
+            <div class="expertise-card animate-on-scroll">
+
+                <div class="expertise-icon">
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                </div>
 
                 <span class="expertise-number">03</span>
 
-                <div class="expertise-icon">
-                    <i class="fa-solid fa-cubes"></i>
-                </div>
-
-                <h3>Infrastructure & Delivery</h3>
+                <h3>Infrastructure</h3>
 
                 <p>
-                    Working with containerized applications and deployment
-                    pipelines to support repeatable and reliable delivery.
+                    Working with containerised applications and deployment
+                    infrastructure across environments.
                 </p>
 
-                <div class="tag-list">
+                <div class="technology-list">
                     <span>Docker</span>
                     <span>Kubernetes</span>
                     <span>CI/CD</span>
                     <span>Devtron</span>
-                    <span>Nx</span>
+                    <span>NX Console</span>
                 </div>
 
-            </article>
+            </div>
 
 
-            <article class="expertise-card reveal">
+            <!-- DATA -->
 
-                <span class="expertise-number">04</span>
+            <div class="expertise-card animate-on-scroll">
 
                 <div class="expertise-icon">
                     <i class="fa-solid fa-database"></i>
                 </div>
 
-                <h3>Data & Integration</h3>
+                <span class="expertise-number">04</span>
+
+                <h3>Data & Persistence</h3>
 
                 <p>
-                    Working with relational databases, APIs, configuration
-                    data and the interfaces connecting software systems.
+                    Designing and working with relational database systems
+                    supporting business applications.
                 </p>
 
-                <div class="tag-list">
-                    <span>MariaDB</span>
+                <div class="technology-list">
+                    <span>Microsoft SQL Server</span>
                     <span>MSSQL</span>
-                    <span>SQL</span>
-                    <span>JSON</span>
-                    <span>REST</span>
+                    <span>MariaDB</span>
                 </div>
 
-            </article>
+            </div>
 
         </div>
 
@@ -488,132 +636,141 @@
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      ARCHITECTURE
-========================= -->
+========================================================= -->
 
-<section class="section architecture-section" id="architecture">
+<section id="architecture" class="section architecture-section">
 
     <div class="container">
 
-        <div class="section-heading reveal">
+        <div class="section-heading animate-on-scroll">
 
-            <span class="section-kicker">03 / SYSTEM THINKING</span>
+            <span class="section-label">03 · ARCHITECTURE</span>
 
             <h2>
-                I think in systems,
-                not isolated components.
+                Think beyond
+                <span>the application.</span>
             </h2>
 
             <p>
-                Good architecture is about understanding relationships,
-                boundaries, dependencies and the consequences of technical
-                decisions.
+                Modern software is more than code. Applications depend on
+                infrastructure, data, deployment pipelines and the
+                relationships between them.
             </p>
 
         </div>
 
 
-        <div class="architecture-layout">
+        <div class="architecture-workspace animate-on-scroll">
 
-            <div class="architecture-copy reveal">
+            <div class="architecture-header">
 
-                <div class="architecture-point">
-                    <span>01</span>
-                    <div>
-                        <h3>Separation of concerns</h3>
-                        <p>
-                            Structure systems so individual components have
-                            clear responsibilities and can evolve independently.
-                        </p>
-                    </div>
+                <div>
+                    <span class="architecture-title">
+                        APPLICATION ARCHITECTURE
+                    </span>
+
+                    <span class="architecture-subtitle">
+                        Interactive system view
+                    </span>
                 </div>
 
-                <div class="architecture-point">
-                    <span>02</span>
-                    <div>
-                        <h3>Scalability</h3>
-                        <p>
-                            Consider how architecture behaves as systems,
-                            users and workloads grow.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="architecture-point">
-                    <span>03</span>
-                    <div>
-                        <h3>Operational thinking</h3>
-                        <p>
-                            Architecture does not end when code compiles.
-                            Deployment, monitoring and reliability matter too.
-                        </p>
-                    </div>
-                </div>
+                <span class="architecture-live">
+                    <span class="status-dot"></span>
+                    LIVE MODEL
+                </span>
 
             </div>
 
 
-            <div class="architecture-diagram reveal">
+            <div class="architecture-canvas">
 
-                <div class="diagram-node frontend">
-                    <i class="fa-solid fa-display"></i>
+                <!-- FRONTEND -->
+
+                <button
+                    class="architecture-node frontend-node"
+                    data-message="The user-facing application layer."
+                >
+                    <i class="fa-solid fa-window-maximize"></i>
                     <span>Frontend</span>
-                    <small>Vue / Web</small>
-                </div>
+                    <small>Vue.js</small>
+                </button>
 
-                <div class="diagram-line vertical"></div>
 
-                <div class="diagram-node api">
-                    <i class="fa-solid fa-server"></i>
-                    <span>Application Layer</span>
-                    <small>.NET / Node</small>
-                </div>
+                <!-- API -->
 
-                <div class="diagram-split">
+                <button
+                    class="architecture-node api-node"
+                    data-message="Application logic and service interfaces."
+                >
+                    <i class="fa-solid fa-code"></i>
+                    <span>Application</span>
+                    <small>Node.js · REST</small>
+                </button>
 
-                    <div class="diagram-branch"></div>
-                    <div class="diagram-branch"></div>
 
-                </div>
+                <!-- DATABASE -->
 
-                <div class="diagram-databases">
+                <button
+                    class="architecture-node database-node"
+                    data-message="Persistent business data."
+                >
+                    <i class="fa-solid fa-database"></i>
+                    <span>Database</span>
+                    <small>MSSQL · MariaDB</small>
+                </button>
 
-                    <div class="diagram-node small-node">
-                        <i class="fa-solid fa-database"></i>
-                        <span>MariaDB</span>
-                    </div>
 
-                    <div class="diagram-node small-node">
-                        <i class="fa-solid fa-database"></i>
-                        <span>MSSQL</span>
-                    </div>
+                <!-- CONTAINER -->
 
-                </div>
+                <button
+                    class="architecture-node container-node"
+                    data-message="Applications packaged consistently with containers."
+                >
+                    <i class="fa-brands fa-docker"></i>
+                    <span>Containers</span>
+                    <small>Docker</small>
+                </button>
 
-                <div class="deployment-row">
 
-                    <div class="deployment-item">
-                        <i class="devicon-docker-plain"></i>
-                        Docker
-                    </div>
+                <!-- KUBERNETES -->
 
-                    <div class="deployment-arrow">→</div>
+                <button
+                    class="architecture-node kubernetes-node"
+                    data-message="Container orchestration and application deployment."
+                >
+                    <i class="fa-solid fa-dharmachakra"></i>
+                    <span>Orchestration</span>
+                    <small>Kubernetes</small>
+                </button>
 
-                    <div class="deployment-item">
-                        <i class="devicon-kubernetes-plain"></i>
-                        Kubernetes
-                    </div>
 
-                    <div class="deployment-arrow">→</div>
+                <!-- CI/CD -->
 
-                    <div class="deployment-item">
-                        <i class="fa-solid fa-rocket"></i>
-                        CI/CD
-                    </div>
+                <button
+                    class="architecture-node cicd-node"
+                    data-message="Automated build and deployment processes."
+                >
+                    <i class="fa-solid fa-rotate"></i>
+                    <span>CI/CD</span>
+                    <small>Devtron</small>
+                </button>
 
-                </div>
 
+                <!-- CONNECTIONS -->
+
+                <div class="architecture-connection connection-1"></div>
+                <div class="architecture-connection connection-2"></div>
+                <div class="architecture-connection connection-3"></div>
+                <div class="architecture-connection connection-4"></div>
+                <div class="architecture-connection connection-5"></div>
+
+            </div>
+
+            <div class="architecture-footer">
+                <i class="fa-solid fa-circle-info"></i>
+                Hover over a component to explore its role in the system.
             </div>
 
         </div>
@@ -623,21 +780,21 @@
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      EXPERIENCE
-========================= -->
+========================================================= -->
 
-<section class="section section-light" id="experience">
+<section id="experience" class="section experience-section">
 
     <div class="container">
 
-        <div class="section-heading reveal">
+        <div class="section-heading animate-on-scroll">
 
-            <span class="section-kicker">04 / EXPERIENCE</span>
+            <span class="section-label">04 · EXPERIENCE</span>
 
             <h2>
-                Professional experience
-                built around real systems.
+                Building experience
+                <span>one system at a time.</span>
             </h2>
 
         </div>
@@ -645,36 +802,100 @@
 
         <div class="timeline">
 
-            <article class="timeline-item reveal">
 
-                <div class="timeline-marker"></div>
+            <!-- LCL -->
+
+            <article class="timeline-item current animate-on-scroll">
+
+                <div class="timeline-marker">
+                    <span></span>
+                </div>
 
                 <div class="timeline-content">
 
                     <div class="timeline-meta">
-                        2025 — Present
+                        <span class="current-badge">CURRENT</span>
+                        <span>May 2026 — Present</span>
                     </div>
 
-                    <h3>
-                        Software Developer
-                    </h3>
+                    <h3>Business Solutions Developer</h3>
 
-                    <h4>
-                        ThoroughTec Simulation
-                    </h4>
+                    <h4>LCL Logistics</h4>
+
+                    <span class="timeline-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Stellenbosch, Western Cape · On-site
+                    </span>
 
                     <p>
-                        Professional software development within complex
-                        simulation systems, with responsibilities spanning
-                        application logic, system behaviour and technical
-                        problem solving.
+                        Design and develop software solutions across
+                        backend, frontend and distributed system components,
+                        with a focus on scalable and maintainable
+                        architecture.
                     </p>
 
-                    <div class="timeline-tags">
-                        <span>C#</span>
-                        <span>Unity</span>
-                        <span>System Design</span>
-                        <span>Software Engineering</span>
+                    <div class="experience-responsibilities">
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Design and implement system architectures,
+                                translating business and technical
+                                requirements into robust software and
+                                infrastructure solutions.
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Develop and maintain applications using
+                                JavaScript, Vue.js, Node.js and REST APIs.
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Work with Docker and Kubernetes to
+                                containerise, deploy and manage applications.
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Work with CI/CD pipelines to automate
+                                application builds, testing and deployments.
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Work with Devtron and NX Console as part of
+                                application deployment and development
+                                infrastructure.
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Design and work with relational database
+                                systems including MSSQL and MariaDB.
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="experience-tags">
+                        <span>JavaScript</span>
+                        <span>Vue.js</span>
+                        <span>Node.js</span>
+                        <span>Kubernetes</span>
+                        <span>Docker</span>
+                        <span>CI/CD</span>
                     </div>
 
                 </div>
@@ -682,36 +903,116 @@
             </article>
 
 
-            <article class="timeline-item reveal">
+            <!-- THOROUGHTEC -->
 
-                <div class="timeline-marker"></div>
+            <article class="timeline-item animate-on-scroll">
+
+                <div class="timeline-marker">
+                    <span></span>
+                </div>
 
                 <div class="timeline-content">
 
                     <div class="timeline-meta">
-                        2023 — 2025
+                        <span>May 2025 — Apr 2026</span>
                     </div>
 
-                    <h3>
-                        Software Developer Intern
-                    </h3>
+                    <h3>Junior C# Software Developer</h3>
 
-                    <h4>
-                        Easy CloudEnergy · Remote
-                    </h4>
+                    <h4>ThoroughTec Simulation</h4>
+
+                    <span class="timeline-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Umhlanga, KwaZulu-Natal · Hybrid
+                    </span>
 
                     <p>
-                        Contributed to production software using C# and
-                        .NET, supported internal dashboards, investigated
-                        defects and worked within a structured development
-                        process.
+                        Developed and maintained deterministic AI behaviour
+                        systems for simulation characters using C# and
+                        Unity.
                     </p>
 
-                    <div class="timeline-tags">
+                    <div class="experience-responsibilities">
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Implement character logic and supporting
+                                systems in C# and Unity.
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Develop priority-based decision trees for
+                                deterministic AI behaviour.
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Work with JSON-based data for configuration
+                                and system integration.
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <span>
+                                Collaborate within an Agile development
+                                environment following Microsoft coding
+                                standards.
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="experience-tags">
                         <span>C#</span>
-                        <span>.NET</span>
+                        <span>Unity</span>
+                        <span>AI Systems</span>
+                        <span>JSON</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- EASY CLOUD -->
+
+            <article class="timeline-item animate-on-scroll">
+
+                <div class="timeline-marker">
+                    <span></span>
+                </div>
+
+                <div class="timeline-content">
+
+                    <div class="timeline-meta">
+                        <span>Apr 2022 — Apr 2025</span>
+                    </div>
+
+                    <h3>Software Developer</h3>
+
+                    <h4>EasyCloudEnergy</h4>
+
+                    <span class="timeline-location">
+                        <i class="fa-solid fa-house-laptop"></i>
+                        Remote
+                    </span>
+
+                    <p>
+                        Software development experience focused on
+                        application development using C# and SQL.
+                    </p>
+
+                    <div class="experience-tags">
+                        <span>C#</span>
                         <span>SQL</span>
-                        <span>Debugging</span>
+                        <span>Software Development</span>
                     </div>
 
                 </div>
@@ -725,25 +1026,26 @@
 </section>
 
 
-<!-- =========================
-     WORK / CASE STUDIES
-========================= -->
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
 
-<section class="section section-dark" id="work">
+<section id="projects" class="section projects-section">
 
     <div class="container">
 
-        <div class="section-heading section-heading-dark reveal">
+        <div class="section-heading animate-on-scroll">
 
-            <span class="section-kicker">05 / SELECTED WORK</span>
+            <span class="section-label">05 · PROJECTS</span>
 
             <h2>
-                The problems I like solving.
+                Selected
+                <span>technical work.</span>
             </h2>
 
             <p>
-                A technical portfolio should show not only what tools
-                were used, but how problems were approached.
+                A selection of work and technical areas that demonstrate
+                my development experience and growing architectural focus.
             </p>
 
         </div>
@@ -751,117 +1053,112 @@
 
         <div class="projects-grid">
 
-            <article class="project-card project-featured reveal">
 
-                <div class="project-visual project-visual-blue">
+            <!-- PROJECT 1 -->
 
-                    <div class="visual-window">
+            <article class="project-card project-featured animate-on-scroll">
 
-                        <div class="visual-top">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
-                        <div class="visual-content">
-
-                            <div class="visual-code short"></div>
-                            <div class="visual-code medium"></div>
-                            <div class="visual-code long"></div>
-                            <div class="visual-code medium"></div>
-                            <div class="visual-code short"></div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="project-body">
-
-                    <span class="project-type">
-                        SOFTWARE ENGINEERING
-                    </span>
-
-                    <h3>
-                        Production Application Systems
-                    </h3>
-
-                    <p>
-                        Designing and implementing maintainable software
-                        components with a focus on clear architecture,
-                        reliable behaviour and long-term maintainability.
-                    </p>
-
-                    <div class="project-tech">
-                        <span>C#</span>
-                        <span>.NET</span>
-                        <span>REST</span>
-                        <span>SQL</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <article class="project-card reveal">
+                <div class="project-number">01</div>
 
                 <div class="project-icon">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <i class="fa-solid fa-sitemap"></i>
                 </div>
 
-                <span class="project-type">
-                    INFRASTRUCTURE
+                <span class="project-category">
+                    SYSTEMS ARCHITECTURE
                 </span>
 
-                <h3>
-                    Containerized Delivery
-                </h3>
+                <h3>Distributed Business Systems</h3>
 
                 <p>
-                    Working across Docker, Kubernetes and CI/CD tooling
-                    to understand the path from source code to deployed
-                    software.
+                    Designing solutions that span application services,
+                    infrastructure, deployment and data layers.
                 </p>
 
-                <div class="project-tech">
+                <div class="project-stack">
+                    <span>Node.js</span>
+                    <span>Vue.js</span>
+                    <span>REST</span>
                     <span>Docker</span>
                     <span>Kubernetes</span>
-                    <span>CI/CD</span>
-                    <span>Devtron</span>
                 </div>
+
+                <button class="project-link">
+                    Architecture Focus
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
 
             </article>
 
 
-            <article class="project-card reveal">
+            <!-- PROJECT 2 -->
+
+            <article class="project-card animate-on-scroll">
+
+                <div class="project-number">02</div>
 
                 <div class="project-icon">
-                    <i class="fa-solid fa-diagram-project"></i>
+                    <i class="fa-solid fa-robot"></i>
                 </div>
 
-                <span class="project-type">
-                    SYSTEM DESIGN
+                <span class="project-category">
+                    SOFTWARE ENGINEERING
                 </span>
 
-                <h3>
-                    Systems Architecture
-                </h3>
+                <h3>Deterministic AI Behaviour</h3>
 
                 <p>
-                    Exploring how services, data stores and application
-                    components should interact to form maintainable
-                    software systems.
+                    C# and Unity systems implementing priority-based
+                    decision trees for simulation characters.
                 </p>
 
-                <div class="project-tech">
-                    <span>Architecture</span>
-                    <span>APIs</span>
-                    <span>Databases</span>
-                    <span>Integration</span>
+                <div class="project-stack">
+                    <span>C#</span>
+                    <span>Unity</span>
+                    <span>AI</span>
+                    <span>JSON</span>
                 </div>
+
+                <button class="project-link">
+                    Engineering Focus
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </article>
+
+
+            <!-- PROJECT 3 -->
+
+            <article class="project-card animate-on-scroll">
+
+                <div class="project-number">03</div>
+
+                <div class="project-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+
+                <span class="project-category">
+                    DEVELOPMENT
+                </span>
+
+                <h3>Application Development</h3>
+
+                <p>
+                    Experience across application development, APIs,
+                    databases and maintainable software systems.
+                </p>
+
+                <div class="project-stack">
+                    <span>C#</span>
+                    <span>SQL</span>
+                    <span>REST</span>
+                    <span>JavaScript</span>
+                </div>
+
+                <button class="project-link">
+                    Development Focus
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
 
             </article>
 
@@ -872,124 +1169,92 @@
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      ACADEMIC PROFILE
-========================= -->
+========================================================= -->
 
-<section class="section section-light" id="academic">
+<section id="academic" class="section academic-section">
 
     <div class="container">
 
-        <div class="section-heading reveal">
+        <div class="section-heading animate-on-scroll">
 
-            <span class="section-kicker">06 / ACADEMIC PROFILE</span>
+            <span class="section-label">06 · ACADEMIC</span>
 
             <h2>
-                The academic foundation.
+                Engineering experience,
+                <span>academic depth.</span>
             </h2>
 
         </div>
 
 
-        <div class="academic-grid">
+        <div class="row g-5 align-items-center">
 
-            <div class="academic-main reveal">
+            <div class="col-lg-7">
 
-                <div class="degree-mark">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
+                <div class="academic-card animate-on-scroll">
 
-                <span class="academic-label">
-                    UNIVERSITY OF KWAZULU-NATAL
-                </span>
+                    <div class="academic-header">
 
-                <h3>
-                    BSc Computer Science & IT
-                </h3>
+                        <div class="academic-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
 
-                <p>
-                    A foundation in computer science, software development
-                    and analytical problem solving that continues to shape
-                    my professional work.
-                </p>
+                        <div>
+                            <span class="academic-label">
+                                UNDERGRADUATE
+                            </span>
 
-                <div class="academic-subjects">
+                            <h3>
+                                BSc Computer Science & IT
+                            </h3>
 
-                    <span>Algorithms</span>
-                    <span>Data Structures</span>
-                    <span>Software Development</span>
-                    <span>Computer Science</span>
+                            <p>
+                                University of KwaZulu-Natal
+                            </p>
+                        </div>
 
-                </div>
-
-            </div>
-
-
-            <div class="academic-side">
-
-                <div class="achievement-card reveal">
-
-                    <i class="fa-solid fa-award"></i>
-
-                    <div>
-                        <span>ACADEMIC ACHIEVEMENT</span>
-                        <strong>All-Round Excellence Award</strong>
-                        <small>4× Recipient</small>
                     </div>
 
-                </div>
+
+                    <div class="academic-divider"></div>
 
 
-                <div class="achievement-card reveal">
+                    <div class="academic-interests">
 
-                    <i class="fa-solid fa-medal"></i>
+                        <span>Software Engineering</span>
+                        <span>Computer Science</span>
+                        <span>Systems</span>
+                        <span>Technology</span>
 
-                    <div>
-                        <span>ACADEMIC ACHIEVEMENT</span>
-                        <strong>Full Colours for Academics</strong>
-                        <small>University Achievement</small>
-                    </div>
-
-                </div>
-
-
-                <div class="achievement-card reveal">
-
-                    <i class="fa-solid fa-volleyball"></i>
-
-                    <div>
-                        <span>BEYOND THE CLASSROOM</span>
-                        <strong>Competitive Volleyball</strong>
-                        <small>KZN & South African level</small>
                     </div>
 
                 </div>
 
             </div>
 
-        </div>
 
+            <div class="col-lg-5">
 
-        <div class="interests-block reveal">
+                <div class="academic-achievements animate-on-scroll">
 
-            <div>
+                    <span class="section-label">
+                        FOUNDATION
+                    </span>
 
-                <span class="section-kicker">
-                    CURRENT ACADEMIC INTERESTS
-                </span>
+                    <h3>
+                        Building on a strong
+                        technical foundation.
+                    </h3>
 
-                <h3>
-                    Where I want to go deeper.
-                </h3>
+                    <p>
+                        My professional development has increasingly
+                        moved toward system-level thinking, creating a
+                        natural progression into postgraduate study.
+                    </p>
 
-            </div>
-
-            <div class="interest-list">
-
-                <span>Systems Architecture</span>
-                <span>Software Engineering</span>
-                <span>Distributed Systems</span>
-                <span>Cybersecurity</span>
+                </div>
 
             </div>
 
@@ -1000,48 +1265,61 @@
 </section>
 
 
-<!-- =========================
-     WHY HONOURS
-========================= -->
+<!-- =========================================================
+     HONOURS
+========================================================= -->
 
 <section class="honours-section">
 
+    <div class="honours-glow"></div>
+
     <div class="container">
 
-        <div class="honours-layout">
+        <div class="honours-content animate-on-scroll">
 
-            <div class="honours-label reveal">
-                <span>07 / NEXT STEP</span>
-                <strong>HONOURS</strong>
-            </div>
+            <span class="section-label">
+                07 · NEXT STEP
+            </span>
 
+            <h2>
+                Why I'm pursuing
+                <span>Honours.</span>
+            </h2>
 
-            <div class="honours-content reveal">
+            <p>
+                Professional software development has increasingly led
+                me toward questions around system architecture,
+                scalability, maintainability, infrastructure and
+                security.
+            </p>
 
-                <h2>
-                    From professional experience
-                    to deeper academic understanding.
-                </h2>
+            <p>
+                Honours study is the next step in deepening that
+                understanding through structured academic study and
+                research while continuing to grow professionally.
+            </p>
 
-                <p>
-                    My professional work has increasingly exposed me to
-                    problems that extend beyond individual features and
-                    into the design of complete software systems.
-                </p>
+            <div class="honours-focus">
 
-                <p>
-                    I want to develop a deeper understanding of the
-                    principles behind scalable, maintainable and secure
-                    systems, while connecting academic research with
-                    practical engineering experience.
-                </p>
+                <div>
+                    <i class="fa-solid fa-sitemap"></i>
+                    <span>Systems Architecture</span>
+                </div>
 
-                <p>
-                    Honours represents the next step in that progression:
-                    strengthening my theoretical foundation while
-                    developing the research and analytical skills required
-                    to contribute at a higher technical level.
-                </p>
+                <div>
+                    <i class="fa-solid fa-network-wired"></i>
+                    <span>Distributed Systems</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Security</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-flask"></i>
+                    <span>Research</span>
+                </div>
 
             </div>
 
@@ -1052,30 +1330,31 @@
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      CONTACT
-========================= -->
+========================================================= -->
 
-<section class="section contact-section" id="contact">
+<section id="contact" class="section contact-section">
 
     <div class="container">
 
-        <div class="contact-box reveal">
+        <div class="contact-wrapper animate-on-scroll">
 
             <div>
 
-                <span class="section-kicker">
-                    08 / CONTACT
+                <span class="section-label">
+                    08 · CONTACT
                 </span>
 
                 <h2>
-                    Let's connect.
+                    Let's build something
+                    <span>worth engineering.</span>
                 </h2>
 
                 <p>
-                    Whether you're interested in my work, technical
-                    background, or academic direction, I'd be glad to
-                    connect.
+                    Whether you're interested in my professional work,
+                    technical experience or academic journey, I'd be
+                    happy to connect.
                 </p>
 
             </div>
@@ -1084,42 +1363,31 @@
             <div class="contact-actions">
 
                 <a
-                    href="mailto:darianc754@gmail.com"
-                    class="contact-link"
+                    href="mailto:darian.chetty@gmail.com"
+                    class="contact-button primary"
                 >
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>
-                        <small>Email</small>
-                        darianc754@gmail.com
-                    </span>
+                    <i class="fa-regular fa-envelope"></i>
+                    Email Me
                 </a>
-
 
                 <a
                     href="https://www.linkedin.com/in/darian-chetty-7a05852a8/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="contact-link"
+                    class="contact-button"
                 >
                     <i class="fa-brands fa-linkedin-in"></i>
-                    <span>
-                        <small>LinkedIn</small>
-                        Professional Profile
-                    </span>
+                    LinkedIn
                 </a>
-
 
                 <a
                     href="https://github.com/Darian754"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="contact-link"
+                    class="contact-button"
                 >
                     <i class="fa-brands fa-github"></i>
-                    <span>
-                        <small>GitHub</small>
-                        Projects & Code
-                    </span>
+                    GitHub
                 </a>
 
             </div>
@@ -1130,31 +1398,47 @@
 
 </section>
 
-</main>
 
-
-<!-- =========================
+<!-- =========================================================
      FOOTER
-========================= -->
+========================================================= -->
 
-<footer class="site-footer">
+<footer>
 
-    <div class="container footer-inner">
+    <div class="container">
 
-        <div>
-            <strong>Darian Chetty</strong>
-            <span>Software Developer & Systems Architect</span>
+        <div class="footer-content">
+
+            <div>
+                <strong>Darian Chetty</strong>
+                <span>Business Solutions Developer</span>
+            </div>
+
+            <div>
+                <span>
+                    Designed & engineered with purpose.
+                </span>
+            </div>
+
+            <div>
+                <span>
+                    © 2026 Darian Chetty
+                </span>
+            </div>
+
         </div>
-
-        <span>
-            © <span id="year"></span> Darian Chetty
-        </span>
 
     </div>
 
 </footer>
 
 
+<!-- Bootstrap JS -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<!-- Main JavaScript -->
 <script src="scripts/main.js"></script>
 
 </body>
