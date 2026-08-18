@@ -7,7 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const finePointer = window.matchMedia("(pointer: fine)");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const stateSections = [...document.querySelectorAll("[data-robot-state]")];
-    const stateClasses = ["robot-state-observer", "robot-state-engineer", "robot-state-suiting", "robot-state-architect", "robot-state-contact"];
+    const stateClasses = [
+        "robot-state-observer",
+        "robot-state-engineer",
+        "robot-state-suiting",
+        "robot-state-architect",
+        "robot-state-contact"
+    ];
     const messages = {
         observer: "System online.",
         engineer: "Good systems start with understanding the problem.",
@@ -42,7 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if ("IntersectionObserver" in window) {
         const visibleSections = new Set();
         const stateObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => entry.isIntersecting ? visibleSections.add(entry.target) : visibleSections.delete(entry.target));
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    visibleSections.add(entry.target);
+                } else {
+                    visibleSections.delete(entry.target);
+                }
+            });
             const active = [...visibleSections].sort((a, b) => {
                 const aDistance = Math.abs(a.getBoundingClientRect().top + a.offsetHeight / 2 - innerHeight / 2);
                 const bDistance = Math.abs(b.getBoundingClientRect().top + b.offsetHeight / 2 - innerHeight / 2);
@@ -82,8 +94,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (finePointer.matches && !reducedMotion.matches && eyes.length) {
-        let pointerX = innerWidth / 2, pointerY = innerHeight / 2;
-        let currentX = 0, currentY = 0, targetX = 0, targetY = 0;
+        let pointerX = innerWidth / 2;
+        let pointerY = innerHeight / 2;
+        let currentX = 0;
+        let currentY = 0;
+        let targetX = 0;
+        let targetY = 0;
         document.addEventListener("pointermove", event => {
             pointerX = event.clientX;
             pointerY = event.clientY;

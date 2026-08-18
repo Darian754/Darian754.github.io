@@ -12,18 +12,22 @@ document.addEventListener("DOMContentLoaded", () => {
             .filter(section => marker >= section.offsetTop)
             .sort((a, b) => a.offsetTop - b.offsetTop)
             .at(-1)?.id || "home";
-        navLinks.forEach(link => link.classList.toggle("active", link.hash === `#${current}`));
+        navLinks.forEach(link => {
+            link.classList.toggle("active", link.hash === `#${current}`);
+        });
     };
     updateNavigation();
     window.addEventListener("scroll", updateNavigation, { passive: true });
     window.addEventListener("resize", updateNavigation, { passive: true });
 
-    document.querySelectorAll(".navbar-collapse .nav-link, .navbar-collapse .nav-contact").forEach(link => {
-        link.addEventListener("click", () => {
-            if (!navCollapse?.classList.contains("show") || typeof bootstrap === "undefined") return;
-            bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
+    document
+        .querySelectorAll(".navbar-collapse .nav-link, .navbar-collapse .nav-contact")
+        .forEach(link => {
+            link.addEventListener("click", () => {
+                if (!navCollapse?.classList.contains("show") || typeof bootstrap === "undefined") return;
+                bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
+            });
         });
-    });
 
     const animatedElements = [...document.querySelectorAll(".animate-on-scroll")];
     if (reducedMotion.matches || !("IntersectionObserver" in window)) {
@@ -79,9 +83,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 const rect = card.getBoundingClientRect();
                 const rotateX = ((event.clientY - rect.top - rect.height / 2) / (rect.height / 2)) * -1.2;
                 const rotateY = ((event.clientX - rect.left - rect.width / 2) / (rect.width / 2)) * 1.2;
-                card.style.transform = `translateY(-5px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                card.style.transform = `
+                    translateY(-5px)
+                    perspective(1000px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                `;
             }, { passive: true });
-            card.addEventListener("pointerleave", () => { card.style.transform = ""; });
+            card.addEventListener("pointerleave", () => {
+                card.style.transform = "";
+            });
         });
     }
 
@@ -133,12 +144,15 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         drawCursor();
         document.addEventListener("pointerover", event => {
-            document.body.classList.toggle("cursor-hover", Boolean(event.target.closest("a, button, summary, .project-card")));
+            const isInteractive = event.target.closest("a, button, summary, .project-card");
+            document.body.classList.toggle("cursor-hover", Boolean(isInteractive));
         }, { passive: true });
         document.addEventListener("pointerdown", () => document.body.classList.add("cursor-click"), { passive: true });
         document.addEventListener("pointerup", () => document.body.classList.remove("cursor-click"), { passive: true });
     }
 
-    document.querySelectorAll("[data-current-year]").forEach(element => { element.textContent = new Date().getFullYear(); });
+    document.querySelectorAll("[data-current-year]").forEach(element => {
+        element.textContent = new Date().getFullYear();
+    });
     requestAnimationFrame(() => document.body.classList.add("page-loaded"));
 });
