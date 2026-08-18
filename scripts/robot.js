@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let architectureActivated = false;
     let architectureInProgress = false;
     let architecturePhase = "idle";
+    let architectureTimers = [];
     let geometryRefreshFrame;
 
     const showSpeech = (message, duration = 2800) => {
@@ -116,6 +117,21 @@ document.addEventListener("DOMContentLoaded", () => {
         stateSections.forEach(section => stateObserver.observe(section));
     }
 
+    const clearArchitectureTimers = () => {
+        architectureTimers.forEach(window.clearTimeout);
+        architectureTimers = [];
+    };
+
+    const completeArchitectureMode = () => {
+        clearArchitectureTimers();
+        robot.classList.add("robot-architecture-mode");
+        robot.classList.remove(...transientArchitectureClasses);
+        architectureInProgress = false;
+        architecturePhase = "complete";
+        refreshEyeGeometry();
+        announce("architecture");
+    };
+
     const activateArchitectureMode = () => {
         if (architectureActivated) return;
         architectureActivated = true;
@@ -125,41 +141,34 @@ document.addEventListener("DOMContentLoaded", () => {
         setState("architect", "architecture");
 
         if (reducedMotion.matches) {
-            robot.classList.add("robot-architecture-mode");
-            robot.classList.remove(...transientArchitectureClasses);
-            architectureInProgress = false;
-            architecturePhase = "complete";
-            refreshEyeGeometry();
-            announce("architecture");
+            completeArchitectureMode();
             return;
         }
 
         robot.classList.add("robot-state-notice");
 
-        window.setTimeout(() => {
+        architectureTimers.push(window.setTimeout(() => {
             architecturePhase = "scanning";
             robot.classList.remove("robot-state-notice");
             robot.classList.add("robot-state-scanning");
-        }, 180);
+        }, 180));
 
-        window.setTimeout(() => {
+        architectureTimers.push(window.setTimeout(() => {
             architecturePhase = "resolving";
             robot.classList.remove("robot-state-scanning");
             robot.classList.add("robot-state-resolving");
-        }, 900);
+        }, 900));
 
-        window.setTimeout(() => {
+        architectureTimers.push(window.setTimeout(() => {
             robot.classList.add("robot-architecture-mode");
-        }, 1200);
+        }, 1200));
 
-        window.setTimeout(() => {
-            robot.classList.remove(...transientArchitectureClasses);
-            architectureInProgress = false;
-            architecturePhase = "complete";
-            refreshEyeGeometry();
-            announce("architecture");
-        }, 1450);
+        architectureTimers.push(window.setTimeout(completeArchitectureMode, 1450));
     };
+
+    reducedMotion.addEventListener?.("change", event => {
+        if (event.matches && architectureInProgress) completeArchitectureMode();
+    });
 
     const architectureTrigger = document.querySelector("[data-robot-architecture-trigger]");
     if (architectureTrigger && "IntersectionObserver" in window) {
@@ -176,65 +185,51 @@ document.addEventListener("DOMContentLoaded", () => {
         activateArchitectureMode();
     }
 
-    if (finePointer.matches && !reducedMotion.matches && eyeModels.length) {
+    if (eyeModels.length) {
         const maxTravel = 7.5;
         const sensitivity = 130;
         const interpolation = .22;
         let pointerX = innerWidth / 2;
         let pointerY = innerHeight / 2;
         let pointerActive = false;
-        let pointerMovedAt = performance.now();
-        let nextSaccadeAt = pointerMovedAt + 2800 + Math.random() * 1200;
-        let saccadeUntil = 0;
-        let saccadeX = 0;
-        let saccadeY = 0;
+        let eyeAnimationFrame = 0;
 
-        const clearSaccade = now => {
-            saccadeX = 0;
-            saccadeY = 0;
-            saccadeUntil = 0;
-            nextSaccadeAt = now + 6000 + Math.random() * 4000;
+        const centerEyes = () => {
+            pointerActive = false;
+            eyeModels.forEach(eye => {
+                eye.currentX = 0;
+                eye.currentY = 0;
+                eye.targetX = 0;
+                eye.targetY = 0;
+                eye.pupil.style.setProperty("--eye-x", "0px");
+                eye.pupil.style.setProperty("--eye-y", "0px");
+            });
         };
 
         document.addEventListener("pointermove", event => {
+            if (!finePointer.matches) return;
             if (Math.hypot(event.clientX - pointerX, event.clientY - pointerY) < 1.5) return;
             pointerX = event.clientX;
             pointerY = event.clientY;
             pointerActive = true;
-            pointerMovedAt = performance.now();
-            nextSaccadeAt = pointerMovedAt + 2800 + Math.random() * 1200;
-            saccadeX = 0;
-            saccadeY = 0;
-            saccadeUntil = 0;
         }, { passive: true });
 
         document.addEventListener("mouseout", event => {
-            if (!event.relatedTarget) {
-                pointerActive = false;
-                clearSaccade(performance.now());
-            }
+            if (!event.relatedTarget) pointerActive = false;
         }, { passive: true });
 
         window.addEventListener("blur", () => {
             pointerActive = false;
-            clearSaccade(performance.now());
         });
 
         window.addEventListener("resize", scheduleGeometryRefresh, { passive: true });
 
-        const trackEyes = now => {
-            const pointerIsStill = now - pointerMovedAt > 2500;
-
-            if (pointerActive && !architectureInProgress && pointerIsStill && now >= nextSaccadeAt) {
-                const angle = Math.random() * Math.PI * 2;
-                const travel = .3 + Math.random() * .2;
-                saccadeX = Math.cos(angle) * travel;
-                saccadeY = Math.sin(angle) * travel;
-                saccadeUntil = now + 110;
-                nextSaccadeAt = Number.POSITIVE_INFINITY;
+        const trackEyes = () => {
+            if (!finePointer.matches) {
+                eyeAnimationFrame = 0;
+                centerEyes();
+                return;
             }
-
-            if (saccadeUntil && now >= saccadeUntil) clearSaccade(now);
 
             eyeModels.forEach(eye => {
                 let nextTargetX = 0;
@@ -250,14 +245,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (distance > 0) {
                         const travel = maxTravel * (1 - Math.exp(-distance / sensitivity));
-                        nextTargetX = deltaX / distance * travel + saccadeX;
-                        nextTargetY = deltaY / distance * travel + saccadeY;
-                        const targetDistance = Math.hypot(nextTargetX, nextTargetY);
-
-                        if (targetDistance > maxTravel) {
-                            nextTargetX = nextTargetX / targetDistance * maxTravel;
-                            nextTargetY = nextTargetY / targetDistance * maxTravel;
-                        }
+                        nextTargetX = deltaX / distance * travel;
+                        nextTargetY = deltaY / distance * travel;
                     }
                 }
 
@@ -272,9 +261,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 eye.pupil.style.setProperty("--eye-y", `${eye.currentY.toFixed(2)}px`);
             });
 
-            requestAnimationFrame(trackEyes);
+            eyeAnimationFrame = requestAnimationFrame(trackEyes);
         };
 
-        requestAnimationFrame(trackEyes);
+        const startEyeTracking = () => {
+            if (!finePointer.matches || eyeAnimationFrame) return;
+            scheduleGeometryRefresh();
+            eyeAnimationFrame = requestAnimationFrame(trackEyes);
+        };
+
+        finePointer.addEventListener?.("change", event => {
+            if (event.matches) {
+                startEyeTracking();
+            } else {
+                cancelAnimationFrame(eyeAnimationFrame);
+                eyeAnimationFrame = 0;
+                centerEyes();
+            }
+        });
+
+        startEyeTracking();
     }
 });
