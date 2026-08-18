@@ -77,25 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (!reducedMotion.matches && window.matchMedia("(pointer: fine)").matches) {
-        document.querySelectorAll(".project-card").forEach(card => {
-            card.addEventListener("pointermove", event => {
-                const rect = card.getBoundingClientRect();
-                const rotateX = ((event.clientY - rect.top - rect.height / 2) / (rect.height / 2)) * -1.2;
-                const rotateY = ((event.clientX - rect.left - rect.width / 2) / (rect.width / 2)) * 1.2;
-                card.style.transform = `
-                    translateY(-5px)
-                    perspective(1000px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                `;
-            }, { passive: true });
-            card.addEventListener("pointerleave", () => {
-                card.style.transform = "";
-            });
-        });
-    }
-
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener("click", event => {
             const target = document.querySelector(link.hash);
@@ -105,19 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
             window.scrollTo({ top: Math.max(0, top), behavior: reducedMotion.matches ? "auto" : "smooth" });
         });
     });
-
-    const heroGrid = document.querySelector(".hero-grid");
-    if (heroGrid && !reducedMotion.matches) {
-        let parallaxQueued = false;
-        window.addEventListener("scroll", () => {
-            if (parallaxQueued || window.scrollY >= window.innerHeight) return;
-            parallaxQueued = true;
-            requestAnimationFrame(() => {
-                heroGrid.style.transform = `translateY(${window.scrollY * .12}px)`;
-                parallaxQueued = false;
-            });
-        }, { passive: true });
-    }
 
     if (window.matchMedia("(pointer: fine)").matches) {
         const dot = document.createElement("div");

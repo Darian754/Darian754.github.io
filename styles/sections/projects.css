@@ -10,7 +10,7 @@
     border-radius: 20px;
     overflow: hidden;
     background: linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
-    transition: transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+    transition: transform .24s cubic-bezier(.22,1,.36,1),border-color .24s ease-out,box-shadow .24s ease-out;
 }
 .project-card::before {
     content: "";
@@ -21,9 +21,9 @@
     opacity: .45;
 }
 .project-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(92,169,255,.28);
-    box-shadow: 0 24px 60px rgba(0,0,0,.28);
+    transform: translateY(-3px);
+    border-color: rgba(112,154,198,.22);
+    box-shadow: 0 16px 36px rgba(0,0,0,.2);
 }
 .project-featured {
     grid-column: 1/-1;
@@ -71,6 +71,10 @@
     border-radius: 12px;
     background: rgba(4,12,22,.25);
 }
+.case-study-grid div:first-child {
+    border-color: rgba(122,159,197,.14);
+    background: rgba(10,22,36,.42);
+}
 .case-study-grid dt {
     margin-bottom: 6px;
     color: #7bbaff;
@@ -94,7 +98,7 @@
     padding: 6px 9px;
     border: 1px solid rgba(255,255,255,.08);
     border-radius: 6px;
-    color: #96aac0;
+    color: #8298ae;
     background: rgba(255,255,255,.025);
     font: .62rem "JetBrains Mono",monospace;
 }
