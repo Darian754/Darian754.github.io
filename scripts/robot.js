@@ -22,12 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "robot-state-architect",
         "robot-state-contact"
     ];
-    const transientSuitClasses = [
-        "robot-state-suiting",
-        "robot-suit-prepared",
-        "robot-suit-returning",
-        "robot-suit-settling",
-        "robot-suit-confirmed"
+    const transientArchitectureClasses = [
+        "robot-state-notice",
+        "robot-state-scanning",
+        "robot-state-resolving"
     ];
     const messages = {
         observer: "System online.",
@@ -39,12 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentState = "observer";
     let speechTimer;
-    let suitActivated = false;
-    let suitInProgress = false;
+    let architectureActivated = false;
+    let architectureInProgress = false;
+    let architecturePhase = "idle";
     let geometryRefreshFrame;
 
     const showSpeech = (message, duration = 2800) => {
-        if (!speech || !message || window.innerWidth <= 700 || suitInProgress) return;
+        if (!speech || !message || window.innerWidth <= 700 || architectureInProgress) return;
         window.clearTimeout(speechTimer);
         speech.textContent = message;
         robot.classList.add("show-speech");
@@ -117,57 +116,70 @@ document.addEventListener("DOMContentLoaded", () => {
         stateSections.forEach(section => stateObserver.observe(section));
     }
 
-    const activateSuit = () => {
-        if (suitActivated) return;
-        suitActivated = true;
-        suitInProgress = true;
+    const activateArchitectureMode = () => {
+        if (architectureActivated) return;
+        architectureActivated = true;
+        architectureInProgress = true;
+        architecturePhase = "notice";
         robot.classList.remove("show-speech");
         setState("architect", "architecture");
 
         if (reducedMotion.matches) {
-            robot.classList.add("robot-suited");
-            robot.classList.remove(...transientSuitClasses);
-            suitInProgress = false;
+            robot.classList.add("robot-architecture-mode");
+            robot.classList.remove(...transientArchitectureClasses);
+            architectureInProgress = false;
+            architecturePhase = "complete";
             refreshEyeGeometry();
             announce("architecture");
             return;
         }
 
-        robot.classList.add("robot-state-suiting");
-
-        window.setTimeout(() => robot.classList.add("robot-suit-prepared"), 160);
-        window.setTimeout(() => robot.classList.add("robot-suited"), 280);
-        window.setTimeout(() => robot.classList.add("robot-suit-returning"), 720);
-        window.setTimeout(() => robot.classList.add("robot-suit-settling"), 850);
-        window.setTimeout(() => robot.classList.add("robot-suit-confirmed"), 950);
+        robot.classList.add("robot-state-notice");
 
         window.setTimeout(() => {
-            robot.classList.remove(...transientSuitClasses);
-            suitInProgress = false;
+            architecturePhase = "scanning";
+            robot.classList.remove("robot-state-notice");
+            robot.classList.add("robot-state-scanning");
+        }, 180);
+
+        window.setTimeout(() => {
+            architecturePhase = "resolving";
+            robot.classList.remove("robot-state-scanning");
+            robot.classList.add("robot-state-resolving");
+        }, 900);
+
+        window.setTimeout(() => {
+            robot.classList.add("robot-architecture-mode");
+        }, 1200);
+
+        window.setTimeout(() => {
+            robot.classList.remove(...transientArchitectureClasses);
+            architectureInProgress = false;
+            architecturePhase = "complete";
             refreshEyeGeometry();
             announce("architecture");
-        }, 1200);
+        }, 1450);
     };
 
-    const suitTrigger = document.querySelector("[data-robot-suit-trigger]");
-    if (suitTrigger && "IntersectionObserver" in window) {
-        const suitObserver = new IntersectionObserver(entries => {
+    const architectureTrigger = document.querySelector("[data-robot-architecture-trigger]");
+    if (architectureTrigger && "IntersectionObserver" in window) {
+        const architectureObserver = new IntersectionObserver(entries => {
             if (!entries.some(entry => entry.isIntersecting)) return;
-            activateSuit();
-            suitObserver.disconnect();
+            activateArchitectureMode();
+            architectureObserver.disconnect();
         }, {
             threshold: 0,
             rootMargin: "-40% 0px -40% 0px"
         });
-        suitObserver.observe(suitTrigger);
-    } else if (suitTrigger && suitTrigger.getBoundingClientRect().top < innerHeight * .6) {
-        activateSuit();
+        architectureObserver.observe(architectureTrigger);
+    } else if (architectureTrigger && architectureTrigger.getBoundingClientRect().top < innerHeight * .6) {
+        activateArchitectureMode();
     }
 
     if (finePointer.matches && !reducedMotion.matches && eyeModels.length) {
-        const maxTravel = 5;
-        const sensitivity = 145;
-        const interpolation = .135;
+        const maxTravel = 7.5;
+        const sensitivity = 130;
+        const interpolation = .22;
         let pointerX = innerWidth / 2;
         let pointerY = innerHeight / 2;
         let pointerActive = false;
@@ -213,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const trackEyes = now => {
             const pointerIsStill = now - pointerMovedAt > 2500;
 
-            if (pointerActive && !suitInProgress && pointerIsStill && now >= nextSaccadeAt) {
+            if (pointerActive && !architectureInProgress && pointerIsStill && now >= nextSaccadeAt) {
                 const angle = Math.random() * Math.PI * 2;
                 const travel = .3 + Math.random() * .2;
                 saccadeX = Math.cos(angle) * travel;
@@ -228,7 +240,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 let nextTargetX = 0;
                 let nextTargetY = 0;
 
-                if (pointerActive && !suitInProgress) {
+                if (architecturePhase === "scanning") {
+                    nextTargetX = -maxTravel * .82;
+                    nextTargetY = maxTravel * .28;
+                } else if (pointerActive && !architectureInProgress) {
                     const deltaX = pointerX - eye.centerX;
                     const deltaY = pointerY - eye.centerY;
                     const distance = Math.hypot(deltaX, deltaY);
