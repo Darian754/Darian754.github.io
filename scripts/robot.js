@@ -24,8 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
     const transientArchitectureClasses = [
         "robot-state-notice",
+        "robot-state-preparing",
+        "robot-state-charging",
+        "robot-state-projecting",
         "robot-state-scanning",
-        "robot-state-resolving"
+        "robot-state-confirming",
+        "robot-state-retracting"
     ];
     const messages = {
         observer: "System online.",
@@ -40,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let architectureActivated = false;
     let architectureInProgress = false;
     let architecturePhase = "idle";
+    let architecturePhaseStartedAt = 0;
     let architectureTimers = [];
     let geometryRefreshFrame;
 
@@ -122,12 +127,21 @@ document.addEventListener("DOMContentLoaded", () => {
         architectureTimers = [];
     };
 
+    const setArchitecturePhase = phase => {
+        robot.classList.remove(...transientArchitectureClasses);
+        robot.classList.add(`robot-state-${phase}`);
+        architecturePhase = phase;
+        architecturePhaseStartedAt = performance.now();
+        scheduleGeometryRefresh();
+    };
+
     const completeArchitectureMode = () => {
         clearArchitectureTimers();
         robot.classList.add("robot-architecture-mode");
         robot.classList.remove(...transientArchitectureClasses);
         architectureInProgress = false;
         architecturePhase = "complete";
+        architecturePhaseStartedAt = 0;
         refreshEyeGeometry();
         announce("architecture");
     };
@@ -136,7 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (architectureActivated) return;
         architectureActivated = true;
         architectureInProgress = true;
-        architecturePhase = "notice";
         robot.classList.remove("show-speech");
         setState("architect", "architecture");
 
@@ -145,25 +158,33 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        robot.classList.add("robot-state-notice");
+        setArchitecturePhase("notice");
 
         architectureTimers.push(window.setTimeout(() => {
-            architecturePhase = "scanning";
-            robot.classList.remove("robot-state-notice");
-            robot.classList.add("robot-state-scanning");
+            setArchitecturePhase("preparing");
         }, 180));
 
         architectureTimers.push(window.setTimeout(() => {
-            architecturePhase = "resolving";
-            robot.classList.remove("robot-state-scanning");
-            robot.classList.add("robot-state-resolving");
-        }, 900));
+            setArchitecturePhase("charging");
+        }, 430));
 
         architectureTimers.push(window.setTimeout(() => {
-            robot.classList.add("robot-architecture-mode");
-        }, 1200));
+            setArchitecturePhase("projecting");
+        }, 680));
 
-        architectureTimers.push(window.setTimeout(completeArchitectureMode, 1450));
+        architectureTimers.push(window.setTimeout(() => {
+            setArchitecturePhase("scanning");
+        }, 1250));
+
+        architectureTimers.push(window.setTimeout(() => {
+            setArchitecturePhase("confirming");
+        }, 1650));
+
+        architectureTimers.push(window.setTimeout(() => {
+            setArchitecturePhase("retracting");
+        }, 1770));
+
+        architectureTimers.push(window.setTimeout(completeArchitectureMode, 2220));
     };
 
     reducedMotion.addEventListener?.("change", event => {
@@ -224,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.addEventListener("resize", scheduleGeometryRefresh, { passive: true });
 
-        const trackEyes = () => {
+        const trackEyes = now => {
             if (!finePointer.matches) {
                 eyeAnimationFrame = 0;
                 centerEyes();
@@ -235,9 +256,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 let nextTargetX = 0;
                 let nextTargetY = 0;
 
-                if (architecturePhase === "scanning") {
+                if (architecturePhase === "notice") {
+                    nextTargetX = -maxTravel * .46;
+                    nextTargetY = -maxTravel * .04;
+                } else if (architecturePhase === "preparing" || architecturePhase === "charging") {
+                    nextTargetX = -maxTravel * .7;
+                    nextTargetY = maxTravel * .38;
+                } else if (architecturePhase === "projecting" || architecturePhase === "confirming") {
                     nextTargetX = -maxTravel * .82;
-                    nextTargetY = maxTravel * .28;
+                    nextTargetY = -maxTravel * .06;
+                } else if (architecturePhase === "scanning") {
+                    const scanProgress = Math.min((now - architecturePhaseStartedAt) / 400, 1);
+                    nextTargetX = -maxTravel * .82;
+                    nextTargetY = maxTravel * (-.24 + scanProgress * .58);
+                } else if (architecturePhase === "retracting") {
+                    nextTargetX = -maxTravel * .36;
+                    nextTargetY = maxTravel * .05;
                 } else if (pointerActive && !architectureInProgress) {
                     const deltaX = pointerX - eye.centerX;
                     const deltaY = pointerY - eye.centerY;
