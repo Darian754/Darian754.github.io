@@ -1,5 +1,39 @@
 .robot-companion {
     --robot-scale: 1;
+    --robot-head-x: 0px;
+    --robot-head-y: 0px;
+    --robot-head-rotate: 0deg;
+    --robot-body-y: 0px;
+    --robot-body-rotate: 0deg;
+    --robot-left-arm-angle: 20deg;
+    --robot-right-arm-angle: -20deg;
+    --robot-left-arm-x: 0px;
+    --robot-left-arm-y: 0px;
+    --robot-antenna-intensity: 1;
+    --robot-light-intensity: 1;
+    --robot-emitter-progress: 0;
+    --robot-emitter-ring: 0;
+    --robot-beam-progress: 0;
+    --robot-beam-shift-x: 0px;
+    --robot-beam-shift-y: 0px;
+    --robot-frame-progress: 0;
+    --robot-node-core: 0;
+    --robot-node-a: 0;
+    --robot-node-b: 0;
+    --robot-node-c: 0;
+    --robot-node-d: 0;
+    --robot-line-a: 0;
+    --robot-line-b: 0;
+    --robot-line-c: 0;
+    --robot-line-d: 0;
+    --robot-scan-progress: 0;
+    --robot-scan-opacity: 0;
+    --robot-scan-glow: 0;
+    --robot-tick-a: 0;
+    --robot-tick-b: 0;
+    --robot-confirm-progress: 0;
+    --robot-light-core: #43d9a5;
+    --robot-light-edge: #13845f;
     position: fixed;
     z-index: 95;
     top: 95px;
@@ -84,7 +118,8 @@
     background: radial-gradient(circle at 35% 30%, #bfe5ff 0 12%, #65b7f1 30%, #337fc2 72%);
     transform: translateX(-50%);
     box-shadow: 0 0 8px rgba(85, 174, 242, .62);
-    transition: filter .2s ease-out, box-shadow .2s ease-out;
+    filter: brightness(var(--robot-antenna-intensity));
+    transition: filter .06s linear, box-shadow .06s linear;
 }
 
 .robot-head {
@@ -98,7 +133,8 @@
     border-radius: 27px 27px 24px 24px;
     background: linear-gradient(135deg, rgba(255, 255, 255, .28), transparent 30%), linear-gradient(160deg, #cbdbe8 0%, #91a8bd 48%, #657e98 100%);
     box-shadow: inset 0 1px rgba(255, 255, 255, .65), inset 0 -1px rgba(38, 62, 84, .32), 0 7px 15px rgba(20, 49, 76, .2);
-    transition: transform .32s cubic-bezier(.22, 1, .36, 1) .04s;
+    transform: translate(var(--robot-head-x), var(--robot-head-y)) rotate(var(--robot-head-rotate));
+    transition: transform .04s linear;
 }
 
 .robot-head::before {
@@ -270,7 +306,8 @@
     border-radius: 19px 19px 14px 14px;
     background: linear-gradient(135deg, rgba(255, 255, 255, .24), transparent 31%), linear-gradient(160deg, #c4d5e2 0%, #8ea5b9 50%, #667e96 100%);
     box-shadow: inset 0 1px rgba(255, 255, 255, .52), inset 0 -1px rgba(35, 58, 78, .3);
-    transition: transform .3s cubic-bezier(.22, 1, .36, 1);
+    transform: translateY(var(--robot-body-y)) rotate(var(--robot-body-rotate));
+    transition: transform .04s linear;
 }
 
 .robot-body::before {
@@ -314,10 +351,16 @@
     height: 6px;
     border: 1px solid rgba(181, 255, 228, .5);
     border-radius: 50%;
-    background: radial-gradient(circle at 38% 32%, #c9ffe9 0 12%, #43d9a5 35%, #13845f 100%);
+    background: radial-gradient(
+        circle at 38% 32%,
+        #e5fff6 0 12%,
+        color-mix(in srgb, var(--robot-light-core), #68e3bf calc(var(--robot-confirm-progress) * 100%)) 35%,
+        color-mix(in srgb, var(--robot-light-edge), #188e6b calc(var(--robot-confirm-progress) * 100%)) 100%
+    );
     transform: translateX(-50%);
     box-shadow: inset 0 0 2px rgba(225, 255, 245, .8), 0 0 6px rgba(54, 214, 160, .58);
-    transition: background .18s ease-out, box-shadow .18s ease-out, filter .18s ease-out;
+    filter: brightness(var(--robot-light-intensity));
+    transition: background .06s linear, box-shadow .06s linear, filter .06s linear;
 }
 
 .robot-arm {
@@ -331,11 +374,18 @@
     background: linear-gradient(120deg, rgba(255, 255, 255, .22), transparent 32%), linear-gradient(90deg, #758da5, #a4b9ca 45%, #6f879f);
     box-shadow: inset 1px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(13, 31, 48, .14);
     transform-origin: 50% 6px;
-    transition: transform .34s cubic-bezier(.22, 1, .36, 1);
+    transition: transform .04s linear;
 }
 
-.arm-left { left: 13px; transform: rotate(20deg); }
-.arm-right { right: 13px; transform: rotate(-20deg); }
+.arm-left {
+    left: 13px;
+    transform: translate(var(--robot-left-arm-x), var(--robot-left-arm-y)) rotate(var(--robot-left-arm-angle));
+}
+
+.arm-right {
+    right: 13px;
+    transform: rotate(var(--robot-right-arm-angle));
+}
 
 .arm-left::before {
     content: "";
@@ -344,12 +394,14 @@
     left: 50%;
     width: 9px;
     height: 5px;
-    border: 1px solid rgba(88, 116, 141, .65);
+    border: 1px solid rgb(169 232 255 / calc(.25 + var(--robot-emitter-progress) * .65));
     border-radius: 50%;
-    background: #22384b;
+    background: color-mix(in srgb, #22384b calc((1 - var(--robot-emitter-progress)) * 100%), #79dcff);
     transform: translateX(-50%);
-    box-shadow: inset 0 1px rgba(205, 229, 246, .12);
-    transition: border-color .2s ease-out, background .2s ease-out, box-shadow .2s ease-out;
+    box-shadow:
+        inset 0 1px rgba(205, 229, 246, .12),
+        0 0 8px rgb(91 203 250 / calc(var(--robot-emitter-progress) * .88));
+    transition: border-color .04s linear, background .04s linear, box-shadow .04s linear;
 }
 
 .arm-left::after {
@@ -361,9 +413,9 @@
     height: 14px;
     border: 1px solid rgba(109, 209, 249, .68);
     border-radius: 50%;
-    opacity: 0;
-    transform: translateX(-50%) scale(.45);
-    transition: opacity .18s ease-out, transform .24s cubic-bezier(.22, 1, .36, 1);
+    opacity: var(--robot-emitter-ring);
+    transform: translateX(-50%) scale(calc(.45 + var(--robot-emitter-ring)));
+    transition: opacity .04s linear, transform .04s linear;
 }
 
 .robot-beam {
@@ -373,10 +425,10 @@
     left: calc(var(--robot-hologram-edge-x) - 10px);
     width: calc(var(--robot-emitter-x) - var(--robot-hologram-edge-x) + 10px);
     height: 8px;
-    opacity: 0;
+    opacity: calc(var(--robot-beam-progress) * .9);
     transform-origin: right center;
-    transform: scaleX(0);
-    transition: opacity .08s ease-out, transform .1s ease-out;
+    transform: translate(var(--robot-beam-shift-x), var(--robot-beam-shift-y)) scaleX(var(--robot-beam-progress));
+    transition: opacity .025s linear, transform .025s linear;
 }
 
 .robot-beam-core,
@@ -432,9 +484,9 @@
 .robot-hologram-grid,
 .robot-hologram-frame {
     inset: 0;
-    opacity: 0;
-    transform: translateX(5px) scale(.97);
-    transition: opacity .1s ease-out, transform .14s cubic-bezier(.22, 1, .36, 1);
+    opacity: var(--robot-frame-progress);
+    transform: translateX(calc((1 - var(--robot-frame-progress)) * 5px)) scale(calc(.97 + var(--robot-frame-progress) * .03));
+    transition: opacity .03s linear, transform .03s linear;
 }
 
 .robot-hologram-grid {
@@ -458,17 +510,26 @@
     border: 1px solid rgba(177, 236, 255, .8);
     border-radius: 2px;
     background: #319dcc;
-    opacity: 0;
-    transform: scale(.2);
+    opacity: var(--robot-node-progress, 0);
+    transform: scale(calc(.2 + var(--robot-node-progress, 0) * .8));
+    filter: brightness(calc(1 + var(--robot-scan-glow) * .5));
     box-shadow: 0 0 5px rgba(65, 190, 235, .42);
-    transition: opacity .08s ease-out, transform .1s ease-out, background .1s ease-out, border-color .1s ease-out;
+    transition: opacity .03s linear, transform .03s linear, background .03s linear, border-color .03s linear;
 }
 
-.robot-hologram-node.node-core { top: 37px; left: 54px; width: 9px; height: 9px; background: #7bdcff; }
-.robot-hologram-node.node-a { top: 14px; left: 22px; }
-.robot-hologram-node.node-b { top: 17px; right: 18px; }
-.robot-hologram-node.node-c { bottom: 13px; left: 18px; }
-.robot-hologram-node.node-d { right: 23px; bottom: 10px; }
+.robot-hologram-node.node-core {
+    --robot-node-progress: var(--robot-node-core);
+    top: 37px;
+    left: 54px;
+    width: 9px;
+    height: 9px;
+    background: color-mix(in srgb, #7bdcff, #68e3bf calc(var(--robot-confirm-progress) * 100%));
+}
+
+.robot-hologram-node.node-a { --robot-node-progress: var(--robot-node-a); top: 14px; left: 22px; }
+.robot-hologram-node.node-b { --robot-node-progress: var(--robot-node-b); top: 17px; right: 18px; }
+.robot-hologram-node.node-c { --robot-node-progress: var(--robot-node-c); bottom: 13px; left: 18px; }
+.robot-hologram-node.node-d { --robot-node-progress: var(--robot-node-d); right: 23px; bottom: 10px; }
 
 .robot-hologram-line {
     z-index: 2;
@@ -477,16 +538,16 @@
     width: 39px;
     height: 1px;
     background: linear-gradient(90deg, rgba(95, 207, 244, .8), rgba(95, 207, 244, .22));
-    opacity: 0;
+    opacity: calc(var(--robot-line-progress, 0) * .72);
     transform-origin: left center;
-    transform: rotate(var(--line-angle)) scaleX(0);
-    transition: opacity .08s ease-out, transform .12s ease-out;
+    transform: rotate(var(--line-angle)) scaleX(var(--robot-line-progress, 0));
+    transition: opacity .03s linear, transform .03s linear;
 }
 
-.robot-hologram-line.line-a { --line-angle: -145deg; width: 43px; }
-.robot-hologram-line.line-b { --line-angle: -35deg; width: 40px; }
-.robot-hologram-line.line-c { --line-angle: 145deg; width: 45px; }
-.robot-hologram-line.line-d { --line-angle: 34deg; width: 38px; }
+.robot-hologram-line.line-a { --line-angle: -145deg; --robot-line-progress: var(--robot-line-a); width: 43px; }
+.robot-hologram-line.line-b { --line-angle: -35deg; --robot-line-progress: var(--robot-line-b); width: 40px; }
+.robot-hologram-line.line-c { --line-angle: 145deg; --robot-line-progress: var(--robot-line-c); width: 45px; }
+.robot-hologram-line.line-d { --line-angle: 34deg; --robot-line-progress: var(--robot-line-d); width: 38px; }
 
 .robot-hologram-scan {
     z-index: 5;
@@ -495,9 +556,10 @@
     width: calc(100% - 8px);
     height: 1px;
     background: linear-gradient(90deg, transparent, #a6edff 20% 80%, transparent);
-    opacity: 0;
+    opacity: var(--robot-scan-opacity);
+    transform: translateY(calc(var(--robot-scan-progress) * 72px));
     box-shadow: 0 0 6px rgba(103, 217, 250, .48);
-    transition: opacity .08s ease-out, transform .08s linear;
+    transition: opacity .02s linear, transform .02s linear;
 }
 
 .robot-hologram-tick {
@@ -505,290 +567,21 @@
     width: 10px;
     height: 2px;
     background: #8de4ff;
-    opacity: 0;
+    opacity: var(--robot-tick-progress, 0);
 }
 
-.robot-hologram-tick.tick-a { top: 25px; left: 9px; }
-.robot-hologram-tick.tick-b { right: 8px; bottom: 24px; width: 7px; }
+.robot-hologram-tick.tick-a { --robot-tick-progress: var(--robot-tick-a); top: 25px; left: 9px; }
+.robot-hologram-tick.tick-b { --robot-tick-progress: var(--robot-tick-b); right: 8px; bottom: 24px; width: 7px; }
 
-.robot-state-engineer .robot-head { transform: translateY(1px); }
-.robot-state-architect .robot-head { transform: translateY(-1px); }
-.robot-state-contact .robot-head { transform: translateY(-2px); }
-
-.robot-state-contact .robot-light {
-    background: radial-gradient(circle at 38% 32%, #d9fff0 0 12%, #5ce2ae 36%, #1b966e 100%);
-    box-shadow: inset 0 0 2px rgba(225, 255, 245, .8), 0 0 7px rgba(92, 226, 174, .68);
+.robot-companion[data-state="scanning"],
+.robot-companion[data-state="investigating"] {
+    --robot-light-core: #59c8f3;
+    --robot-light-edge: #217da8;
 }
 
-.robot-state-notice .robot-head {
-    transform: translate(-3px, -2px) rotate(-2deg);
-}
-
-.robot-state-notice .robot-body {
-    transform: translate(-1px, -3px) rotate(-.6deg);
-}
-
-.robot-state-notice .robot-antenna::before {
-    filter: brightness(1.35);
-    box-shadow: 0 0 12px rgba(85, 190, 244, .82);
-}
-
-.robot-state-notice .robot-light {
-    animation: robotNoticePulse .38s ease-out 1;
-}
-
-.robot-state-preparing .robot-head,
-.robot-state-charging .robot-head {
-    transform: translate(-4px, -1px) rotate(-3deg);
-}
-
-.robot-state-preparing .robot-body,
-.robot-state-charging .robot-body,
-.robot-state-projecting .robot-body,
-.robot-state-scanning .robot-body,
-.robot-state-confirming .robot-body {
-    transform: translate(-2px, -2px) rotate(-1deg);
-}
-
-.robot-state-preparing .arm-left,
-.robot-state-charging .arm-left,
-.robot-state-projecting .arm-left,
-.robot-state-scanning .arm-left,
-.robot-state-confirming .arm-left {
-    transform: translate(-2px, -1px) rotate(80deg);
-}
-
-.robot-state-preparing .arm-right,
-.robot-state-charging .arm-right,
-.robot-state-projecting .arm-right,
-.robot-state-scanning .arm-right,
-.robot-state-confirming .arm-right {
-    transform: translate(1px, -2px) rotate(-38deg);
-}
-
-.robot-state-charging .arm-left::before,
-.robot-state-projecting .arm-left::before,
-.robot-state-scanning .arm-left::before,
-.robot-state-confirming .arm-left::before {
-    border-color: rgba(169, 232, 255, .9);
-    background: #79dcff;
-    box-shadow: inset 0 0 2px #effcff, 0 0 8px rgba(91, 203, 250, .88);
-}
-
-.robot-state-charging .arm-left::after {
-    opacity: .85;
-    transform: translateX(-50%) scale(1);
-    animation: robotEmitterCharge .27s cubic-bezier(.22, 1, .36, 1) 1;
-}
-
-.robot-state-projecting .robot-head,
-.robot-state-scanning .robot-head,
-.robot-state-confirming .robot-head {
-    transform: translate(-4px, -1px) rotate(-2.5deg);
-}
-
-.robot-state-projecting .robot-beam {
-    animation: robotBeamExtend .2s ease-out forwards;
-}
-
-.robot-state-projecting .robot-hologram-grid,
-.robot-state-projecting .robot-hologram-frame {
-    animation: robotHologramFrame .25s cubic-bezier(.22, 1, .36, 1) .1s forwards;
-}
-
-.robot-state-projecting .robot-hologram-node.node-core {
-    animation: robotNodeBuild .16s ease-out .19s forwards, robotNodeConfirm .2s ease-out .34s 1;
-}
-
-.robot-state-projecting .robot-hologram-node.node-a { animation: robotNodeBuild .15s ease-out .25s forwards; }
-.robot-state-projecting .robot-hologram-node.node-b { animation: robotNodeBuild .15s ease-out .3s forwards; }
-.robot-state-projecting .robot-hologram-node.node-c { animation: robotNodeBuild .15s ease-out .35s forwards; }
-.robot-state-projecting .robot-hologram-node.node-d { animation: robotNodeBuild .15s ease-out .4s forwards; }
-.robot-state-projecting .robot-hologram-line.line-a { animation: robotLineBuild .16s ease-out .27s forwards; }
-.robot-state-projecting .robot-hologram-line.line-b { animation: robotLineBuild .16s ease-out .31s forwards; }
-.robot-state-projecting .robot-hologram-line.line-c { animation: robotLineBuild .16s ease-out .35s forwards; }
-.robot-state-projecting .robot-hologram-line.line-d { animation: robotLineBuild .16s ease-out .39s forwards; }
-
-.robot-state-scanning .robot-beam,
-.robot-state-confirming .robot-beam {
-    opacity: .9;
-    transform: scaleX(1);
-}
-
-.robot-state-scanning .robot-hologram-grid,
-.robot-state-scanning .robot-hologram-frame,
-.robot-state-confirming .robot-hologram-grid,
-.robot-state-confirming .robot-hologram-frame {
-    opacity: 1;
-    transform: none;
-}
-
-.robot-state-scanning .robot-hologram-node,
-.robot-state-confirming .robot-hologram-node {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.robot-state-scanning .robot-hologram-line,
-.robot-state-confirming .robot-hologram-line {
-    opacity: .72;
-    transform: rotate(var(--line-angle)) scaleX(1);
-}
-
-.robot-state-scanning .robot-hologram-scan {
-    animation: robotHologramSweep .4s linear 1;
-}
-
-.robot-state-scanning .robot-hologram-node {
-    animation: robotNodeScan .22s ease-out 1;
-}
-
-.robot-state-scanning .robot-hologram-tick.tick-a { animation: robotTickFlash .13s ease-out .09s 1; }
-.robot-state-scanning .robot-hologram-tick.tick-b { animation: robotTickFlash .13s ease-out .22s 1; }
-
-.robot-state-confirming .robot-hologram-node.node-core {
-    background: #68e3bf;
-    border-color: #d6fff3;
-    animation: robotConfirmation .12s ease-out 1;
-}
-
-.robot-state-confirming .robot-light {
-    background: radial-gradient(circle at 38% 32%, #e5fff6 0 12%, #68e3bf 36%, #188e6b 100%);
-    box-shadow: inset 0 0 2px rgba(235, 255, 249, .9), 0 0 9px rgba(79, 225, 181, .72);
-}
-
-.robot-state-retracting .robot-head {
-    transform: translateY(-1px);
-    transition-delay: .1s;
-}
-
-.robot-state-retracting .robot-body {
-    transform: translateY(-1px);
-    transition-delay: .08s;
-}
-
-.robot-state-retracting .arm-left {
-    transform: rotate(20deg);
-    transition-delay: .08s;
-}
-
-.robot-state-retracting .arm-right {
-    transform: rotate(-20deg);
-    transition-delay: .05s;
-}
-
-.robot-state-retracting .arm-left::before {
-    animation: robotEmitterDim .12s ease-in .28s forwards;
-}
-
-.robot-state-retracting .robot-beam { animation: robotBeamRetract .34s ease-in .08s forwards; }
-.robot-state-retracting .robot-hologram-scan { opacity: 0; }
-.robot-state-retracting .robot-hologram-node { animation: robotElementRetract .16s ease-in .05s forwards; }
-.robot-state-retracting .robot-hologram-line { animation: robotLineRetract .16s ease-in .12s forwards; }
-.robot-state-retracting .robot-hologram-grid,
-.robot-state-retracting .robot-hologram-frame { animation: robotFrameRetract .19s ease-in .19s forwards; }
-
-.robot-state-preparing .robot-light,
-.robot-state-charging .robot-light,
-.robot-state-projecting .robot-light,
-.robot-state-scanning .robot-light {
-    background: radial-gradient(circle at 38% 32%, #e2faff 0 12%, #59c8f3 36%, #217da8 100%);
-    box-shadow: inset 0 0 2px rgba(230, 250, 255, .9), 0 0 8px rgba(73, 183, 229, .7);
-}
-
-.robot-architecture-mode .robot-head { transform: translateY(-1px); }
-.robot-architecture-mode .robot-body { transform: translateY(-1px); }
-
-.robot-architecture-mode .robot-chest {
-    border-color: rgba(91, 183, 231, .34);
-    color: #83cfff;
-    box-shadow: inset 0 1px rgba(201, 231, 252, .1), 0 0 6px rgba(55, 149, 203, .12);
-}
-
-.robot-architecture-mode .robot-light {
-    background: radial-gradient(circle at 38% 32%, #e2faff 0 12%, #59c8f3 36%, #217da8 100%);
-    box-shadow: inset 0 0 2px rgba(230, 250, 255, .9), 0 0 7px rgba(73, 183, 229, .66);
-}
-
-@keyframes robotNoticePulse {
-    50% {
-        filter: brightness(1.22);
-        box-shadow: inset 0 0 2px rgba(225, 255, 245, .9), 0 0 9px rgba(54, 214, 160, .72);
-    }
-}
-
-@keyframes robotEmitterCharge {
-    0% { opacity: 0; transform: translateX(-50%) scale(.35); }
-    55% { opacity: 1; transform: translateX(-50%) scale(1.15); }
-    100% { opacity: 0; transform: translateX(-50%) scale(1.45); }
-}
-
-@keyframes robotBeamExtend {
-    0% { opacity: 0; transform: scaleX(0); }
-    25% { opacity: .9; }
-    100% { opacity: .9; transform: scaleX(1); }
-}
-
-@keyframes robotHologramFrame {
-    to { opacity: 1; transform: none; }
-}
-
-@keyframes robotNodeBuild {
-    to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes robotLineBuild {
-    to { opacity: .72; transform: rotate(var(--line-angle)) scaleX(1); }
-}
-
-@keyframes robotNodeConfirm {
-    50% { filter: brightness(1.5); box-shadow: 0 0 9px rgba(95, 216, 250, .7); }
-}
-
-@keyframes robotHologramSweep {
-    0% { opacity: 0; transform: translateY(0); }
-    12%, 85% { opacity: .9; }
-    100% { opacity: 0; transform: translateY(72px); }
-}
-
-@keyframes robotNodeScan {
-    45% { filter: brightness(1.5); box-shadow: 0 0 8px rgba(92, 214, 249, .66); }
-}
-
-@keyframes robotTickFlash {
-    50% { opacity: .85; }
-}
-
-@keyframes robotConfirmation {
-    50% { transform: scale(1.35); box-shadow: 0 0 10px rgba(87, 230, 190, .8); }
-}
-
-@keyframes robotBeamRetract {
-    from { opacity: .9; transform: scaleX(1); }
-    to { opacity: 0; transform: translate(21px, 24px) scaleX(0); }
-}
-
-@keyframes robotEmitterDim {
-    from {
-        border-color: rgba(169, 232, 255, .9);
-        background: #79dcff;
-        box-shadow: inset 0 0 2px #effcff, 0 0 8px rgba(91, 203, 250, .88);
-    }
-}
-
-@keyframes robotElementRetract {
-    from { opacity: 1; transform: scale(1); }
-    to { opacity: 0; transform: scale(.55); }
-}
-
-@keyframes robotLineRetract {
-    from { opacity: .72; transform: rotate(var(--line-angle)) scaleX(1); }
-    to { opacity: 0; transform: rotate(var(--line-angle)) scaleX(0); }
-}
-
-@keyframes robotFrameRetract {
-    from { opacity: 1; transform: none; }
-    to { opacity: 0; transform: translateX(4px) scale(.98); }
+.robot-companion[data-state="engaged"] {
+    --robot-light-core: #5ce2ae;
+    --robot-light-edge: #1b966e;
 }
 
 @media (max-width: 1100px) {
@@ -799,17 +592,8 @@
 @media (max-width: 700px) {
     .robot-companion { top: 82px; right: 8px; width: 76px; height: 102px; --robot-scale: .62; }
     .robot-speech { display: none; }
-    .robot-state-preparing .arm-left,
-    .robot-state-charging .arm-left,
-    .robot-state-projecting .arm-left,
-    .robot-state-scanning .arm-left,
-    .robot-state-confirming .arm-left { transform: translate(-2px, -1px) rotate(80deg); }
     .robot-hologram { right: 157px; width: 96px; height: 70px; }
-    .robot-hologram-scan { max-height: 62px; }
-}
-
-@media (pointer: coarse) {
-    .robot-eye span { --eye-x: 0 !important; --eye-y: 0 !important; }
+    .robot-hologram-scan { transform: translateY(calc(var(--robot-scan-progress) * 60px)); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -818,13 +602,9 @@
     .robot-body,
     .robot-arm,
     .robot-speech,
-    .robot-chest { transition: none !important; }
-
-    .robot-light,
-    .robot-antenna::before,
-    .robot-arm::after,
+    .robot-chest,
     .robot-beam,
-    .robot-hologram > span { animation: none !important; }
+    .robot-hologram > span { transition: none !important; }
 
     .robot-beam,
     .robot-hologram { display: none !important; }
