@@ -370,40 +370,34 @@ document.addEventListener("DOMContentLoaded", () => {
             pose.cursorInfluence = mix(.55, .4, diagnostic);
             pose.emitter = diagnostic * .42;
         } else if (state === "reviewing") {
-            if (section?.element.id === "education") {
-                pose.headX = -1.5;
-                pose.headY = mix(-.4, .5, eased);
-                pose.headRotate = mix(-1.2, -.3, eased);
-                pose.leftArm = 22;
-                pose.rightArm = -21;
-                pose.antenna = 1.16;
-                pose.eyeX = -.32;
-                pose.eyeY = mix(-.08, .2, eased);
-                pose.cursorInfluence = .7;
-            } else {
-                pose.headX = -1;
-                pose.headY = mix(-1, 2, eased);
-                pose.headRotate = mix(-.9, .75, eased);
-                pose.bodyY = mix(-.4, .7, eased);
-                pose.leftArm = mix(22, 24, eased);
-                pose.rightArm = mix(-21, -23, eased);
-                pose.eyeX = -.18;
-                pose.eyeY = mix(-.38, .5, eased);
-                pose.cursorInfluence = .66;
-            }
+            const currentRole = section?.element.id === "experience"
+                ? easedRange(p, .64, .92)
+                : 0;
+            pose.headX = -1;
+            pose.headY = mix(-1, 2, eased);
+            pose.headRotate = mix(-.9, .75, eased) + currentRole * .35;
+            pose.bodyY = mix(-.4, .7, eased);
+            pose.bodyRotate = currentRole * .2;
+            pose.leftArm = mix(22, 24, eased) + currentRole * 2;
+            pose.rightArm = mix(-21, -23, eased) - currentRole * 2;
+            pose.antenna = 1.04 + currentRole * .12;
+            pose.light = 1.04 + currentRole * .18;
+            pose.eyeX = -.18;
+            pose.eyeY = mix(-.38, .5, eased);
+            pose.cursorInfluence = mix(.66, .72, currentRole);
         } else if (state === "curious") {
             const curiosity = Math.sin(Math.PI * p);
-            pose.headX = mix(-1.6, .8, eased);
-            pose.headY = -1 - curiosity * .5;
-            pose.headRotate = mix(-2.7, 1.8, eased);
-            pose.bodyRotate = mix(-.35, .3, eased);
-            pose.leftArm = 23 + curiosity * 10;
-            pose.rightArm = -18 - curiosity * 7;
-            pose.antenna = 1.12 + curiosity * .4;
-            pose.light = 1.1 + curiosity * .15;
-            pose.eyeX = mix(-.58, .36, eased);
-            pose.eyeY = mix(-.16, .2, eased);
-            pose.cursorInfluence = mix(.62, .48, curiosity);
+            pose.headX = mix(-1.2, .6, eased);
+            pose.headY = -.6 - curiosity * .35;
+            pose.headRotate = mix(-1.8, 1.1, eased);
+            pose.bodyRotate = mix(-.15, .15, eased);
+            pose.leftArm = 21 + curiosity * 3;
+            pose.rightArm = -20 - curiosity * 2;
+            pose.antenna = 1.08 + curiosity * .22;
+            pose.light = 1.06 + curiosity * .1;
+            pose.eyeX = mix(-.42, .28, eased);
+            pose.eyeY = mix(-.12, .16, eased);
+            pose.cursorInfluence = mix(.7, .62, curiosity);
         } else if (state === "engaged") {
             const welcomeIn = easedRange(p, .05, .55);
             const welcomeOut = easedRange(p, .55, 1);
@@ -412,10 +406,10 @@ document.addEventListener("DOMContentLoaded", () => {
             pose.headRotate = mix(0, 1.6, easedRange(p, .08, .55));
             pose.bodyY = -1;
             pose.bodyRotate = .5 * welcomeIn * (1 - welcomeOut * .5);
-            pose.leftArm = mix(20, 17, welcomeIn);
+            pose.leftArm = mix(20, 18, welcomeIn);
             pose.rightArm = p <= .55
-                ? mix(-20, -45, welcomeIn)
-                : mix(-45, -28, welcomeOut);
+                ? mix(-20, -34, welcomeIn)
+                : mix(-34, -25, welcomeOut);
             pose.antenna = mix(1.08, 1.2, welcomeIn);
             pose.light = mix(1.12, 1.3, welcomeIn);
             pose.cursorInfluence = mix(.84, 1, easedRange(p, .1, .6));

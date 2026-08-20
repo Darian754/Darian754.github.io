@@ -2524,46 +2524,14 @@ main {
 }
 
 /* =========================================================
-   CONTENT STRATEGY REFINEMENTS
+   SHORT CAREER SITE
 ========================================================= */
-
-.hero-supporting strong {
-    color: #a9bdd1;
-    font-weight: 650;
-}
-
-.scope-grid .capability-card {
-    min-height: 0;
-}
-
-.scope-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin: 18px 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.scope-list li {
-    padding: 6px 9px;
-    border: 1px solid rgba(92,169,255,.14);
-    border-radius: 6px;
-    color: #91a8bf;
-    background: rgba(92,169,255,.035);
-    font: .63rem "JetBrains Mono",monospace;
-}
-
-.scope-list-wide li {
-    flex: 1 1 145px;
-}
-
-.case-study-six div {
-    min-height: 112px;
-}
 
 .experience-progression-copy {
     max-width: 830px;
+    margin: 42px auto 0;
+    color: #8da1b5;
+    line-height: 1.75;
 }
 
 .progression-timeline::before {
@@ -2585,48 +2553,6 @@ main {
     letter-spacing: .07em;
 }
 
-.technical-notes-section {
-    background: linear-gradient(180deg,rgba(10,24,41,.38),rgba(5,13,23,.42));
-}
-
-.technical-notes-grid {
-    display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 14px;
-}
-
-.technical-note {
-    padding: 25px;
-    border: 1px solid rgba(255,255,255,.07);
-    border-radius: 16px;
-    background: rgba(15,24,37,.58);
-}
-
-.technical-note > span {
-    color: #5ca9ff;
-    font: 600 .62rem "JetBrains Mono",monospace;
-    letter-spacing: .1em;
-}
-
-.technical-note h3 {
-    margin: 16px 0 10px;
-    color: #e5eef7;
-    font-size: 1rem;
-    line-height: 1.35;
-    text-transform: uppercase;
-}
-
-.technical-note p {
-    margin: 0;
-    color: #879caf;
-    font-size: .8rem;
-    line-height: 1.7;
-}
-
-.technology-groups-compact {
-    grid-template-columns: repeat(4,minmax(0,1fr));
-}
-
 .education-copy small {
     display: block;
     margin-top: 8px;
@@ -2634,32 +2560,30 @@ main {
     font: .63rem "JetBrains Mono",monospace;
 }
 
-@media (max-width: 1024px) {
-    .technology-groups-compact {
-        grid-template-columns: repeat(2,minmax(0,1fr));
-    }
+.background-summary {
+    max-width: 620px;
 }
 
-@media (max-width: 768px) {
-    .technical-notes-grid {
-        grid-template-columns: 1fr;
-    }
+.background-summary > p {
+    margin: 0;
+    color: #8da1b5;
+    line-height: 1.75;
+}
 
-    .case-study-six div {
-        min-height: 0;
-    }
+.background-technologies {
+    margin-top: 20px !important;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,.07);
+    color: #72aef0 !important;
+    font: .67rem/1.8 "JetBrains Mono",monospace;
 }
 
 @media (max-width: 430px) {
-    .technology-groups-compact {
-        grid-template-columns: 1fr;
-    }
-
-    .scope-list-wide li {
-        flex-basis: 100%;
-    }
-
     .scope-badge {
         width: fit-content;
+    }
+
+    .experience-progression-copy {
+        margin-top: 30px;
     }
 }

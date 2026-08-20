@@ -43,26 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
         animatedElements.forEach(element => revealObserver.observe(element));
     }
 
-    const architectureFooter = document.querySelector(".architecture-footer");
-    const architectureNodes = [...document.querySelectorAll(".architecture-node")];
-    const updateArchitectureMessage = node => {
-        if (!architectureFooter || !node?.dataset.message) return;
-        architectureFooter.replaceChildren();
-        const icon = document.createElement("i");
-        icon.className = "fa-solid fa-circle-info";
-        icon.setAttribute("aria-hidden", "true");
-        architectureFooter.append(icon, document.createTextNode(node.dataset.message));
-    };
-    architectureNodes.forEach(node => {
-        node.addEventListener("click", () => {
-            architectureNodes.forEach(item => item.classList.remove("active"));
-            node.classList.add("active");
-            updateArchitectureMessage(node);
-        });
-        node.addEventListener("mouseenter", () => updateArchitectureMessage(node));
-        node.addEventListener("focus", () => updateArchitectureMessage(node));
-    });
-
     const terminalLines = [...document.querySelectorAll(".terminal-body .terminal-line")];
     document.querySelector(".terminal-cursor")?.setAttribute("aria-hidden", "true");
     if (!reducedMotion.matches) {

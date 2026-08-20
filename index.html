@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/sections/hero.css">
-        <link rel="stylesheet" href="styles/sections/projects.css">
         <link rel="stylesheet" href="styles/robot.css">
     </head>
     <body>
@@ -30,11 +29,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav ms-auto align-items-lg-center">
-                        <li class="nav-item"><a class="nav-link" href="#thinking">How I Think</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#scope">Scope</a></li>
                         <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#systems-lab">Systems Lab</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#background">Background</a></li>
                         <li class="nav-item ms-lg-3"><a class="nav-contact" href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -54,32 +50,20 @@
                             <span class="status-dot"></span>FULL-STACK · SYSTEMS · DELIVERY
                         </div>
                         <div class="hero-kicker">
-                            BUSINESS SOLUTIONS DEVELOPER
+                            BUSINESS SOLUTIONS DEVELOPER AT LCL LOGISTICS
                         </div>
                         <h1><span>Darian</span><span>Chetty</span></h1>
                         <p class="hero-role">Full-Stack Developer <span>working across systems, delivery and architecture</span></p>
-                        <p class="hero-description">I build full-stack software and increasingly work on the problems between application code, data, deployment and infrastructure—where local assumptions can become system-wide issues.</p>
-                        <p class="hero-supporting"><strong>Understand the behaviour first. Change the system second.</strong> When something fails, I prefer tracing the behaviour across the system before deciding where the fix belongs.</p>
+                        <p class="hero-description">I’m a full-stack developer working across application code, backend services, data, deployment and infrastructure. My career has gradually moved from feature-focused development toward broader responsibility across how systems are built, delivered and maintained.</p>
                         <div class="hero-actions">
-                            <a href="#work" class="btn btn-primary-custom">
-                                <i class="fa-solid fa-code"></i>
-                                View Engineering Work
+                            <a href="#experience" class="btn btn-primary-custom">
+                                <i class="fa-solid fa-arrow-down"></i>
+                                View Experience
                             </a>
-                            <a href="#thinking" class="btn btn-outline-custom">
-                                <i class="fa-solid fa-route"></i>
-                                How I Think
+                            <a href="#contact" class="btn btn-outline-custom">
+                                <i class="fa-regular fa-envelope"></i>
+                                Get in Touch
                             </a>
-                        </div>
-                        <div class="hero-metrics">
-                            <div>
-                                <span>Current role</span><strong>Business Solutions Developer</strong>
-                            </div>
-                            <div>
-                                <span>Engineering focus</span><strong>Full-Stack &amp; Systems</strong>
-                            </div>
-                            <div>
-                                <span>Working across</span><strong>Code · Data · Delivery</strong>
-                            </div>
                         </div>
                     </div>
                     <div class="hero-visual" aria-label="Full-stack engineering focus summary">
@@ -138,382 +122,60 @@
                     <span>Scroll to explore</span><i class="fa-solid fa-arrow-down"></i>
                 </div>
             </section>
-            <section id="thinking" class="section about-section" data-robot-state="analyzing">
-                <div class="container">
-                    <div class="section-heading animate-on-scroll">
-                        <span class="section-label">01 · HOW I THINK</span>
-                        <h2>Understand the behaviour <span>before choosing the change.</span></h2>
-                        <p>I trace symptoms across boundaries, identify assumptions and consider constraints before deciding where an implementation belongs.</p>
-                    </div>
-                    <div class="approach-layout">
-                        <div class="investigation-panel animate-on-scroll">
-                            <div class="panel-header">
-                                <span>INVESTIGATION PATH</span><small>Follow the evidence across boundaries</small>
-                            </div>
-                            <ol class="system-path" aria-label="System investigation path">
-                                <li><i class="fa-solid fa-user"></i><span>User</span></li>
-                                <li><i class="fa-solid fa-window-maximize"></i><span>UI</span></li>
-                                <li><i class="fa-solid fa-code-branch"></i><span>State</span></li>
-                                <li><i class="fa-solid fa-plug"></i><span>API</span></li>
-                                <li><i class="fa-solid fa-server"></i><span>Backend</span></li>
-                                <li><i class="fa-solid fa-database"></i><span>Database</span></li>
-                                <li><i class="fa-solid fa-cubes-stacked"></i><span>Infrastructure</span></li>
-                            </ol>
-                        </div>
-                        <div class="principles-panel animate-on-scroll">
-                            <div class="panel-header">
-                                <span>OPERATING PRINCIPLES</span><small>Concise by design</small>
-                            </div>
-                            <ul class="principle-list">
-                                <li><span>01</span>Start with symptoms, not solutions</li>
-                                <li><span>02</span>Trace behaviour across boundaries</li>
-                                <li><span>03</span>Make hidden assumptions explicit</li>
-                                <li><span>04</span>Separate local failure from system interaction</li>
-                                <li><span>05</span>Choose within real constraints</li>
-                                <li><span>06</span>Verify the result, not just the release</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="work" class="section projects-section" data-robot-state="investigating">
-                <div class="container">
-                    <div class="section-heading animate-on-scroll">
-                        <span class="section-label">02 · SELECTED ENGINEERING WORK</span>
-                        <h2>Real problems, <span>careful investigation.</span></h2>
-                        <p>Sanitized examples of how I reason through engineering work. Employer-specific systems, data and implementation details are intentionally omitted.</p>
-                    </div>
-                    <div class="projects-grid">
-                        <article class="project-card project-featured animate-on-scroll">
-                            <div class="project-card-header"><span class="project-number">01</span><i class="fa-solid fa-arrows-rotate"></i></div>
-                            <span class="project-category">DELIVERY · RELIABILITY</span><h3>Environment Consistency</h3>
-                            <dl class="case-study-grid case-study-six">
-                                <div><dt>Problem</dt><dd>Differences between development and production-like environments can make testing unreliable and defects difficult to reproduce.</dd></div>
-                                <div><dt>Constraints</dt><dd>Data safety, repeatability, access control, low disruption and avoiding sensitive-data exposure.</dd></div>
-                                <div><dt>Investigation</dt><dd>Identify where environment divergence materially affects development and testing.</dd></div>
-                                <div><dt>Decision</dt><dd>Move toward controlled, repeatable synchronization rather than ad-hoc manual fixes.</dd></div>
-                                <div><dt>Outcome</dt><dd>More reliable testing and less manual environment reconciliation.</dd></div>
-                                <div><dt>What I Learned</dt><dd>Parity includes configuration, access, repeatability, safety and operational process—not just data.</dd></div>
-                            </dl>
-                        </article>
-                        <article class="project-card animate-on-scroll">
-                            <div class="project-card-header"><span class="project-number">02</span><i class="fa-solid fa-bug-slash"></i></div>
-                            <span class="project-category">RUNTIME · DEBUGGING</span><h3>Service &amp; Deployment Debugging</h3>
-                            <dl class="case-study-grid case-study-six">
-                                <div><dt>Symptom</dt><dd>Software behaves correctly locally but fails when packaged or deployed independently.</dd></div>
-                                <div><dt>Hypothesis</dt><dd>A dependency, configuration value or runtime assumption differs across the boundary.</dd></div>
-                                <div><dt>Evidence</dt><dd>Compare package contents, runtime configuration, versions and validation behaviour.</dd></div>
-                                <div><dt>Root Cause</dt><dd>A local repository assumption did not hold for the independently deployed service.</dd></div>
-                                <div><dt>Fix</dt><dd>Correct the owning package or configuration boundary and validate it in the deployed context.</dd></div>
-                                <div><dt>Prevention</dt><dd>Test deployable units as deployable units. Local success is not deployment correctness.</dd></div>
-                            </dl>
-                        </article>
-                        <article class="project-card animate-on-scroll">
-                            <div class="project-card-header"><span class="project-number">03</span><i class="fa-solid fa-diagram-project"></i></div>
-                            <span class="project-category">FULL-STACK · CHANGE SURFACE</span><h3>Cross-System Change</h3>
-                            <dl class="case-study-grid case-study-six">
-                                <div><dt>Problem</dt><dd>A small business requirement can affect more layers than its initial description suggests.</dd></div>
-                                <div><dt>Constraints</dt><dd>Compatibility, sequencing, existing consumers and safe validation across layers.</dd></div>
-                                <div><dt>Investigation</dt><dd>Trace the change through domain model, persistence, API, shared types, frontend and dependent services.</dd></div>
-                                <div><dt>Decision</dt><dd>Sequence the work around dependencies and define validation at every affected boundary.</dd></div>
-                                <div><dt>Outcome</dt><dd>A coordinated change rather than a local implementation that leaves downstream assumptions behind.</dd></div>
-                                <div><dt>What I Learned</dt><dd>The visible feature is often smaller than its real change surface.</dd></div>
-                            </dl>
-                        </article>
-                        <article class="project-card animate-on-scroll">
-                            <div class="project-card-header"><span class="project-number">04</span><i class="fa-solid fa-puzzle-piece"></i></div>
-                            <span class="project-category">REUSE · CONSISTENCY</span><h3>Shared Components</h3>
-                            <dl class="case-study-grid case-study-six">
-                                <div><dt>Problem</dt><dd>Repeated implementations allow behaviour and maintenance expectations to diverge.</dd></div>
-                                <div><dt>Constraints</dt><dd>Existing consumers, clear ownership, appropriate abstraction and incremental adoption.</dd></div>
-                                <div><dt>Investigation</dt><dd>Separate genuinely shared behaviour from coincidental similarity.</dd></div>
-                                <div><dt>Decision</dt><dd>Centralize stable shared behaviour while keeping domain-specific variation explicit.</dd></div>
-                                <div><dt>Outcome</dt><dd>Less duplicated implementation, more consistent behaviour and simpler future changes.</dd></div>
-                                <div><dt>What I Learned</dt><dd>Reuse is valuable when it clarifies ownership—not when it hides meaningful differences.</dd></div>
-                            </dl>
-                        </article>
-                    </div>
-                </div>
-            </section>
-            <section id="scope" class="section expertise-section" data-robot-state="evaluating">
-                <div class="container">
-                    <div class="section-heading animate-on-scroll">
-                        <span class="section-label">03 · ENGINEERING SCOPE</span>
-                        <h2>Building across layers, <span>with the boundaries in view.</span></h2>
-                        <p>A compact view of the tools I use and the engineering activities that connect them.</p>
-                    </div>
-                    <div class="capability-grid scope-grid">
-                        <article class="capability-card animate-on-scroll">
-                            <i class="fa-solid fa-layer-group"></i>
-                            <h3>Application Engineering</h3>
-                            <ul class="scope-list">
-                                <li>Vue</li><li>Node.js</li><li>C#</li><li>REST APIs</li>
-                            </ul>
-                        </article>
-                        <article class="capability-card animate-on-scroll">
-                            <i class="fa-solid fa-database"></i>
-                            <h3>Data &amp; Persistence</h3>
-                            <ul class="scope-list">
-                                <li>SQL</li><li>MariaDB</li><li>MSSQL</li>
-                            </ul>
-                        </article>
-                        <article class="capability-card animate-on-scroll">
-                            <i class="fa-solid fa-box"></i>
-                            <h3>Delivery &amp; Runtime</h3>
-                            <ul class="scope-list">
-                                <li>Docker</li><li>Kubernetes</li><li>CI/CD</li>
-                            </ul>
-                        </article>
-                        <article class="capability-card animate-on-scroll">
-                            <i class="fa-solid fa-route"></i>
-                            <h3>Systems Work</h3>
-                            <ul class="scope-list scope-list-wide">
-                                <li>Cross-service debugging</li>
-                                <li>Shared/reusable components</li>
-                                <li>Cross-cutting domain changes</li>
-                                <li>Environment consistency</li>
-                                <li>Deployment troubleshooting</li>
-                                <li>Runtime/configuration investigation</li>
-                            </ul>
-                        </article>
-                    </div>
-                </div>
-            </section>
             <section id="experience" class="section experience-section" data-robot-state="reviewing">
                 <div class="container">
                     <div class="section-heading animate-on-scroll">
-                        <span class="section-label">04 · EXPERIENCE</span>
+                        <span class="section-label">01 · CAREER PROGRESSION</span>
                         <h2>A progression toward <span>broader system responsibility.</span></h2>
-                        <p class="experience-progression-copy">My work has gradually shifted from implementing isolated functionality toward understanding and changing how multiple parts of a system interact.</p>
                     </div>
                     <div class="timeline progression-timeline">
                         <article class="timeline-item animate-on-scroll">
                             <div class="timeline-marker"><span></span></div>
                             <div class="timeline-content">
-                                <div class="timeline-meta"><span>Apr 2022 — Apr 2025</span><span class="scope-badge">APPLICATION DEVELOPMENT</span></div>
+                                <div class="timeline-meta"><span>2022–2025</span><span class="scope-badge">APPLICATION DEVELOPMENT</span></div>
                                 <h3>Software Developer</h3>
                                 <h4>EasyCloudEnergy</h4>
-                                <span class="timeline-location"><i class="fa-solid fa-house-laptop"></i>Remote</span>
-                                <p>Built a practical foundation in business application development and data-backed functionality.</p>
-                                <div class="experience-tags"><span>.NET</span><span>C#</span><span>SQL</span></div>
+                                <div class="experience-tags"><span>C#</span><span>.NET</span><span>SQL</span></div>
                             </div>
                         </article>
                         <article class="timeline-item animate-on-scroll">
                             <div class="timeline-marker"><span></span></div>
                             <div class="timeline-content">
-                                <div class="timeline-meta"><span>May 2025 — Apr 2026</span><span class="scope-badge">BACKEND &amp; SIMULATION SYSTEMS</span></div>
+                                <div class="timeline-meta"><span>2025–2026</span><span class="scope-badge">BACKEND &amp; SIMULATION SYSTEMS</span></div>
                                 <h3>Junior C# Software Developer</h3>
                                 <h4>ThoroughTec Simulation</h4>
-                                <span class="timeline-location"><i class="fa-solid fa-location-dot"></i>Umhlanga · Hybrid</span>
-                                <p>Developed deterministic behaviour and integration-focused simulation functionality.</p>
                                 <div class="experience-tags"><span>C#</span><span>Deterministic behaviour</span><span>Integration</span></div>
                             </div>
                         </article>
                         <article class="timeline-item current animate-on-scroll">
                             <div class="timeline-marker"><span></span></div>
                             <div class="timeline-content">
-                                <div class="timeline-meta"><span class="current-badge">CURRENT</span><span>May 2026 — Present</span><span class="scope-badge">FULL-STACK &amp; SYSTEMS OWNERSHIP</span></div>
+                                <div class="timeline-meta"><span class="current-badge">CURRENT</span><span>2026–present</span><span class="scope-badge">FULL-STACK &amp; INCREASING SYSTEMS RESPONSIBILITY</span></div>
                                 <h3>Business Solutions Developer</h3>
                                 <h4>LCL Logistics</h4>
-                                <span class="timeline-location"><i class="fa-solid fa-location-dot"></i>Stellenbosch · On-site</span>
-                                <p>Working across application code, relational data, delivery and cross-system changes, with broader responsibility following changes in team structure.</p>
-                                <div class="experience-tags"><span>Node.js</span><span>Vue</span><span>Relational databases</span><span>CI/CD</span><span>Containerized delivery</span><span>Cross-system work</span></div>
+                                <div class="experience-tags">
+                                    <span>Vue</span><span>Node.js</span><span>Relational databases</span><span>CI/CD</span>
+                                    <span>Containerized delivery</span><span>Cross-system troubleshooting</span>
+                                    <span>Shared/reusable components</span><span>Deployment troubleshooting</span>
+                                </div>
                             </div>
                         </article>
                     </div>
+                    <p class="experience-progression-copy animate-on-scroll">My work has gradually shifted from implementing isolated functionality toward understanding and changing how multiple parts of a system interact.</p>
                 </div>
             </section>
-            <section id="systems-lab" class="section architecture-section" data-robot-state="scanning">
+            <section id="background" class="section education-section" data-robot-state="curious">
                 <div class="container">
-                    <div class="section-heading animate-on-scroll">
-                        <span class="section-label">05 · SYSTEMS LAB</span>
-                        <h2>Questions explored through <span>synthetic system models.</span></h2>
-                        <p>Independent investigation into design trade-offs. These examples are generalized patterns, not representations of an employer environment.</p>
-                    </div>
-                    <div class="architecture-workspace animate-on-scroll">
-                        <div class="architecture-header">
-                            <div>
-                                <span class="architecture-title">SYNTHETIC SERVICE BOUNDARY MODEL</span>
-                                <span class="architecture-subtitle">Select a component to inspect the design question</span>
-                            </div>
-                            <span class="architecture-live"><span class="status-dot"></span>INDEPENDENT INVESTIGATION</span>
-                        </div>
-                        <div class="architecture-flow" aria-label="Synthetic service boundary model">
-                            <button class="architecture-node active" data-message="A client begins a request without knowing how downstream work is divided.">
-                                <i class="fa-solid fa-users"></i>
-                                <span>Client</span>
-                                <small>Request boundary</small>
-                            </button>
-                            <span class="flow-arrow" aria-hidden="true">→</span>
-                            <button class="architecture-node" data-message="An interface owns presentation and translates user intent into an explicit request.">
-                                <i class="fa-solid fa-window-maximize"></i>
-                                <span>Frontend</span>
-                                <small>Presentation</small>
-                            </button>
-                            <span class="flow-arrow" aria-hidden="true">→</span>
-                            <button class="architecture-node" data-message="An application service validates the request and owns synchronous coordination.">
-                                <i class="fa-solid fa-cubes"></i>
-                                <span>Service</span>
-                                <small>Application logic</small>
-                            </button>
-                            <span class="flow-arrow" aria-hidden="true">→</span>
-                            <button class="architecture-node" data-message="A cache can reduce repeated work, but introduces expiry and invalidation decisions.">
-                                <i class="fa-solid fa-bolt"></i>
-                                <span>Cache</span>
-                                <small>Derived state</small>
-                            </button>
-                            <span class="flow-arrow" aria-hidden="true">→</span>
-                            <button class="architecture-node" data-message="A queue can separate long-running work from the request lifecycle.">
-                                <i class="fa-solid fa-list-check"></i>
-                                <span>Job Queue</span>
-                                <small>Background work</small>
-                            </button>
-                            <span class="flow-arrow" aria-hidden="true">→</span>
-                            <button class="architecture-node" data-message="Persistence remains authoritative while caches and queues serve distinct responsibilities.">
-                                <i class="fa-solid fa-database"></i>
-                                <span>Persistence</span>
-                                <small>Authoritative state</small>
-                            </button>
-                            <span class="flow-arrow" aria-hidden="true">→</span>
-                            <button class="architecture-node" data-message="Object storage can keep binary data outside short-lived application processes.">
-                                <i class="fa-solid fa-box-archive"></i>
-                                <span>Object Storage</span>
-                                <small>Binary objects</small>
-                            </button>
-                        </div>
-                        <div class="supporting-infrastructure">
-                            <span>Boundaries</span><span>Failure modes</span><span>Backpressure</span><span>Observability</span><span>Recovery</span>
-                        </div>
-                        <div class="architecture-footer" aria-live="polite">
-                            <i class="fa-solid fa-circle-info"></i>A client begins a request without knowing how downstream work is divided.
-                        </div>
-                    </div>
-                    <div class="lab-heading animate-on-scroll">
-                        <span class="section-label">INDEPENDENT INVESTIGATION</span>
-                        <h3>Curated systems questions.</h3>
-                        <p>Each note starts with a question and ends with evidence I would want before choosing a design.</p>
-                    </div>
-                    <div class="lab-grid">
-                        <details class="lab-card animate-on-scroll">
-                            <summary><span>Stateful databases on Kubernetes</span><i class="fa-solid fa-plus"></i></summary>
-                            <div>
-                                <p><strong>Question</strong> When does orchestration improve resilience, and when does it add unnecessary complexity?</p>
-                                <p><strong>Why It Matters</strong> Orchestration does not automatically solve backup correctness or disaster recovery.</p>
-                                <p><strong>Possible Design / Experiment</strong> Test a synthetic stateful workload with independent backups and documented restore steps.</p>
-                                <p><strong>Trade-offs</strong> Storage complexity, failure domains, operational skill and cluster dependency.</p>
-                                <p><strong>What I Would Measure</strong> Restore reliability, recovery time, recovery-point exposure and operational complexity.</p>
-                            </div>
-                        </details>
-                        <details class="lab-card animate-on-scroll">
-                            <summary><span>Service dependency boundaries</span><i class="fa-solid fa-plus"></i></summary>
-                            <div>
-                                <p><strong>Question</strong> Which dependencies belong in a synchronous request path?</p>
-                                <p><strong>Why It Matters</strong> Every dependency changes latency and failure behaviour.</p>
-                                <p><strong>Possible Design / Experiment</strong> Compare direct calls with queued work under controlled failure.</p>
-                                <p><strong>Trade-offs</strong> Consistency, delay, retry behaviour and operational visibility.</p>
-                                <p><strong>What I Would Measure</strong> Tail latency, failure isolation, queue age and recovery behaviour.</p>
-                            </div>
-                        </details>
-                        <details class="lab-card animate-on-scroll">
-                            <summary><span>Caching &amp; distributed locking</span><i class="fa-solid fa-plus"></i></summary>
-                            <div>
-                                <p><strong>Question</strong> Where can shared state reduce repeated work without obscuring ownership?</p>
-                                <p><strong>Why It Matters</strong> Caches and locks introduce expiry, invalidation and failure semantics.</p>
-                                <p><strong>Possible Design / Experiment</strong> Exercise contention, stale data and lock-owner failure in a synthetic workload.</p>
-                                <p><strong>Trade-offs</strong> Consistency, complexity, contention and recovery.</p>
-                                <p><strong>What I Would Measure</strong> Hit rate, stale reads, lock wait time and failure recovery.</p>
-                            </div>
-                        </details>
-                        <details class="lab-card animate-on-scroll">
-                            <summary><span>Observability &amp; recovery</span><i class="fa-solid fa-plus"></i></summary>
-                            <div>
-                                <p><strong>Question</strong> Which signals make a failure diagnosable and a recovery verifiable?</p>
-                                <p><strong>Why It Matters</strong> More telemetry is not necessarily more understanding.</p>
-                                <p><strong>Possible Design / Experiment</strong> Define service-level symptoms, inject failures and validate the diagnostic path.</p>
-                                <p><strong>Trade-offs</strong> Signal cost, noise, retention and maintenance.</p>
-                                <p><strong>What I Would Measure</strong> Detection time, diagnostic clarity, alert quality and recovery confirmation.</p>
-                            </div>
-                        </details>
-                    </div>
-                </div>
-            </section>
-            <section id="notes" class="section technical-notes-section" data-robot-state="analyzing">
-                <div class="container">
-                    <div class="section-heading animate-on-scroll">
-                        <span class="section-label">06 · TECHNICAL NOTES</span>
-                        <h2>Short observations from <span>engineering across boundaries.</span></h2>
-                        <p>Generalized lessons rather than accounts of private incidents.</p>
-                    </div>
-                    <div class="technical-notes-grid">
-                        <article class="technical-note animate-on-scroll">
-                            <span>01</span>
-                            <h3>Local success is not deployment correctness</h3>
-                            <p>A dependency or configuration can exist in a local repository context while an independently packaged service still lacks what it needs.</p>
-                        </article>
-                        <article class="technical-note animate-on-scroll">
-                            <span>02</span>
-                            <h3>Service boundaries expose assumptions</h3>
-                            <p>Runtime, packaging and independent deployment make implicit local assumptions visible—and testable.</p>
-                        </article>
-                        <article class="technical-note animate-on-scroll">
-                            <span>03</span>
-                            <h3>Environment drift creates unreliable tests</h3>
-                            <p>Repeatable configuration and controlled processes matter when a defect must be reproduced with confidence.</p>
-                        </article>
-                        <article class="technical-note animate-on-scroll">
-                            <span>04</span>
-                            <h3>Upgrade because there is a reason</h3>
-                            <p>Security, compatibility, support, defects or required capability are better drivers than version chasing.</p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-            <section id="technologies" class="section technologies-section expertise-section" data-robot-state="evaluating">
-                <div class="container">
-                    <div class="section-heading animate-on-scroll">
-                        <span class="section-label">07 · TECHNOLOGIES</span>
-                        <h2>Core tools, <span>kept in proportion.</span></h2>
-                        <p>The languages, frameworks and delivery tools most relevant to my current work.</p>
-                    </div>
-                    <div class="technology-console animate-on-scroll">
-                        <div class="panel-header"><span>TECHNOLOGY MAP</span><small>Core before incidental</small></div>
-                        <div class="technology-groups technology-groups-compact">
-                            <div>
-                                <h3>Languages &amp; Application</h3>
-                                <p>C# · JavaScript · Node.js · Vue</p>
-                            </div>
-                            <div>
-                                <h3>Data</h3>
-                                <p>SQL · MariaDB · MSSQL</p>
-                            </div>
-                            <div>
-                                <h3>Delivery</h3>
-                                <p>Docker · Kubernetes · CI/CD</p>
-                            </div>
-                            <div>
-                                <h3>Supporting Tooling</h3>
-                                <p>Git · GitHub · Linux · REST tooling</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="education" class="section education-section" data-robot-state="reviewing">
-                <div class="container">
-                    <div class="education-card animate-on-scroll">
+                    <div class="education-card background-card animate-on-scroll">
                         <div class="education-copy">
-                            <span class="section-label">08 · EDUCATION</span>
+                            <span class="section-label">02 · BACKGROUND</span>
                             <h2>BSc Computer Science &amp; Information Technology</h2>
                             <p>University of KwaZulu-Natal · 2021–2024</p>
                             <small>Major: Computer Science</small>
                         </div>
-                        <div class="education-focus" aria-label="Selected advanced coursework">
-                            <span>Software Design</span>
-                            <span>Natural Language Processing</span>
-                            <span>Database Systems</span>
-                            <span>Computer Systems</span>
-                            <span>Artificial Intelligence</span>
-                            <span>Theory of Computation</span>
+                        <div class="background-summary">
+                            <p>I enjoy debugging problems that cross application boundaries, understanding why systems behave differently between environments, and improving how software moves from development into runtime.</p>
+                            <p class="background-technologies">C# · JavaScript · Vue · Node.js · SQL · Docker · Kubernetes · CI/CD</p>
                         </div>
                     </div>
                 </div>
@@ -522,23 +184,13 @@
                 <div class="container">
                     <div class="contact-wrapper animate-on-scroll">
                         <div>
-                            <span class="section-label">09 · CONTACT</span>
-                            <h2>Let’s talk about <span>useful software.</span></h2>
-                            <p>I’m a full-stack developer interested in thoughtful application work, difficult debugging and growing systems responsibility.</p>
+                            <span class="section-label">03 · CONTACT</span>
+                            <h2>Let’s talk.</h2>
                         </div>
                         <div class="contact-actions">
                             <a href="mailto:darian.chetty@gmail.com" class="contact-button primary">
                                 <i class="fa-regular fa-envelope"></i>
                                 Email
-                            </a>
-                            <a
-                                href="https://www.linkedin.com/in/darian-chetty-7a05852a8/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="contact-button"
-                            >
-                                <i class="fa-brands fa-linkedin-in"></i>
-                                LinkedIn
                             </a>
                             <a
                                 href="https://github.com/Darian754"
@@ -548,6 +200,15 @@
                             >
                                 <i class="fa-brands fa-github"></i>
                                 GitHub
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/darian-chetty-7a05852a8/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="contact-button"
+                            >
+                                <i class="fa-brands fa-linkedin-in"></i>
+                                LinkedIn
                             </a>
                         </div>
                     </div>

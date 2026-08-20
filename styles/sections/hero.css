@@ -252,18 +252,19 @@
     color: #62adff;
 }
 @media (max-width:1000px) {
+    .hero {
+        min-height: 78svh;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 35px
+        gap: 0
     }
     .hero-copy {
         max-width: 880px
     }
     .hero-visual {
-        min-height: 360px
-    }
-    .terminal-window {
-        transform: none
+        display: none
     }
 }
 @media (max-width:700px) {
@@ -281,9 +282,6 @@
         grid-template-columns: 1fr;
         gap: 13px
     }
-    .hero-visual {
-        min-height: 290px
-    }
     .terminal-body {
         padding: 18px 12px;
         font-size: clamp(.49rem,2.2vw,.62rem);
@@ -295,6 +293,9 @@
     .eyebrow {
         max-width: calc(100% - 72px);
         font-size: .58rem
+    }
+    .hero-scroll {
+        display: none
     }
 }
 @media (prefers-reduced-motion:reduce) {
