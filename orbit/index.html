@@ -1,0 +1,997 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#02070A"><meta name="description" content="Orbit — a premium daily accountability dashboard. Build consistency, track progress, and make today count."><title>Orbit · Personal OS</title><style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{color-scheme:dark;--bg:#090d12;--surface:#11161d;--surface2:#161c24;--surface3:#1b232c;--line:#283039;--text:#f0f2f3;--muted:#97a0a9;--dim:#6b7681;--lime:#cbf579;--lime-soft:#2b3a24;--amber:#ffce88;--red:#ff8a83;--radius:22px;--shadow:0 30px 70px #00000030;font-family:'DM Sans','Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-size:14px;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}input,select{color:var(--text)}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--lime);outline-offset:3px}button{border:0}a{color:inherit;text-decoration:none}svg{vertical-align:middle}.app{display:flex;min-height:100vh;background:radial-gradient(ellipse 65% 30% at 83% -10%,#24331c60,transparent 78%),var(--bg)}.sidebar{position:sticky;top:0;width:258px;flex:0 0 258px;height:100vh;padding:30px 18px 22px;display:flex;flex-direction:column;border-right:1px solid #252e35;background:#0c1117f7;z-index:40}.brand{display:flex;align-items:center;gap:11px;margin:3px 12px 43px}.brand-icon{background:var(--lime);width:36px;height:36px;border-radius:12px;display:grid;place-items:center;color:#141b0f;box-shadow:0 0 28px #b3ec5540}.brand-name{font-family:Manrope,sans-serif;font-size:23px;font-weight:800;letter-spacing:-1.4px}.brand-name span{color:var(--lime)}.brand-caption{margin:1px 0 0;color:var(--dim);font-size:9px;font-weight:800;letter-spacing:2.2px}.side-label{font-size:10px;color:#64717b;font-weight:800;letter-spacing:2px;margin:0 13px 14px}.nav{display:grid;gap:6px}.nav-btn{width:100%;border:1px solid transparent;background:transparent;color:#8c969e;display:flex;align-items:center;gap:13px;text-align:left;padding:13px 14px;border-radius:11px;font-size:13px;font-weight:700;transition:.2s}.nav-btn:hover{background:#1a222a;color:#f2f5f5}.nav-btn.active{background:#1d2b1b;color:var(--lime);border-color:#35472f}.nav-btn svg{opacity:.86}.sidebar-spacer{flex:1}.quote-card{background:linear-gradient(155deg,#233027,#171e22);border:1px solid #2e4030;border-radius:19px;padding:21px 19px;margin:0 5px 20px;min-height:156px;position:relative;overflow:hidden}.quote-card:after{position:absolute;content:'✦';font-size:120px;color:#c4ef7515;right:-5px;top:-36px}.quote-card .quote-icon{color:var(--lime);font-size:21px;margin-bottom:19px}.quote-card p{font-size:13px;line-height:1.65;font-weight:600;max-width:172px;margin:0}.sidebar-foot{padding:14px 10px 2px;border-top:1px solid var(--line);display:flex;align-items:center;gap:11px}.avatar{width:36px;height:36px;display:grid;place-items:center;background:#354130;border:1px solid #546748;color:var(--lime);border-radius:11px;font-weight:800}.sidebar-foot b{display:block;font-size:13px}.sidebar-foot small{display:block;font-size:11px;margin-top:3px;color:var(--dim)}.main{flex:1;min-width:0;max-width:1670px;margin:auto;padding:0 47px 75px}.topbar{min-height:90px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1d262f;gap:20px}.crumb{font-size:11px;font-weight:800;letter-spacing:1.7px;color:#79848d;text-transform:uppercase}.crumb .current{color:#e5ebea}.top-actions{display:flex;align-items:center;gap:15px}.date-pill{display:flex;gap:9px;align-items:center;color:#9faab1;font-size:12px;font-weight:600}.keycap{border:1px solid #344038;color:#bfdc9e;border-radius:8px;padding:7px 9px;font-size:10px;font-weight:800;letter-spacing:1px}.icon-button{width:36px;height:36px;border-radius:11px;border:1px solid #2b3540;background:#151b23;color:#c5cdce;display:grid;place-items:center}.icon-button:hover{border-color:#74895c;color:var(--lime)}.mobile-toggle{display:none}.page{animation:arrive .45s ease both}@keyframes arrive{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.intro{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:45px 0 29px}.eyebrow{font-size:10px;color:var(--lime);font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}.intro h1{font-family:Manrope,'DM Sans',sans-serif;font-size:clamp(31px,3.2vw,49px);font-weight:800;letter-spacing:-2.7px;line-height:1.14;margin:0}.intro h1 em{color:var(--lime);font-family:Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-2px}.intro p{font-size:13px;margin:14px 0 0;color:var(--muted);line-height:1.7}.btn-primary{background:var(--lime);color:#131912;font-size:12px;font-weight:800;border-radius:11px;padding:14px 19px;display:inline-flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 10px 35px #b4ee5923;transition:.2s;white-space:nowrap}.btn-primary:hover{background:#d8ffa0;transform:translateY(-2px);box-shadow:0 13px 42px #b4ee5934}.btn-soft{border:1px solid #303b3c;background:#1a2327;color:#e4eeee;font-size:12px;font-weight:800;padding:12px 16px;border-radius:10px;display:inline-flex;align-items:center;gap:8px}.btn-soft:hover{border-color:#768a62}.btn-ghost{border:1px solid #33402d;background:transparent;color:var(--lime);font-size:11px;font-weight:800;padding:10px 13px;border-radius:9px}.metrics{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:15px;margin-bottom:19px}.metric{border:1px solid var(--line);background:linear-gradient(142deg,#171e26,#12181e);border-radius:var(--radius);padding:22px 22px;min-height:176px;position:relative;overflow:hidden}.metric.hero-metric{background:linear-gradient(140deg,#24371f,#1b291b 65%,#182319);border-color:#3f5633}.metric-top{display:flex;justify-content:space-between;align-items:center;color:#9da9ae;font-size:11px;font-weight:700;letter-spacing:.2px}.metric-top svg{color:#9ca8ad}.metric.hero-metric .metric-top svg{color:var(--lime)}.metric h2{font-family:Manrope,sans-serif;font-size:34px;font-weight:800;letter-spacing:-1.9px;margin:22px 0 2px;line-height:1.2}.metric h2 small{font-size:17px;color:#839083}.metric .metric-sub{font-size:11px;color:#8d9a9f;margin-top:6px}.metric .metric-bottom{display:flex;align-items:center;gap:6px;color:#a0bda0;font-size:11px;font-weight:700;margin-top:17px}.metric .metric-bottom svg{color:var(--lime)}.ring{width:93px;height:93px;border-radius:50%;display:grid;place-items:center;position:absolute;right:18px;bottom:27px;transform:rotate(-90deg)}.ring:after{content:'';width:68px;height:68px;background:#223321;position:absolute;border-radius:50%}.ring .ring-center{position:relative;z-index:1;transform:rotate(90deg);color:var(--lime)}.mini-badge{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;background:#2b3929;color:#c5f28f;border:1px solid #344934;border-radius:7px;font-size:10px;font-weight:800}.dashboard-grid{display:grid;grid-template-columns:minmax(0,1.58fr) minmax(300px,.9fr);gap:18px;align-items:start}.stack{display:grid;gap:18px}.panel{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(152deg,#171e26,#11171d);padding:24px;min-width:0;box-shadow:0 10px 50px #00000012}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:19px}.section-title{font-family:Manrope,sans-serif;font-size:17px;letter-spacing:-.6px;font-weight:800;margin:0}.section-sub{font-size:11px;color:#77848b;margin:6px 0 0}.small-overline{font-size:10px;letter-spacing:1.9px;color:#87958e;font-weight:800}.progress-track{height:6px;border-radius:7px;background:#2b3438;overflow:hidden}.progress-fill{height:100%;background:linear-gradient(90deg,#a4d961,var(--lime));border-radius:7px;transition:width .4s}.tasks-topline{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px}.tasks-topline b{font-size:12px}.tasks-topline span{font-size:12px;color:var(--lime);font-weight:800}.tasks-list{margin-top:16px;display:grid;gap:9px}.task{display:flex;align-items:center;gap:14px;background:#1a222b;border:1px solid #2a343e;border-radius:13px;padding:16px 15px;transition:background .2s,border-color .2s,transform .2s;min-height:66px}.task:hover{background:#1d2930;border-color:#3f5140;transform:translateX(2px)}.task.checked{opacity:.62}.task.checked .task-name{text-decoration:line-through;text-decoration-color:#61745b}.check-input{appearance:none;flex:0 0 24px;width:24px;height:24px;background:#111820;border:1.5px solid #56636a;border-radius:8px;position:relative;cursor:pointer;transition:.2s}.check-input:hover{border-color:var(--lime)}.check-input:checked{background:var(--lime);border-color:var(--lime)}.check-input:checked:after{content:'✓';color:#1b260f;font-size:16px;font-weight:900;position:absolute;top:-2px;left:4px}.task-meta{flex:1;min-width:0}.task-name{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.task-note{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:10px;color:#8a979c}.task-note .dot{height:4px;width:4px;border-radius:4px;background:#53636a}.cat-tag{padding:5px 8px;border-radius:6px;background:#252f37;color:#c0c8cd;font-size:9px;font-weight:800;letter-spacing:.3px;white-space:nowrap}.weight-tag{color:#8e9a9d;font-size:10px;font-weight:700;white-space:nowrap}.task-actions{display:flex;gap:3px}.task-actions button{width:27px;height:27px;border-radius:7px;background:transparent;color:#8b979d}.task-actions button:hover{color:var(--lime);background:#26312c}.empty-state{text-align:center;border:1px dashed #36443b;background:#16201c6e;border-radius:14px;padding:36px 20px;margin-top:18px}.empty-icon{width:44px;height:44px;margin:auto auto 14px;display:grid;place-items:center;border-radius:13px;background:#293c2b;color:var(--lime)}.empty-state h3{margin:0 0 8px;font-size:15px}.empty-state p{font-size:12px;color:var(--muted);margin:0 auto 17px;line-height:1.6;max-width:270px}.tasks-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:23px;padding-top:20px;border-top:1px solid #2a333a}.tasks-footer small{font-size:11px;color:#94a19e}.light-link{color:var(--lime);background:transparent;font-weight:800;font-size:11px;display:inline-flex;align-items:center;gap:7px}.month-label{font-size:12px;color:#b3c0bc;font-weight:800}.calendar-head,.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;text-align:center}.calendar-head{margin-bottom:12px;color:#748087;font-size:10px;font-weight:800}.calendar-cell{aspect-ratio:1;display:grid;place-items:center;border:1px solid transparent;color:#83939a;border-radius:8px;font-size:10px;font-weight:800;background:#202831;position:relative;transition:.2s}.calendar-cell.future{background:#141c24;color:#5b6870}.calendar-cell.no-tasks{background:#19222a;color:#718089}.calendar-cell.perfect{background:#bde978;color:#183015}.calendar-cell.good{background:#4c6e3d;color:#eff6e4}.calendar-cell.medium{background:#836b3d;color:#fff0d1}.calendar-cell.low{background:#743d3a;color:#f7e0de}.calendar-cell.today{outline:2px solid #d8f6a9;outline-offset:2px}.calendar-cell:not(.blank):hover{border-color:#e8fcbf;transform:scale(1.08)}.calendar-cell.blank{background:transparent}.legend{display:flex;align-items:center;gap:6px;justify-content:flex-end;margin-top:18px;color:#74838a;font-size:10px}.legend-tile{height:11px;width:11px;border-radius:3px}.performance-bars{height:112px;display:flex;align-items:end;justify-content:space-between;gap:10px;margin-top:14px;padding:0 2px}.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:9px;min-width:0;height:100%;color:#84919a;font-size:10px;font-weight:800}.bar-track{width:min(100%,38px);height:100%;background:#1f2930;border-radius:8px 8px 4px 4px;display:flex;align-items:end;overflow:hidden}.bar-fill{width:100%;background:linear-gradient(0deg,#6c9850,#cff17a);border-radius:7px 7px 3px 3px;min-height:0;transition:height .5s}.bar-col.active .bar-track{box-shadow:0 0 0 1px #6c8556}.bar-col.active{color:var(--lime)}.review-panel{display:flex;gap:14px;align-items:center;padding:18px 19px;background:linear-gradient(110deg,#253429,#1a241f);border:1px solid #45583f;border-radius:15px;margin-bottom:19px}.review-symbol{display:grid;place-items:center;height:40px;width:40px;flex:none;background:#33452e;color:var(--lime);border-radius:11px}.review-panel b{display:block;font-size:13px}.review-panel p{margin:5px 0 0;color:#99ad9d;font-size:11px;line-height:1.6}.review-panel .btn-soft{margin-left:auto;flex:none}.foot-message{display:flex;align-items:center;justify-content:center;gap:10px;color:#67757b;font-size:10px;padding:36px 0 0}.page-panel{min-height:420px}.planner-switch{display:flex;align-items:center;gap:10px}.day-nav{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.date-btn{border:1px solid #334038;background:#1e272a;color:#dfe7e2;border-radius:10px;padding:10px 12px;font-size:12px;font-weight:800}.day-pills{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin:18px 0 22px}.day-pill{padding:14px 6px 12px;border:1px solid #2e3940;background:#171f27;border-radius:13px;display:grid;gap:8px;justify-items:center;color:#89969b}.day-pill strong{font-size:16px;color:#e1e8e5}.day-pill small{font-size:10px;font-weight:800}.day-pill.selected{background:#293e27;border-color:#86ab5f;color:#d8f6b0}.day-pill.selected strong{color:var(--lime)}.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:19px}.insight-card{background:#192129;border:1px solid #2e3940;border-radius:16px;padding:22px}.insight-card small{color:#95a4a9;font-size:11px}.insight-card strong{font-family:Manrope,sans-serif;display:block;font-size:30px;margin-top:13px;letter-spacing:-1px}.big-chart{display:flex;align-items:end;gap:10px;height:235px;padding-top:15px}.big-chart .bar-col{height:100%;font-size:10px}.big-chart .bar-track{max-width:55px}.big-chart .bar-label{font-size:10px}.routine-list{display:grid;gap:11px}.routine-item{display:flex;align-items:center;gap:15px;border:1px solid #303c43;background:#19222a;border-radius:14px;padding:18px}.routine-icon{display:grid;place-items:center;width:40px;height:40px;background:#303c2a;color:var(--lime);border-radius:11px;flex:none}.routine-item .routine-info{flex:1}.routine-info strong{font-size:13px}.routine-info small{display:block;color:#849297;margin-top:6px;font-size:11px}.routine-action{border:1px solid #384446;color:#b6c0bf;padding:9px 11px;border-radius:9px;background:#1b252a;font-size:11px;font-weight:800}.routine-action:hover{border-color:var(--lime);color:var(--lime)}.kbd{padding:3px 5px;border:1px solid #33413b;background:#17211d;border-radius:4px;color:#91ad7e;font-size:10px}.settings-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.setting-box{border:1px solid #2c383f;background:#192129;border-radius:16px;padding:22px}.setting-box p{font-size:12px;color:#8e9ca1;line-height:1.7}.setting-box button{margin-top:15px}.review-item{display:flex;align-items:center;gap:14px;justify-content:space-between;background:#1b252a;border:1px solid #303d40;border-radius:12px;padding:14px 15px;margin:9px 0}.review-item strong{display:block;font-size:12px}.review-item small{display:block;color:#8e9aa0;margin-top:5px;font-size:10px}.review-buttons{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.review-buttons button{padding:8px 10px;background:#29352c;color:#d0e5c8;border-radius:8px;font-size:11px;font-weight:800}.review-buttons button.dismiss{background:#303039;color:#c1bbc2}.modal-backdrop{position:fixed;inset:0;z-index:100;background:#05080bd9;backdrop-filter:blur(10px);display:grid;place-items:center;padding:22px;animation:arrive .2s}.modal{width:min(100%,530px);background:#171f27;border:1px solid #3a4748;border-radius:22px;padding:27px;box-shadow:0 40px 160px #0009;max-height:90vh;overflow-y:auto}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.modal-head h3{font-size:21px;font-family:Manrope,sans-serif;letter-spacing:-.8px;margin:0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:8px;margin-bottom:16px}.field.full{grid-column:1/-1}.field label{font-size:11px;font-weight:800;color:#b5c1c3}.field input,.field select{height:43px;border-radius:9px;padding:0 12px;border:1px solid #3b4950;background:#101820;outline:none;color:#f0f3f2;width:100%}.field input:focus,.field select:focus{border-color:#b1db77}.weekday-picker{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}.weekday-picker label{display:grid;place-items:center;height:40px;border-radius:8px;border:1px solid #3b4950;background:#121b22;font-size:11px;color:#aebbbd;cursor:pointer;transition:.2s}.weekday-picker input{display:none}.weekday-picker label:has(input:checked){background:#2d452a;border-color:var(--lime);color:var(--lime)}.modal-footer{display:flex;justify-content:flex-end;gap:9px;margin-top:10px}.toast{position:fixed;bottom:25px;right:25px;background:#c8f07f;color:#152015;border-radius:12px;padding:15px 20px;font-size:12px;font-weight:800;z-index:200;box-shadow:0 12px 50px #0008;animation:arrive .2s;max-width:300px}.tiny-note{font-size:11px;color:#8a9a9c;line-height:1.7}.sepline{height:1px;background:#2b383d;margin:22px 0}.gradient-orb{position:absolute;width:240px;height:240px;border-radius:50%;background:#8cb9550a;filter:blur(50px);right:-140px;top:-150px;pointer-events:none}
+@media(max-width:1250px){.main{padding:0 26px 65px}.sidebar{width:220px;flex-basis:220px}.metrics{grid-template-columns:repeat(2,1fr)}.dashboard-grid{grid-template-columns:minmax(0,1.2fr) minmax(275px,.8fr)}}
+@media(max-width:950px){.dashboard-grid{grid-template-columns:1fr}.main{padding:0 20px 55px}.sidebar{width:74px;flex-basis:74px;padding:26px 10px}.brand{margin:3px 7px 40px}.brand-name,.brand-caption,.sidebar .side-label,.nav-btn span,.quote-card,.sidebar-foot>div:not(.avatar){display:none}.nav-btn{padding:13px;justify-content:center}.sidebar-foot{justify-content:center}.metric{min-height:165px}}
+@media(max-width:620px){.app{display:block}.sidebar{position:fixed;bottom:0;top:auto;height:68px;width:100%;padding:8px 14px;border-top:1px solid #2b363b;border-right:0;display:flex;flex-direction:row;align-items:center;justify-content:center;background:#10161bf7;backdrop-filter:blur(20px)}.sidebar .brand,.sidebar-spacer,.sidebar-foot{display:none}.sidebar .nav{display:flex;align-items:center;justify-content:space-between;width:100%;gap:5px}.sidebar .nav-btn{width:55px;padding:13px 8px;justify-content:center}.main{padding:0 16px 95px}.topbar{min-height:73px}.date-pill,.keycap{display:none}.intro{margin:32px 0 23px;align-items:start;flex-direction:column;gap:17px}.intro h1{font-size:34px;letter-spacing:-2px}.intro p{font-size:12px;margin-top:10px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.metric{padding:15px;min-height:153px;border-radius:16px}.metric.hero-metric{grid-column:span 2;min-height:160px}.metric h2{font-size:29px;margin:19px 0 0}.metric .metric-top{font-size:10px}.metric .metric-sub{font-size:10px}.metric .metric-bottom{margin-top:12px;font-size:10px}.ring{right:20px;bottom:33px}.panel{padding:19px;border-radius:18px}.calendar-head,.calendar-grid{gap:5px}.task{padding:13px 10px;gap:10px}.task-name{font-size:12px}.task-note{font-size:9px}.cat-tag{display:none}.weight-tag{font-size:9px}.day-pills{gap:5px}.day-pill{padding:9px 2px;border-radius:9px}.day-pill strong{font-size:13px}.insight-grid{grid-template-columns:1fr 1fr}.settings-grid{grid-template-columns:1fr}.review-panel{flex-wrap:wrap}.review-panel .btn-soft{margin-left:0}.review-item{align-items:flex-start;flex-direction:column}.modal{padding:20px}.foot-message{font-size:9px}.toast{bottom:85px;right:15px;left:15px;max-width:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ORBIT / CHANGE 01 — POWDER BLUE, SALMON AND INK */
+:root{--bg:#080d16;--surface:#111b2a;--surface2:#142232;--surface3:#1c2c40;--line:#26384c;--text:#f2f6fb;--muted:#9aabbc;--dim:#6f8396;--lime:#b9ddf1;--lime-soft:#233d51;--amber:#ffb1a4;--red:#fa9588;--radius:22px;--shadow:0 30px 80px #0009}
+body{background:#080d16}
+.app{display:block;min-height:100vh;background:radial-gradient(ellipse 50% 43% at 83% -10%,#23466355,transparent 85%),radial-gradient(ellipse 46% 25% at 9% 80%,#4d2e3b27,transparent 80%),#080d16}
+.main{width:min(100%,1580px);max-width:1580px;padding:0 72px 80px;margin:0 auto}
+.page{animation:page-awaken .85s cubic-bezier(.2,.85,.22,1) both}
+@keyframes page-awaken{0%{opacity:0;filter:blur(8px);transform:translateY(22px) scale(.99)}100%{opacity:1;filter:blur(0);transform:translateY(0) scale(1)}}
+.panel{background:linear-gradient(145deg,#121e2b,#0e1824);border-color:#284052}
+.btn-primary{background:#b9ddf1;color:#0b1522;box-shadow:0 14px 38px #5ab9fa16}
+.btn-primary:hover{background:#d6eeff;box-shadow:0 18px 46px #6eb7ef2b}
+.btn-soft{background:#1a2939;border-color:#37516a}
+.btn-soft:hover{border-color:#9bbfd9}
+.btn-ghost{background:#182b3a;border-color:#48687e;color:#c9eaff}
+.metric.hero-metric{background:linear-gradient(135deg,#1b3b52,#142b3e);border-color:#365b77}
+.ring:after{background:#1d3c52}
+.metric .metric-bottom{color:#b9ddf1}
+.calendar-cell.perfect{background:#b8ddec;color:#102a40}
+.calendar-cell.good{background:#5488a7;color:#eff8ff}
+.calendar-cell.medium{background:#8b6580;color:#fff0f0}
+.calendar-cell.low{background:#b55b63;color:#fff0ed}
+.calendar-cell.today{outline-color:#d8edfc}
+.bar-fill{background:linear-gradient(0deg,#5a96bf,#c4e7fa)}
+.bar-col.active .bar-track{box-shadow:0 0 0 1px #759fb6}
+.review-panel{background:linear-gradient(110deg,#20364b,#1c2b3d);border-color:#42647c}
+.review-symbol{background:#284b65;color:#b9ddf1}
+.day-pill.selected,.weekday-picker label:has(input:checked){background:#254158;border-color:#b9ddf1;color:#d7edfd}
+.day-pill.selected strong{color:#b9ddf1}
+.routine-icon{background:#2a485f;color:#b9ddf1}
+.review-buttons button{background:#2c4b5b;color:#d7f0ff}
+.review-buttons button.dismiss{background:#3b303c;color:#ffb1a4}
+.field input:focus,.field select:focus{border-color:#b9ddf1}
+.toast{background:#b9ddf1;color:#102135}
+.foot-message{padding:55px 0 24px;opacity:.65}
+/* The navigation is not an always-visible sidebar. Only the small orbital launcher remains. */
+.orbital-nav{position:fixed;bottom:24px;left:26px;z-index:80;display:flex;align-items:center;justify-content:center;width:62px;height:62px}
+.orb-launch{border:1px solid #779ab5a1;width:62px;height:62px;border-radius:21px;background:linear-gradient(150deg,#233b50ed,#101f30f6);backdrop-filter:blur(20px);color:#c6e7fb;display:grid;place-items:center;box-shadow:0 14px 44px #0008,0 0 35px #72bdf21c;position:relative;z-index:3;transition:transform .35s,background .35s,border-color .35s}
+.orb-logo{display:grid;place-items:center;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.orb-launch:before{content:'';position:absolute;inset:-6px;border:1px solid #729bc14b;border-radius:27px;pointer-events:none;animation:orbit-glow 4s ease-in-out infinite}
+@keyframes orbit-glow{50%{opacity:.45;transform:scale(1.045)}}
+.orb-launch:hover{transform:translateY(-3px);border-color:#b7ddf2;background:#264c66}
+.orb-launch:hover .orb-logo,.orbital-nav.expanded .orb-logo{transform:rotate(135deg)}
+.orb-menu{position:absolute;left:1px;bottom:79px;display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 8px;background:#122439ee;border:1px solid #35516be0;backdrop-filter:blur(22px);border-radius:28px;box-shadow:0 18px 65px #0009;opacity:0;transform:translateY(17px) scale(.94);pointer-events:none;visibility:hidden;transition:opacity .34s,transform .42s cubic-bezier(.16,1,.3,1),visibility .34s}
+.orbital-nav.expanded .orb-menu{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;visibility:visible}
+.orb-link{position:relative;display:grid;place-items:center;width:47px;height:47px;background:transparent;color:#93aabd;border-radius:17px;transition:background .25s,color .25s,transform .3s;opacity:0;transform:translateY(14px) scale(.9)}
+.orbital-nav.expanded .orb-link{animation:orb-stagger .42s cubic-bezier(.2,1,.2,1) both;animation-delay:calc(var(--item)*45ms)}
+@keyframes orb-stagger{to{opacity:1;transform:translateY(0) scale(1)}}
+.orb-link:hover,.orb-link:focus-visible{color:#0c1b2a;background:#b9ddf1;transform:translateX(4px)}
+.orb-link.active{background:#385976;color:#dbf0ff}
+.orb-link.active:after{content:'';position:absolute;width:4px;height:4px;right:1px;top:2px;border-radius:50%;background:#ff9e91}
+.orb-tooltip{position:absolute;left:60px;white-space:nowrap;font-size:11px;font-weight:800;color:#091521;background:#d9e9f3;border-radius:8px;padding:8px 10px;pointer-events:none;opacity:0;transform:translateX(-5px);transition:.2s}
+.orb-link:hover .orb-tooltip,.orb-link:focus-visible .orb-tooltip{opacity:1;transform:translateX(0)}
+/* Immersive page transitions: distinct motion per destination. */
+.travel-veil{position:fixed;inset:0;z-index:150;background:#060d17;display:grid;place-items:center;opacity:0;pointer-events:none;transform:scale(1.04);transition:opacity .28s,transform .38s;overflow:hidden}
+.travel-veil.shown{opacity:1;transform:scale(1);pointer-events:auto}
+.travel-veil.leaving{opacity:0;transform:scale(1.06)}
+.travel-veil:before{content:'';position:absolute;width:44vmax;height:44vmax;border-radius:50%;background:radial-gradient(circle,#31658f50,transparent 70%);filter:blur(55px)}
+.travel-emblem{position:relative;width:176px;height:176px;display:grid;place-items:center;color:#c5e7fb}
+.travel-orbit{position:relative;z-index:2;display:grid;place-items:center;width:90px;height:90px;border-radius:32px;background:#1e3851;border:1px solid #6fa1c5;box-shadow:0 0 55px #72b3ea33;animation:travel-beat .7s ease-in-out infinite alternate}
+.travel-ring{position:absolute;inset:0;border:1px solid #81b4d488;border-radius:50%;animation:travel-spin 2s linear infinite}
+.travel-ring:after{content:'';position:absolute;top:12px;left:24px;width:11px;height:11px;border-radius:50%;background:#ffad9e;box-shadow:0 0 24px #ff9c88}
+.ring-b{inset:18px;border-color:#789ab388;animation-direction:reverse;animation-duration:1.4s;transform:rotate(45deg)}
+.ring-c{inset:-24px;border-style:dashed;border-color:#b8ddf14a;animation-duration:5s}
+@keyframes travel-spin{to{transform:rotate(360deg)}}@keyframes travel-beat{to{transform:scale(.92);border-radius:50%}}
+.travel-overview .travel-orbit{animation:overview-flip .7s ease-in-out infinite alternate;background:#a6d1eb;color:#13283b}
+@keyframes overview-flip{to{transform:rotateY(180deg) scale(.85);border-radius:50%}}
+.travel-planner .travel-emblem{animation:planner-pendulum .75s ease-in-out infinite alternate}
+@keyframes planner-pendulum{to{transform:rotate(15deg) translateY(-12px)}}
+.travel-insights .travel-bars{display:flex}
+.travel-bars{display:none;align-items:end;gap:7px;position:absolute;top:calc(50% + 104px)}
+.travel-bars i{width:6px;height:14px;background:#a3d0eb;border-radius:3px;animation:bar-race .7s ease-in-out infinite alternate}
+.travel-bars i:nth-child(2){animation-delay:.12s;background:#ffab9c}.travel-bars i:nth-child(3){animation-delay:.26s}.travel-bars i:nth-child(4){animation-delay:.4s;background:#ffab9c}.travel-bars i:nth-child(5){animation-delay:.54s}
+@keyframes bar-race{to{height:42px}}
+.travel-routines .travel-ring{border-style:dotted;border-width:3px}.travel-reviews .travel-orbit{animation:review-pop .6s ease-in-out infinite alternate}
+@keyframes review-pop{to{transform:scale(1.2) rotate(-12deg);background:#3d6c70}}
+.travel-settings .travel-orbit{animation:travel-spin 1.5s linear infinite}.travel-home .travel-ring{animation-duration:1s}
+/* HOME — editorial-scale greeting, sculptural orbit, and measured performance. */
+.home-scene{position:relative;max-width:1370px;margin:auto;padding:0 0 30px}
+.home-stars{position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(#b4d7ee44 1px,transparent 1px);background-size:33px 33px;mask-image:linear-gradient(to bottom,black,transparent 59%)}
+.home-hero{min-height:540px;position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:15px;padding:72px 0 60px;border-bottom:1px solid #294052}
+.home-copy{position:relative;z-index:2;max-width:680px}
+.home-kicker,.micro-title{font-size:10px;letter-spacing:2.6px;font-weight:800;color:#b3cfe2}
+.home-kicker{display:flex;align-items:center;gap:13px;white-space:nowrap}
+.pulse-dot{height:7px;width:7px;display:inline-block;background:#ff9e8b;box-shadow:0 0 0 5px #ff9e8b20;border-radius:50%;animation:orbit-glow 2.1s ease-in-out infinite}
+.kicker-line{width:37px;height:1px;background:#789caf80}
+.home-copy h1{font-family:Manrope,'DM Sans',sans-serif;font-size:clamp(46px,5.5vw,90px);letter-spacing:-5px;line-height:1.1;font-weight:700;margin:43px 0 5px;white-space:nowrap}
+.home-person{color:#b5d9ef}
+.home-mantra{font-family:Manrope,sans-serif;font-size:clamp(54px,6.5vw,107px);line-height:1.04;letter-spacing:-6px;font-weight:800;white-space:nowrap}
+.home-mantra em{font-family:Georgia,serif;font-weight:400;font-style:italic;color:#ffab9b;letter-spacing:-7px}
+.home-copy p{font-size:15px;color:#98afc0;line-height:1.85;max-width:475px;margin:29px 0 27px}
+.home-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.home-cta{display:inline-flex;align-items:center;gap:30px;justify-content:space-between;background:#b5d9ef;color:#111c2c;font-size:12px;font-weight:900;border-radius:13px;padding:17px 20px 17px 22px;box-shadow:0 12px 45px #6cb1de25;transition:transform .25s,box-shadow .25s}
+.home-cta:hover{transform:translateY(-4px);box-shadow:0 16px 48px #6cb1de39}
+.home-secondary{display:inline-flex;align-items:center;gap:11px;color:#a8c0d2;background:transparent;font-weight:700;font-size:12px;padding:15px}
+.home-secondary:hover{color:#ffac9c}
+.home-art{position:relative;min-width:0;height:420px;display:grid;place-items:center;isolation:isolate;filter:drop-shadow(0 0 70px #82c6f01d)}
+.halo{border:1px solid #a2d1ec49;border-radius:50%;position:absolute;aspect-ratio:1;animation:art-rotate 45s linear infinite}
+.halo-outer{width:min(97%,420px);border-style:dashed;box-shadow:inset 0 0 30px #4c9fd415,0 0 70px #3d9fce12}
+.halo-middle{width:min(73%,308px);border-color:#a7ceeb77;animation-direction:reverse;animation-duration:30s}
+.halo-middle:after{content:'';position:absolute;top:27px;left:25px;width:13px;height:13px;border-radius:50%;background:#ffad9f;box-shadow:0 0 22px #ffad9f}
+.halo-inner{width:min(54%,220px);border-color:#ffae9c40;animation-duration:21s}
+.halo-nucleus{width:142px;height:142px;border-radius:50%;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 25% 23%,#78a6c2,#2b4d68 39%,#12263a 74%);box-shadow:inset 0 0 23px #d1ebff44,0 0 75px #a5cde735;animation:nucleus-float 5s ease-in-out infinite;color:#f2f9ff}
+.halo-nucleus:before{content:'';position:absolute;inset:-9px;border:1px solid #c3e9ff44;border-radius:50%}
+.halo-nucleus:after{content:'';position:absolute;inset:17px;border:1px solid #e0f0ff22;border-radius:50%}
+.halo-nucleus span{filter:drop-shadow(0 3px 13px #e3efff75)}
+.satellite{position:absolute;width:10px;height:10px;border-radius:50%;background:#a4d4f0;box-shadow:0 0 21px #9ccff3;z-index:2}
+.sat-one{left:10%;top:37%}.sat-two{right:11%;bottom:27%;background:#ffad9e;box-shadow:0 0 22px #ffad9e}
+.orbit-art-caption{position:absolute;bottom:-16px;font-size:9px;font-weight:800;letter-spacing:3px;color:#7494a9}.orbit-art-caption span{color:#ff9d8e;margin:0 5px}
+@keyframes art-rotate{to{transform:rotate(360deg)}}@keyframes nucleus-float{50%{transform:translateY(-10px)}}
+.home-content{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(320px,.76fr);gap:34px;margin-top:33px}
+.home-left,.home-right{min-width:0}
+.home-section-head{display:flex;align-items:center;gap:14px;margin-bottom:17px}
+.head-rule{height:1px;flex:1;background:#2d485b}
+.micro-number{color:#728b9d;font-size:10px;letter-spacing:1.4px;font-weight:800}
+.home-stat-row{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+.home-daily-card,.home-monthly-card,.home-trend-card,.reflection-card{border:1px solid #2e4a5d;border-radius:23px;overflow:hidden;background:linear-gradient(135deg,#132536,#101b29)}
+.home-daily-card{background:linear-gradient(120deg,#1d3b51 0%,#142c40 70%)}
+.home-daily-card,.home-monthly-card{padding:24px;min-height:277px}
+.home-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:800;color:#b6d4e5;font-size:10px;letter-spacing:1.1px}
+.home-card-head>span:first-child{display:flex;align-items:center;gap:9px}
+.card-index{color:#7296ac}
+.home-progress-inner{display:flex;align-items:center;gap:23px;margin-top:29px}
+.home-dial{width:142px;height:142px;flex:0 0 142px;border-radius:50%;background:conic-gradient(#b7dcf1 calc(var(--score)*1%),#3a596c 0);display:grid;place-items:center;box-shadow:0 0 35px #8dd3ee18;position:relative;animation:appear-dial .8s ease both}
+.home-dial:before{content:'';position:absolute;inset:9px;background:#1a354a;border-radius:50%;box-shadow:inset 0 0 20px #122333}
+.home-dial>div{z-index:1;text-align:center}.home-dial strong{display:block;font-family:Manrope,sans-serif;font-size:31px;letter-spacing:-1.8px}.home-dial span{font-size:8px;color:#93b7ce;letter-spacing:2px;font-weight:800}
+@keyframes appear-dial{from{filter:blur(8px);transform:scale(.7)}to{filter:none;transform:scale(1)}}
+.home-dial-detail .dial-big{font-family:Manrope,sans-serif;font-weight:800;font-size:28px;letter-spacing:-2px;white-space:nowrap}
+.dial-big span{font-size:15px;color:#97b2c6;font-weight:500}
+.home-dial-detail>span{display:block;color:#9ebbd0;font-size:9px;font-weight:800;letter-spacing:1.5px;margin:5px 0 13px}
+.home-dial-detail p{font-size:12px;color:#a4bac9;line-height:1.5;margin:0}
+.monthly-big{display:block;font-family:Manrope,sans-serif;font-size:62px;letter-spacing:-4.4px;line-height:1.25;margin-top:21px;color:#ffafa3}
+.home-monthly-card>p{font-size:9px;letter-spacing:1.5px;font-weight:800;color:#8fa8bc;margin:0 0 17px}
+.home-month-bar{width:100%;height:5px;background:#2b3f53;border-radius:5px;overflow:hidden;margin-bottom:19px}.home-month-bar>div{height:100%;border-radius:5px;background:linear-gradient(90deg,#84bcd7,#ffac9c);transition:width .5s}
+.home-mini-stats{display:flex;gap:30px}.home-mini-stats div{display:grid;gap:4px}.home-mini-stats b{font-size:17px}.home-mini-stats small{font-size:8px;color:#91aabb;letter-spacing:1px;font-weight:800}
+.home-trend-card{padding:24px;margin-top:16px}
+.home-trend-head{display:flex;align-items:start;justify-content:space-between;gap:10px}.home-trend-head h3{margin:9px 0 0;font-family:Manrope;font-size:22px;letter-spacing:-.8px}.trend-link{background:transparent;color:#bedcf1;display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;white-space:nowrap}
+.home-trend-card>.panel-heading{display:none}.home-trend-card .performance-bars{margin:23px 0 0;height:117px}.home-trend-card .bar-track{max-width:60px}
+.reflection-card{min-height:352px;display:flex;flex-direction:column;justify-content:space-between;padding:27px;background:linear-gradient(150deg,#2c3547,#253044 49%,#312937 100%);border-color:#58434f;position:relative}
+.reflection-card:before{content:'〝';position:absolute;right:10px;top:20px;font-size:185px;line-height:1;color:#ffbaa809;font-family:Georgia,serif;pointer-events:none}
+.reflection-top{display:flex;align-items:center;gap:13px}.reflection-sigil{width:38px;height:38px;border:1px solid #9a73806d;border-radius:12px;display:grid;place-items:center;color:#ffb5a7;background:#ffb4a611}
+.reflection-kind{font-size:10px;letter-spacing:2px;color:#ecb2ab;font-weight:800;flex:1}
+.reflection-next{width:38px;height:38px;border:1px solid #9d788388;border-radius:12px;background:#2b2938;color:#e9bbc0;display:grid;place-items:center;transition:transform .25s,background .25s}.reflection-next:hover{background:#543c4c;transform:translateX(3px)}
+.reflection-label{font-size:10px;letter-spacing:2px;font-weight:800;color:#f5c6b9}.reflection-body{transition:opacity .2s,transform .2s}.reflection-body.quote-out{opacity:0;transform:translateY(9px)}
+.reflection-body blockquote{font-family:Georgia,serif;font-size:clamp(22px,2.4vw,33px);line-height:1.38;letter-spacing:-.8px;margin:18px 0;color:#fff0ed}
+.reflection-by{font-size:11px;color:#cca8ad;letter-spacing:.1px}.reflection-counter{text-align:right;color:#ffb4a7;font-family:Manrope;font-size:12px;font-weight:800}.reflection-counter span{color:#9d7c89}
+.home-quickline{display:flex;align-items:start;gap:14px;padding:25px 5px}.quickline-mark{font-size:25px;color:#ffad9f}.home-quickline strong,.home-quickline span:last-child{display:block}.home-quickline strong{font-size:13px;margin-bottom:6px}.home-quickline span:last-child{font-size:11px;color:#91aabc;line-height:1.7}
+.review-notice{border:1px solid #735566;border-radius:14px;background:#312a3a;color:#f9c1b9;display:flex;align-items:center;gap:12px;font-size:12px;font-weight:800;padding:15px 19px;margin-top:17px;text-align:left}.review-notice svg:last-child{margin-left:auto}
+/* OVERVIEW — one generous task canvas; a separate, one-off-only calendar */
+.overview-scene{max-width:1150px;margin:auto;padding:72px 0 0}
+.screen-heading{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:30px}
+.screen-heading h1{font-family:Manrope,sans-serif;font-size:clamp(48px,6vw,80px);line-height:1.05;letter-spacing:-5px;margin:12px 0 15px}
+.screen-heading h1 em,.overview-calendar-title h2 em{font-family:Georgia,serif;font-weight:400;color:#ffad9f}
+.screen-heading p,.overview-calendar-title p{color:#93acbf;font-size:14px;line-height:1.7;margin:0}
+.overview-task-surface{padding:36px 37px 31px;min-height:390px;background:linear-gradient(135deg,#142639,#0c1826);border:1px solid #35526b}
+.overview-task-surface .panel-heading .section-title{font-size:29px}
+.overview-task-surface .tasks-list{margin-top:25px}.overview-task-surface .task{padding:21px 17px}.overview-task-surface .task-name{font-size:15px}
+.overview-calendar-title{margin:66px 0 24px}.overview-calendar-title h2{font-family:Manrope,sans-serif;letter-spacing:-2px;font-size:clamp(31px,4.2vw,49px);margin:12px 0 10px}
+.unique-calendar-panel{padding:32px;background:linear-gradient(155deg,#132232,#0c1825)}
+.unique-calendar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}.unique-calendar-header h3{font-family:Manrope,sans-serif;font-size:25px;letter-spacing:-1px;margin:5px 0 0}
+.calendar-controls{display:flex;align-items:center;gap:7px}
+.unique-weekdays,.unique-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px}
+.unique-weekdays{text-align:center;color:#809aaf;font-size:11px;font-weight:800;letter-spacing:1px;margin-bottom:11px}
+.unique-cell{background:#16283a;border:1px solid #283e52;border-radius:13px;min-height:77px;display:flex;align-items:flex-start;flex-direction:column;padding:12px;position:relative;color:#c4d8e7;transition:transform .25s,background .25s,border-color .25s}
+.unique-cell.outside{background:transparent;border-color:transparent}.unique-cell:not(.outside):hover{background:#1f374c;transform:translateY(-2px);border-color:#a5cce8}
+.unique-cell.selected{border-color:#ffac9e;background:#473241;box-shadow:0 0 0 1px #ffac9e55}
+.unique-cell.is-today .unique-number{background:#b8ddf1;color:#102538;border-radius:8px;padding:2px 8px;margin:-3px}
+.unique-number{font-size:13px;font-weight:800}.unique-markers{display:flex;gap:5px;position:absolute;left:12px;bottom:13px}.unique-markers i{width:6px;height:6px;display:block;border-radius:50%}.marker-blue{background:#a5dcf7}.marker-coral{background:#ff9c8d}
+.unique-cell small{position:absolute;right:10px;bottom:9px;color:#95b5c9;font-size:10px}
+.unique-calendar-footer{border-top:1px solid #30465a;margin-top:24px;padding-top:23px}.unique-day-heading{display:flex;justify-content:space-between;align-items:center;gap:10px}.unique-day-heading h4{font-size:20px;letter-spacing:-.5px;margin:7px 0 0;font-family:Manrope}.unique-count{font-size:10px;color:#aac9df;letter-spacing:1px;font-weight:800}
+.unique-items{display:grid;gap:8px;margin:18px 0}.unique-item{padding:12px 14px;border:1px solid #31495d;border-radius:11px;background:#1b2d40;display:flex;align-items:center;gap:11px}.unique-item-name{font-size:13px;font-weight:700;flex:1}.unique-status{display:grid;place-items:center;color:#93b6cf}.unique-status.is-done{color:#ffab9e}.unique-category{font-size:10px;color:#90acbd}
+.unique-empty{display:flex;align-items:center;gap:11px;color:#7e9bad;padding:23px 0;font-size:12px}.unique-calendar-footer>.light-link{margin-top:11px}
+@media(max-width:1150px){.main{padding:0 34px 65px}.home-hero{min-height:480px}.home-copy h1{font-size:clamp(42px,5.5vw,69px);letter-spacing:-3px}.home-mantra{font-size:clamp(50px,6vw,83px);letter-spacing:-4px}.home-content{grid-template-columns:1fr}.home-right{display:grid;grid-template-columns:1fr;max-width:100%}.home-art{height:340px}.halo-outer{width:330px}}
+@media(max-width:770px){.main{padding:0 22px 120px}.home-hero{grid-template-columns:1fr;padding:83px 0 42px;min-height:0}.home-copy h1{font-size:clamp(43px,9vw,72px)}.home-mantra{font-size:clamp(55px,11vw,86px)}.home-art{height:270px;margin-top:22px}.halo-outer{width:280px}.halo-middle{width:205px}.halo-inner{width:160px}.halo-nucleus{width:112px;height:112px}.home-content{gap:30px;margin-top:28px}.home-hero .orbit-art-caption{bottom:-8px}.home-kicker{font-size:9px;letter-spacing:1.6px}.overview-scene{padding-top:60px}.overview-task-surface{padding:24px}.unique-cell{min-height:67px;padding:9px}.orbital-nav{left:18px;bottom:17px}}
+@media(max-width:570px){.main{padding:0 17px 105px}.home-hero{padding-top:75px}.home-copy h1{font-size:clamp(41px,10.2vw,58px);letter-spacing:-3px;margin-top:35px}.home-mantra{font-size:clamp(50px,12.5vw,76px);letter-spacing:-4px}.home-mantra em{letter-spacing:-4px}.home-copy p{font-size:13px;margin:25px 0 24px}.home-kicker{flex-wrap:wrap;white-space:normal;font-size:9px;gap:8px}.kicker-line{width:17px}.home-actions{align-items:stretch}.home-cta{padding:16px 17px}.home-secondary{padding-left:0}.home-art{height:245px}.home-stat-row{grid-template-columns:1fr}.home-daily-card,.home-monthly-card{min-height:0;padding:21px}.home-dial{height:133px;width:133px;flex-basis:133px}.home-monthly-card{padding-bottom:26px}.home-mini-stats{gap:50px}.home-content{gap:16px}.reflection-card{min-height:340px;padding:23px}.reflection-body blockquote{font-size:27px}.orbital-nav{bottom:16px;left:18px;width:54px;height:54px}.orb-launch{width:54px;height:54px;border-radius:17px}.orb-menu{position:fixed;left:12px;right:12px;bottom:84px;width:auto;display:flex;flex-direction:row;justify-content:space-between;gap:1px;padding:9px 5px;border-radius:20px}.orb-link{width:calc((100vw - 48px)/7);max-width:48px;height:46px;border-radius:12px}.orb-tooltip{left:50%;top:-45px;transform:translate(-50%,4px);font-size:9px}.orb-link:hover .orb-tooltip,.orb-link:focus-visible .orb-tooltip{transform:translate(-50%,0)}.screen-heading{padding:0;flex-direction:column;align-items:start;gap:20px}.screen-heading h1{font-size:51px}.overview-scene{padding:53px 0 0}.overview-task-surface{padding:18px}.overview-task-surface .task{padding:15px 8px}.overview-task-surface .task-name{font-size:13px}.overview-calendar-title{margin-top:52px}.unique-calendar-panel{padding:14px}.unique-weekdays,.unique-grid{gap:5px}.unique-cell{min-height:52px;border-radius:8px;padding:6px}.unique-number{font-size:11px}.unique-cell small{font-size:8px;right:5px;bottom:5px}.unique-markers{left:6px;bottom:8px;gap:3px}.unique-markers i{width:4px;height:4px}.unique-cell.is-today .unique-number{padding:1px 4px}.unique-calendar-header h3{font-size:21px}.unique-category{display:none}.home-trend-head h3{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.travel-veil,.travel-orbit,.travel-ring,.travel-emblem,.halo,.halo-nucleus,.orb-launch:before,.pulse-dot{animation:none!important}.page{animation:none!important}}
+/* Consistent blue/coral treatment in supporting screens. */
+.mini-badge{background:#254258;color:#c2e3f6;border-color:#3e627c}
+.empty-icon{background:#28465c;color:#bedff3}
+.check-input:checked:after{color:#132435}
+.task.checked .task-name{text-decoration-color:#618da6}
+.task:hover{background:#213346;border-color:#496c85}
+.task-actions button:hover{background:#253d50;color:#bedff3}
+.progress-track{background:#2c4152}
+.progress-fill{background:linear-gradient(90deg,#64a6d1,#b9ddf1)}
+.review-panel p{color:#a6bdce}
+.date-btn{background:#1e3448;border-color:#48647b}
+.insight-card,.routine-item,.setting-box{background:#142334;border-color:#344b5e}
+.routine-action{background:#20364b;border-color:#405b72}
+.routine-action:hover{border-color:#b9ddf1;color:#c4e6f7}
+.review-item{background:#192b3d;border-color:#355168}
+.weekday-picker label{background:#14283a;border-color:#3a536b}
+.kbd{background:#1a3145;color:#b9ddf1}
+.intro h1 em{color:#ffac9e}
+.effort-note{color:#91acc1}
+
+/* ORBIT / CHANGE 02 — MIDNIGHT BLACK × ELECTRIC BLUE × CANTALOUPE ORANGE
+   Inspired by the user's FluxEdit reference: near-black canvases, an electric
+   blue glow that blooms into a restrained cantaloupe horizon, and quiet cards.
+   This layer deliberately keeps all existing behavior, layout and animations. */
+:root{
+  --bg:#02070A;--surface:#07121B;--surface2:#0B1A25;--surface3:#102532;
+  --line:#204054;--text:#F4F8FC;--muted:#9CB1BE;--dim:#718D9D;
+  --lime:#0297DE;--lime-soft:#092F45;--amber:#FC734D;--red:#FF826B;
+  --midnight:#02070A;--electric:#0297DE;--cantaloupe:#FC734D;
+  --shadow:0 28px 80px #000a;
+}
+html{background:var(--midnight)}
+body{background:var(--midnight);color:var(--text)}
+.app{
+  background:
+    radial-gradient(ellipse 37% 24% at 69% 3%,#0297DE19,transparent 90%),
+    radial-gradient(ellipse 50% 21% at 83% 91%,#FC734D0d,transparent 90%),
+    var(--midnight);
+}
+.main{position:relative}
+.page{position:relative}
+.panel{background:linear-gradient(155deg,#0B1C28 0%,#07121A 70%,#061019 100%);border-color:#193648}
+.panel:hover{border-color:#2F5C73}
+.eyebrow,.small-overline{color:#70C9F5}
+.btn-primary,.home-cta{background:var(--electric);color:#fff;box-shadow:0 9px 31px #0297DE36}
+.btn-primary:hover,.home-cta:hover{background:#19B1FF;box-shadow:0 12px 43px #0297DE63}
+.btn-soft,.btn-ghost{background:#0B2434;border:1px solid #26506B;color:#D8F0FF}
+.btn-soft:hover,.btn-ghost:hover{border-color:var(--electric);background:#103249}
+.icon-button{background:#0C2432;border:1px solid #2C5267;color:#BBD8E9}
+.icon-button:hover{border-color:var(--electric);color:#fff}
+.mini-badge{background:#072B40;color:#65C9FF;border-color:#155376}
+.progress-track{background:#142E3F}
+.progress-fill{background:linear-gradient(90deg,var(--electric),#4CC7FF)}
+.check-input{background:#061520;border-color:#4B7185}
+.check-input:hover{border-color:var(--electric)}
+.check-input:checked{background:var(--electric);border-color:var(--electric);box-shadow:0 0 15px #0297DE4d}
+.check-input:checked:after{color:#fff}
+.task{background:#0C1B27;border-color:#20394A}
+.task:hover{background:#102638;border-color:#2978A0}
+.task.checked .task-name{text-decoration-color:#3887AA}
+.cat-tag{background:#122E42;color:#B0D1E5}
+.task-actions button:hover{background:#10364c;color:#C7EFFF}
+.progress-track{background:#1a3446}
+.bar-fill{background:linear-gradient(0deg,#026AAB,var(--electric) 75%,#57CCFF);box-shadow:0 0 18px #0297DE34}
+.bar-col.active .bar-track{box-shadow:0 0 0 1px #4CB1E2}
+.calendar-cell.perfect{background:#0297DE;color:#FFFFFF}
+.calendar-cell.good{background:#1472A9;color:#F4FAFF}
+.calendar-cell.medium{background:#A94C3B;color:#FFF7F2}
+.calendar-cell.low{background:#763729;color:#FFF2EA}
+.calendar-cell.today{outline-color:var(--cantaloupe)}
+.day-pill.selected,.weekday-picker label:has(input:checked){background:#0F3952;border-color:var(--electric);color:#EDF9FF}
+.day-pill.selected strong{color:#4DC5FF}
+.review-panel{background:linear-gradient(115deg,#0E2C41,#071924);border-color:#236388}
+.review-symbol,.routine-icon,.empty-icon{background:#103850;color:#60C9FF}
+.review-buttons button{background:#123750;color:#DCF3FF}
+.review-buttons button.dismiss{background:#442218;color:#FFAB92}
+.field input:focus,.field select:focus{border-color:var(--electric)}
+.toast{background:var(--electric);color:white}
+.insight-card,.routine-item,.setting-box{background:linear-gradient(150deg,#0D2230,#071821);border-color:#224456}
+.routine-action{background:#0E2C3D;border-color:#2C5C74}
+.routine-action:hover{border-color:var(--electric);color:#D4F3FF}
+.review-item{background:#0D2332;border-color:#2A4D62}
+.weekday-picker label{background:#0C2230;border-color:#24485E}
+.kbd{background:#0E2939;color:#4CC6FF}
+.date-btn{background:#0A2437;border-color:#285675}
+.review-notice{border-color:#8A4835;background:#301A16;color:#FFB29A}
+
+/* Floating navigation: a glowing instrument, not a persistent bar. */
+.orb-launch{
+  border-color:#2879A0;
+  background:linear-gradient(145deg,#0A3B57,#061622 72%);
+  color:#E1F7FF;
+  box-shadow:0 16px 44px #0009,0 0 34px #0297DE38,inset 0 1px 0 #71D3FF22;
+}
+.orb-launch:before{border-color:#0297DE64}
+.orb-launch:hover{border-color:#37C0FF;background:#0B4B71;box-shadow:0 0 55px #0297DE5C}
+.orb-menu{background:#061622ed;border-color:#2F617C;box-shadow:0 22px 80px #000c,0 0 42px #0297DE1e}
+.orb-link{color:#A3C1D3}
+.orb-link:hover,.orb-link:focus-visible{color:#fff;background:var(--electric)}
+.orb-link.active{color:#fff;background:#075985;box-shadow:inset 0 0 0 1px #0297DE70}
+.orb-link.active:after{background:var(--cantaloupe)}
+.orb-tooltip{background:var(--electric);color:white}
+.travel-veil{background:var(--midnight)}
+.travel-veil:before{background:radial-gradient(circle,#0297DE44 0%,#FC734D17 45%,transparent 72%)}
+.travel-emblem{color:#D8F5FF}
+.travel-orbit{background:#075984;border-color:var(--electric);box-shadow:0 0 70px #0297DE6c}
+.travel-ring{border-color:#46C4FF7c}
+.travel-ring:after{background:var(--cantaloupe);box-shadow:0 0 24px #FC734Daa}
+.ring-b{border-color:#0297DE80}
+.ring-c{border-color:#0297DE35}
+.travel-overview .travel-orbit{background:var(--electric);color:#fff}
+.travel-bars i{background:var(--electric)}
+.travel-bars i:nth-child(even){background:var(--cantaloupe)}
+
+/* Home: editorial typography laid over the luminous FluxEdit-like atmosphere. */
+.home-scene{isolation:isolate}
+.home-stars{opacity:.45;background-image:radial-gradient(#0297DE50 .8px,transparent 1.4px)}
+.home-hero{isolation:isolate;border-color:#1A3F53;overflow:clip}
+.home-hero:before{
+  content:'';position:absolute;inset:-24px -4vw 0 21%;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(ellipse 39% 55% at 66% 50%,#0297DE4C,transparent 84%),
+    radial-gradient(ellipse 46% 32% at 70% 101%,#FC734D4A,transparent 85%),
+    radial-gradient(ellipse 33% 44% at 51% 75%,#00669A35,transparent 86%);
+  filter:blur(15px);
+  mask-image:linear-gradient(to bottom,transparent 1%,black 22%,black 87%,transparent 100%);
+}
+.home-hero:after{
+  content:'';position:absolute;right:-1%;bottom:9%;width:50%;height:57%;z-index:-1;pointer-events:none;
+  background:repeating-linear-gradient(90deg,transparent 0 8px,#0297DE23 9px 10px,transparent 11px 16px);
+  mask-image:linear-gradient(to top,black,transparent 93%);
+  opacity:.58;
+}
+.home-kicker,.micro-title{color:#A5C9DC}
+.pulse-dot{background:var(--cantaloupe);box-shadow:0 0 0 5px #FC734D22,0 0 22px #FC734D88}
+.kicker-line,.head-rule{background:#2F617C99}
+.home-person{color:#67D1FF;text-shadow:0 0 35px #0297DE40}
+.home-mantra em,.screen-heading h1 em,.overview-calendar-title h2 em,.intro h1 em{color:var(--cantaloupe)}
+.home-copy p{color:#A0B9C9}
+.home-secondary{color:#B2CFDF}
+.home-secondary:hover{color:var(--cantaloupe)}
+.home-art{filter:drop-shadow(0 0 58px #0297DE2b)}
+.home-art:before{
+  content:'';position:absolute;width:93%;height:90%;border-radius:50%;z-index:-1;
+  background:radial-gradient(ellipse at 52% 50%,#0297DE4f,transparent 70%);
+  filter:blur(44px);
+}
+.home-art:after{
+  content:'';position:absolute;bottom:-8%;width:76%;height:45%;border-radius:50%;z-index:-1;
+  background:radial-gradient(ellipse,#FC734D45,transparent 72%);
+  filter:blur(29px);
+}
+.halo{border-color:#0297DE59}
+.halo-outer{box-shadow:inset 0 0 50px #0297DE22,0 0 88px #0297DE28}
+.halo-middle{border-color:#56C8FF8a}
+.halo-middle:after{background:var(--cantaloupe);box-shadow:0 0 24px #FC734Ddb}
+.halo-inner{border-color:#FC734D70}
+.halo-nucleus{
+  background:radial-gradient(circle at 30% 23%,#49BEF2,#037BAF 35%,#064064 62%,#061321 88%);
+  box-shadow:inset 0 0 24px #84DAFF51,0 0 65px #0297DE70,0 0 135px #0297DE2a;
+}
+.halo-nucleus:before{border-color:#8DDDFF55}
+.halo-nucleus:after{border-color:#D8F3FF23}
+.halo-nucleus span{filter:drop-shadow(0 3px 15px #BFEFFF90)}
+.satellite{background:#7CE0FF;box-shadow:0 0 22px #0297DE,0 0 35px #0297DE}
+.sat-two{background:var(--cantaloupe);box-shadow:0 0 23px #FC734D}
+.orbit-art-caption{color:#79ABC5}
+.orbit-art-caption span{color:var(--cantaloupe)}
+
+/* Home data cards: blue is the functional accent; orange the special highlight. */
+.home-daily-card,.home-monthly-card,.home-trend-card,.reflection-card{border-color:#224559;background:linear-gradient(145deg,#0B2333,#07131E)}
+.home-daily-card{
+  background:radial-gradient(ellipse 72% 100% at 0% 103%,#0297DE2c,transparent 86%),linear-gradient(130deg,#0C2B3E,#071825 78%);
+  border-color:#2B5A72;
+}
+.home-monthly-card{background:radial-gradient(ellipse 62% 65% at 100% 100%,#FC734D1b,transparent 94%),linear-gradient(135deg,#0D1D2A,#08131E)}
+.home-card-head{color:#B5D7E9}
+.card-index,.micro-number{color:#78A6BE}
+.home-dial{background:conic-gradient(var(--electric) calc(var(--score)*1%),#174158 0);box-shadow:0 0 38px #0297DE22}
+.home-dial:before{background:#0C2A3C;box-shadow:inset 0 0 19px #02070A}
+.home-dial span,.home-dial-detail>span{color:#90BCD5}
+.dial-big span{color:#A0C4D8}
+.home-dial-detail p{color:#9BB9CB}
+.monthly-big{color:var(--cantaloupe);text-shadow:0 0 44px #FC734D20}
+.home-monthly-card>p,.home-mini-stats small{color:#8FB3C9}
+.home-month-bar{background:#17384A}
+.home-month-bar>div{background:linear-gradient(90deg,var(--electric) 0%,#29B8F6 55%,var(--cantaloupe) 100%)}
+.home-trend-card{background:linear-gradient(135deg,#0C2231,#06141D);border-color:#214A60}
+.trend-link{color:#7ED6FF}
+.home-trend-card .bar-fill{background:linear-gradient(0deg,#086594,var(--electric) 73%,#69D2FF)}
+.home-trend-card .bar-col.active .bar-fill{background:linear-gradient(0deg,#087AB3,#20B0EE 65%,var(--cantaloupe))}
+.reflection-card{
+  background:radial-gradient(ellipse 130% 65% at 100% 112%,#FC734D2A,transparent 84%),
+             linear-gradient(140deg,#112736 0%,#0D1A27 55%,#1D151A 100%);
+  border-color:#4A3740;
+}
+.reflection-card:before{color:#FC734D12}
+.reflection-sigil{color:#FFB39B;border-color:#FC734D50;background:#FC734D12}
+.reflection-kind,.reflection-label{color:#FF9D80}
+.reflection-next{border-color:#FC734D50;color:#FFB8A0;background:#281D22}
+.reflection-next:hover{background:#4B2925}
+.reflection-body blockquote{color:#FFF6F3}
+.reflection-by{color:#D8A598}
+.reflection-counter{color:#FF9A7B}
+.reflection-counter span{color:#B18D89}
+.quickline-mark{color:var(--cantaloupe)}
+.home-quickline span:last-child{color:#8DAEBF}
+
+/* Overview and calendar remain task-first; calendar marks are distinct. */
+.screen-heading p,.overview-calendar-title p{color:#99B8C9}
+.overview-task-surface{
+  background:radial-gradient(ellipse 70% 67% at 100% 0%,#0297DE18,transparent 88%),linear-gradient(135deg,#092437,#06121C 75%);
+  border-color:#2C5B76;
+}
+.unique-calendar-panel{background:linear-gradient(150deg,#0D2130,#07141E);border-color:#234A61}
+.unique-weekdays{color:#89B0C5}
+.unique-cell{background:#0F2839;border-color:#25485B;color:#D5E7F0}
+.unique-cell:not(.outside):hover{background:#123A55;border-color:var(--electric)}
+.unique-cell.selected{border-color:var(--cantaloupe);background:#39251F;box-shadow:0 0 0 1px #FC734D66,0 0 24px #FC734D13}
+.unique-cell.is-today .unique-number{background:var(--electric);color:white}
+.marker-blue{background:var(--electric);box-shadow:0 0 8px #0297DE44}
+.marker-coral{background:var(--cantaloupe);box-shadow:0 0 8px #FC734D55}
+.unique-cell small{color:#90BACF}
+.unique-calendar-footer{border-color:#27536A}
+.unique-count{color:#7DD6FF}
+.unique-item{background:#0E2B3E;border-color:#275573}
+.unique-status{color:#8ABBD1}
+.unique-status.is-done{color:var(--electric)}
+.unique-category{color:#A0C4D8}
+.unique-empty{color:#84ACBF}
+
+/* Keep the glow cinematic rather than overwhelming on small screens. */
+@media(max-width:770px){
+  .home-hero:before{inset:2% -8% -4% 0;background:radial-gradient(ellipse 58% 43% at 55% 64%,#0297DE45,transparent 86%),radial-gradient(ellipse 57% 22% at 56% 90%,#FC734D36,transparent 88%)}
+  .home-hero:after{width:96%;right:2%;height:30%;bottom:6%;opacity:.3}
+  .home-art:after{bottom:-5%;height:30%}
+  .home-copy h1{white-space:normal}
+}
+@media(prefers-reduced-motion:reduce){
+ .home-hero:before,.home-hero:after,.home-art:before,.home-art:after{animation:none!important}
+}
+
+/* ORBIT / CHANGE 03 — MOTION SYSTEM & INTERACTIVE DEPTH
+   The core palette intentionally remains #02070A, #0297DE, #FC734D.
+   Compositor-only movement, CSS 3D without WebGL, local data, reduced-motion access. */
+:root{--ease-out:cubic-bezier(.16,1,.3,1);--ease-spring:cubic-bezier(.2,1.35,.35,1)}
+.app{position:relative;isolation:isolate}
+.app:before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(560px circle at var(--pointer-x,-1000px) var(--pointer-y,-1000px),rgba(2,151,222,.045),transparent 75%);mix-blend-mode:screen}
+.app>.main{z-index:1}
+.page{animation:scene-appear .66s var(--ease-out) both}
+@keyframes scene-appear{from{opacity:0;transform:translateY(16px) scale(.995);filter:blur(5px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+/* Floating quick access, restrained and never a permanent toolbar. */
+.quick-command{position:fixed;z-index:81;bottom:32px;left:100px;width:43px;height:43px;display:grid;place-items:center;background:#071b29ec;border:1px solid #286181;border-radius:15px;color:#b5eaff;box-shadow:0 8px 34px #0009,0 0 20px #0297DE10;backdrop-filter:blur(12px);transition:transform .25s var(--ease-spring),border-color .2s,box-shadow .25s}
+.quick-command:hover,.quick-command:focus-visible{transform:translateY(-4px) rotate(7deg);border-color:#41cbff;box-shadow:0 12px 35px #0297DE35}
+/* Accessible command palette */
+.command-scrim{position:fixed;inset:0;z-index:300;display:flex;align-items:flex-start;justify-content:center;padding:clamp(60px,14vh,140px) 16px 16px;background:rgba(1,4,7,.77);backdrop-filter:blur(15px);animation:scrim-in .22s ease-out both}
+@keyframes scrim-in{from{opacity:0}to{opacity:1}}
+.command-dialog{width:min(610px,100%);max-height:min(590px,75vh);display:flex;flex-direction:column;background:linear-gradient(145deg,#102b3c 0%,#071622 55%,#10141b 100%);border:1px solid #3a667f;border-radius:25px;overflow:hidden;box-shadow:0 42px 130px #000f,0 0 85px #0297DE1b;animation:dialog-in .36s var(--ease-out) both}
+@keyframes dialog-in{from{opacity:0;transform:translateY(-18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.command-search{display:flex;align-items:center;gap:15px;padding:22px 22px 20px;border-bottom:1px solid #234152;color:#74cfff}
+.command-search input{flex:1;min-width:0;background:transparent;outline:0!important;border:0;font-size:17px;color:#fff;font-weight:600}
+.command-search input::placeholder{color:#728d9f}.command-search input::-webkit-search-cancel-button{display:none}
+.command-search kbd{font-size:10px;letter-spacing:1px;font-weight:800;color:#b5d1dc;border:1px solid #325266;background:#112e3b;padding:6px 8px;border-radius:7px}
+.command-group{font-size:10px;letter-spacing:2px;font-weight:900;color:#7ab9d5;padding:19px 22px 10px}
+.command-results{overflow-y:auto;padding:2px 9px 16px;scrollbar-color:#2c5973 transparent}
+.command-item{display:flex;align-items:center;width:100%;gap:13px;text-align:left;background:transparent;color:#d7e8ef;border:1px solid transparent;border-radius:13px;padding:12px 14px;transition:background .16s,transform .16s,border-color .16s}
+.command-item.is-selected,.command-item:hover,.command-item:focus-visible{background:#10415b;border-color:#2d799e;transform:translateX(3px)}
+.command-item>svg:last-child{margin-left:auto;color:#61c7fc;opacity:.8}
+.command-item-icon{width:38px;height:38px;display:grid;place-items:center;background:#0e3148;border:1px solid #2b5c76;border-radius:11px;color:#64caff}
+.command-item-label{display:grid;gap:3px;flex:1}.command-item-label strong{font-size:13px}.command-item-label small{font-size:11px;color:#8eb0c1}
+.command-empty{padding:23px;color:#9db2c0;text-align:center}.command-bottom{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #263e4f;padding:13px 22px;font-size:10px;color:#7fa6b9;letter-spacing:.6px}
+/* Orb: physical depth built from layered, GPU-friendly CSS planes. */
+.orbit-interactive{perspective:850px;cursor:grab;touch-action:pan-y;outline-offset:6px;--orb-x:0deg;--orb-y:0deg;--orb-light-x:50%;--orb-light-y:40%;user-select:none}
+.orbit-interactive.is-grabbing{cursor:grabbing}
+.orbit-interactive:focus-visible{outline:2px solid var(--electric);border-radius:40%}
+.orbital-3d{position:relative;display:grid;place-items:center;width:100%;height:100%;transform-style:preserve-3d;transform:rotateX(var(--orb-x)) rotateY(var(--orb-y));transition:transform .42s var(--ease-out);will-change:transform}
+.orbit-interactive.is-grabbing .orbital-3d{transition-duration:.08s}
+.orbital-3d .halo-outer{transform:translateZ(-24px)}
+.orbital-3d .halo-middle{transform:translateZ(17px)}
+.orbital-3d .halo-inner{transform:translateZ(42px)}
+.orbital-3d .halo-nucleus{transform:translateZ(64px);z-index:3}
+.orbital-3d .sat-one{transform:translateZ(28px)}
+.orbital-3d .sat-two{transform:translateZ(-8px)}
+.orb-aurora{position:absolute;inset:9%;border-radius:50%;pointer-events:none;transform:translateZ(5px);background:radial-gradient(circle at var(--orb-light-x) var(--orb-light-y),rgba(123,222,255,calc(.12 + var(--orb-energy)*.24)),transparent 54%),conic-gradient(from 185deg,#0297DE0a,#0297DE1a,#FC734D10,#0297DE0a);filter:blur(33px);opacity:calc(.5 + var(--orb-energy)*.5)}
+.orbital-3d .halo-nucleus{background:radial-gradient(circle at 28% 22%,#97E6FF 0%,#0297DE 23%,#07537C 48%,#031B2E 81%);box-shadow:inset -16px -20px 35px #010e1e, inset 10px 12px 23px #b9eeff30,0 0 calc(28px + var(--orb-energy)*105px) #0297DE80,0 0 calc(50px + var(--orb-energy)*80px) #FC734D16;animation:energy-breathe 5s ease-in-out infinite;transition:box-shadow .6s}
+.orbital-3d .halo-nucleus:after{content:'';position:absolute;inset:-11px;border:1px solid #b5ecff50;border-radius:50%;box-shadow:0 0 30px #0297DE66}
+@keyframes energy-breathe{0%,100%{filter:brightness(.92)}50%{filter:brightness(1.12)}}
+.orbital-3d .halo-outer{animation-duration:54s}
+.orbital-3d .halo-middle{animation-duration:36s}
+.orbital-3d .halo-inner{animation-duration:22s}
+.orbit-interactive.orb-awakened .halo-nucleus{animation:orb-awaken .95s var(--ease-out) both}
+@keyframes orb-awaken{0%{filter:brightness(1);scale:1}38%{filter:brightness(1.85);scale:1.11}100%{filter:brightness(1);scale:1}}
+.orb-energy-tag{position:absolute;z-index:9;right:7%;bottom:13%;display:inline-flex;gap:7px;align-items:center;background:#071927b5;color:#aee8ff;padding:8px 11px;border:1px solid #2a6483;border-radius:30px;box-shadow:0 4px 16px #0008;font-size:10px;font-weight:800;letter-spacing:1.4px;transform:translateZ(105px)}
+.orbit-art-caption{z-index:11;pointer-events:none}
+/* Reveals, hover physics, and microinteraction choreography. */
+.home-daily-card,.home-monthly-card,.home-trend-card,.reflection-card,.milestones-panel,.insight-card,.unique-calendar-panel{transition:transform .44s var(--ease-out),box-shadow .4s,border-color .3s,opacity .6s}
+.reveal-ready{opacity:1}
+.reveal-ready.in-view{animation:card-reveal .65s var(--ease-out) both}
+@keyframes card-reveal{from{opacity:.72;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+@media(hover:hover){.home-daily-card:hover,.home-monthly-card:hover,.home-trend-card:hover,.reflection-card:hover,.milestones-panel:hover{transform:translateY(-5px);box-shadow:0 26px 67px #0009,0 0 55px #0297DE13;border-color:#367b9a}}
+.task{position:relative;overflow:hidden;isolation:isolate}
+.task-sheen{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(100deg,transparent 15%,#0297DE22 40%,#FC734D18 57%,transparent 78%);transform:translateX(-115%);opacity:0}
+.task.just-completed{animation:task-land .56s var(--ease-spring) both;border-color:#0297DE70;box-shadow:0 0 25px #0297DE24}
+.task.just-completed .task-sheen{opacity:1;animation:task-sweep .75s ease-out both}
+.task.just-completed .check-input{animation:check-pop .55s var(--ease-spring)}
+@keyframes task-land{0%{transform:scale(.97)}45%{transform:scale(1.025)}100%{transform:scale(1)}}
+@keyframes task-sweep{to{transform:translateX(120%)}}
+@keyframes check-pop{0%{transform:scale(.7)}50%{transform:scale(1.25)}100%{transform:scale(1)}}
+.celebration-burst{position:fixed;z-index:250;left:var(--burst-x);top:var(--burst-y);height:1px;width:1px;pointer-events:none}
+.celebration-burst i{position:absolute;left:0;top:0;background:var(--color);height:5px;width:12px;border-radius:4px;box-shadow:0 0 10px var(--color);animation:burst-particle 1s var(--ease-out) forwards}
+.day-perfect-burst i{height:7px;width:16px}
+@keyframes burst-particle{0%{opacity:1;transform:rotate(calc(360deg * var(--i)/var(--n))) translateX(5px) scale(1)}70%{opacity:.94}100%{opacity:0;transform:rotate(calc(360deg * var(--i)/var(--n))) translateX(110px) scale(.25)}}
+/* The same live history informs tap, keyboard and hoverable chart inspection. */
+.bar-col{cursor:pointer;position:relative;border:0;padding:0;background:transparent;min-width:0;border-radius:11px;transition:transform .25s var(--ease-out)}
+.bar-col .bar-track{display:block;overflow:hidden}
+.bar-col .bar-fill{display:block;width:100%;transition:height .6s var(--ease-out),filter .2s}
+.bar-col:hover,.bar-col:focus-visible,.bar-col.is-inspected{transform:translateY(-4px)}
+.bar-col:hover .bar-fill,.bar-col.is-inspected .bar-fill{filter:brightness(1.24) drop-shadow(0 0 8px #0297DE)}
+.bar-col.is-inspected .bar-track{outline:1px solid #FC734D88;outline-offset:3px}
+.bar-col.is-inspected>span:last-child{color:var(--cantaloupe)}
+.chart-inspector{display:flex;align-items:center;flex-wrap:wrap;gap:9px 15px;margin:18px 0 0;padding:15px 16px;background:#0A2231;border:1px solid #25475B;border-radius:13px;font-size:11px;color:#92B0C1;animation:inspector-in .32s var(--ease-out) both}
+.chart-inspector-date{color:#CCE9F9;font-weight:800}.chart-inspector strong{font-family:Manrope,sans-serif;font-size:21px;color:#FC734D;letter-spacing:-1px}.chart-inspector-note{margin-left:auto;color:#71C6EB}
+@keyframes inspector-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+/* One-off calendar: hover previews, selected day content reveal, touch-only month gestures. */
+.unique-grid,.day-pills,.performance-bars,.big-chart{touch-action:pan-y}
+.unique-cell{overflow:visible;z-index:1}
+.unique-cell:hover,.unique-cell:focus-visible{z-index:5}
+@media(hover:hover){.unique-cell:not(.outside):hover:after,.unique-cell:not(.outside):focus-visible:after{content:attr(data-preview);position:absolute;z-index:30;left:50%;bottom:calc(100% + 10px);transform:translateX(-50%);max-width:240px;width:max-content;min-width:115px;padding:10px 12px;border:1px solid #3385AA;background:#061B28;color:#DDF4FF;white-space:normal;text-align:left;line-height:1.4;font-size:11px;font-weight:600;border-radius:11px;box-shadow:0 18px 40px #000b;pointer-events:none;animation:inspector-in .2s var(--ease-out) both}}
+.unique-calendar-footer{animation:day-detail-in .4s var(--ease-out) both}
+@keyframes day-detail-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+/* Milestones: each badge progresses strictly from actual stored task history. */
+.milestones-panel{margin-top:17px;border:1px solid #22465C;background:linear-gradient(145deg,#0A1D2A,#08121B 75%,#19141A);border-radius:22px;padding:24px;overflow:hidden;position:relative}
+.milestones-panel:before{content:'';position:absolute;inset:auto -5% -160px auto;width:270px;height:270px;background:radial-gradient(circle,#FC734D1c,transparent 73%);pointer-events:none}
+.milestone-top{display:flex;align-items:flex-end;justify-content:space-between;gap:15px;margin-bottom:23px}
+.milestone-top h3{font-family:Georgia,serif;font-size:24px;font-weight:500;letter-spacing:-.5px;margin:8px 0 0;color:#EAF7FF}
+.milestone-earned{font-family:Manrope,sans-serif;white-space:nowrap;font-size:24px;color:#FC734D;font-weight:800}.milestone-earned span{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:1.4px;color:#87B0C8}
+.milestone-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.milestone{display:flex;align-items:center;gap:10px;min-width:0;padding:12px 10px;border:1px solid #214054;background:#0B2332a6;border-radius:14px;transition:transform .25s var(--ease-spring),border-color .25s}
+.milestone:hover{transform:translateY(-3px);border-color:#338AB2}
+.milestone-icon{display:grid;place-items:center;flex:0 0 35px;height:35px;border-radius:11px;background:#102f43;border:1px solid #345B75;color:#7BCFF7}
+.milestone.unlocked .milestone-icon{border-color:#FC734D85;color:#FC9475;background:#3C2323;box-shadow:0 0 18px #FC734D19}
+.milestone-copy{display:grid;gap:3px;min-width:0;flex:1}.milestone-copy strong{font-size:11px;color:#E6F6FF;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.milestone-copy small{font-size:9px;color:#769CB1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.milestone-track{width:100%;height:3px;margin-top:6px;background:#1B3E51;border-radius:6px;overflow:hidden}.milestone-track i{display:block;height:100%;background:linear-gradient(90deg,#0297DE,#FC734D);border-radius:6px;transition:width .6s var(--ease-out)}
+.milestone-counter{font-size:10px;font-weight:800;color:#75B7D8;white-space:nowrap}
+/* A brief, separate personality for each navigation destination. */
+.travel-veil{background:radial-gradient(ellipse at 50% 53%,#09283c 0%,#02070A 65%);transition:opacity .34s ease,transform .42s var(--ease-out)}
+.travel-caption{position:absolute;top:calc(50% + 117px);text-align:center;display:grid;gap:6px;letter-spacing:3.5px;animation:caption-rise .65s var(--ease-out) both}
+.travel-caption span{font-size:10px;font-weight:800;color:#7ABAD9}.travel-caption strong{font-family:Manrope,sans-serif;font-size:17px;letter-spacing:2px;color:#F5FBFF;text-transform:uppercase}
+@keyframes caption-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.travel-pulse{position:absolute;inset:-40px;border:1px solid #37B4F577;border-radius:50%;animation:portal-echo 1.1s ease-out infinite}
+@keyframes portal-echo{0%{transform:scale(.65);opacity:.7}100%{transform:scale(1.2);opacity:0}}
+.travel-home .travel-emblem{transform:scale(1.12)}
+.travel-overview .travel-pulse{border-radius:24%;border-color:#0297DEaa;animation:portal-square .95s ease-in-out infinite alternate}
+@keyframes portal-square{from{transform:rotate(0) scale(.9);border-radius:48%}to{transform:rotate(45deg) scale(1.13);border-radius:15%}}
+.travel-planner .travel-pulse{border-style:dashed}
+.travel-insights .travel-pulse{border-color:#FC734D}
+.travel-routines .travel-pulse{border-style:dotted;border-width:4px}
+.travel-reviews .travel-pulse{border-color:#FC734D88}
+.travel-settings .travel-pulse{border-radius:28%}
+.travel-insights .travel-bars{top:calc(50% + 173px)}
+@media(max-width:1150px){.milestone-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:770px){.quick-command{left:89px;bottom:21px;width:43px;height:43px}.orb-energy-tag{right:8%;bottom:10%}.travel-caption{top:calc(50% + 119px)}}
+@media(max-width:570px){.quick-command{left:82px;bottom:22px;width:43px;height:43px}.milestones-panel{padding:18px 14px}.milestone-top h3{font-size:20px}.milestone-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.milestone{gap:7px;padding:10px 8px}.milestone-icon{height:29px;flex-basis:29px}.milestone-icon svg{width:17px}.milestone-copy strong{font-size:10px}.milestone-copy small{font-size:8px}.milestone-counter{font-size:8px}.orb-energy-tag{bottom:14%;right:5%;font-size:8px;padding:6px 7px}.chart-inspector{gap:6px 11px;padding:12px}.chart-inspector-note{margin-left:0}.command-dialog{border-radius:19px}.command-search{padding:17px}.command-search input{font-size:14px}.command-bottom{padding:12px 14px;font-size:8px}.unique-cell{overflow:visible}}
+@media(max-width:365px){.milestone-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto!important}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.orbit-interactive .orbital-3d{transform:none!important}.app:before{display:none}.celebration-burst{display:none}}
+
+/* Final small-screen polish for readable achievements and independent charts. */
+.performance-bars{width:100%;min-width:0}
+.home-trend-card .chart-inspector{margin-top:19px}
+@media(max-width:570px){.milestone-counter{display:none}.milestone-copy strong{font-size:10.5px;letter-spacing:-.15px}.milestone-copy small{display:none}.milestone-track{margin-top:8px}.milestone{min-height:56px}.chart-inspector{justify-content:flex-start}.home-trend-card .performance-bars{gap:8px}}
+
+/* ORBIT V5 — CINEMATIC MOBILE EXPERIENCE
+   Intentional movement, not a battery-hungry canvas: transformed layers,
+   one rAF-throttled scroll sampler, IntersectionObserver and reduced motion. */
+:root{--cinema-ease:cubic-bezier(.16,1,.3,1)}
+.home-scene{--scene-orb-shift:0px;--scene-orb-scale:1;--scene-copy-shift:0px;--ambient-pan:0px;--cinema-progress:0;isolation:isolate;overflow:visible}
+.home-scene>.home-hero,.home-scene>.home-tasks-section,.home-scene>.home-content,.home-scene>.cinema-divider{position:relative;z-index:2}
+.cinema-ambient{position:absolute;inset:-130px -5vw -140px;z-index:0;overflow:hidden;pointer-events:none;opacity:.88;mask-image:linear-gradient(to bottom,black 0%,black 71%,transparent 99%)}
+.cinema-ambient .ambient-blue,.cinema-ambient .ambient-orange{position:absolute;display:block;aspect-ratio:1;border-radius:50%;filter:blur(45px);transform:translate3d(0,0,0);will-change:transform;mix-blend-mode:screen}
+.cinema-ambient .ambient-blue{width:clamp(380px,70vw,900px);right:-18%;top:4%;background:radial-gradient(circle,rgba(2,151,222,.16) 0,rgba(2,151,222,.075) 35%,transparent 69%);animation:ambient-blue-drift 19s ease-in-out infinite alternate}
+.cinema-ambient .ambient-orange{width:clamp(340px,60vw,750px);left:-20%;top:37%;background:radial-gradient(circle,rgba(252,115,77,.11),rgba(252,115,77,.045) 30%,transparent 67%);animation:ambient-orange-drift 23s ease-in-out infinite alternate}
+@keyframes ambient-blue-drift{0%{transform:translate3d(-7%,0,0) scale(.86)}100%{transform:translate3d(11%,19%,0) scale(1.2)}}
+@keyframes ambient-orange-drift{0%{transform:translate3d(4%,5%,0) scale(.94)}100%{transform:translate3d(18%,-17%,0) scale(1.17)}}
+.cinema-lightshaft{position:absolute;left:12%;top:-4%;width:68%;height:52%;opacity:.35;transform:rotate(-18deg);background:linear-gradient(90deg,transparent 26%,#0297DE08 38%,#0297DE21 50%,#0297DE09 57%,transparent 72%);filter:blur(20px);animation:lightshaft-drift 14s ease-in-out infinite alternate}
+@keyframes lightshaft-drift{to{transform:translate3d(12%,18%,0) rotate(10deg);opacity:.2}}
+.cinema-grid{position:absolute;inset:0;opacity:.16;background-image:linear-gradient(#0297DE19 1px,transparent 1px),linear-gradient(90deg,#0297DE19 1px,transparent 1px);background-size:74px 74px;mask-image:radial-gradient(ellipse at 49% 23%,black,transparent 57%);transform:translateY(var(--ambient-pan));pointer-events:none}
+.cinema-grain{position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 180 180%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%22.15%22/%3E%3C/svg%3E');opacity:.07;mix-blend-mode:screen;pointer-events:none}
+.home-hero{overflow:visible;min-height:580px}
+.home-hero::before{animation:hero-aurora-move 20s ease-in-out infinite alternate!important;will-change:transform}
+.home-hero::after{animation:hero-warmth-move 16s ease-in-out infinite alternate!important;will-change:transform}
+@keyframes hero-aurora-move{0%{transform:translate3d(-4%,0,0) scale(.94);opacity:.66}100%{transform:translate3d(6%,10%,0) scale(1.13);opacity:1}}
+@keyframes hero-warmth-move{0%{transform:translate3d(-8%,0,0) scale(.88);opacity:.4}100%{transform:translate3d(4%,-7%,0) scale(1.1);opacity:.73}}
+.home-copy{transform:translate3d(0,var(--scene-copy-shift),0);will-change:transform}
+.home-art{transform:translate3d(0,var(--scene-orb-shift),0) scale(var(--scene-orb-scale));transform-origin:50% 48%;will-change:transform;transition:filter .4s}
+.cinema-dust{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.cinema-dust i{position:absolute;left:var(--px);top:var(--py);height:var(--sz);width:var(--sz);border-radius:100%;background:#93dcff;opacity:.38;box-shadow:0 0 11px #0297DE,0 0 24px #0297DE30;animation:particle-drift var(--dur) ease-in-out var(--delay) infinite alternate;will-change:transform,opacity}
+.cinema-dust i:nth-child(4n){background:#FC734D;box-shadow:0 0 12px #FC734D80}
+.cinema-dust i:nth-child(7n){background:white;opacity:.5}
+@keyframes particle-drift{0%{transform:translate3d(-7px,9px,0) scale(.7);opacity:.12}50%{opacity:.65}100%{transform:translate3d(10px,-17px,0) scale(1.28);opacity:.23}}
+.orbital-3d{isolation:isolate}
+.orb-cinema-glow{position:absolute;width:min(98%,430px);aspect-ratio:1;border-radius:50%;transform:translateZ(-34px);background:radial-gradient(circle at 48% 43%,rgba(2,151,222,.23),rgba(2,151,222,.12) 30%,transparent 70%);filter:blur(19px);animation:core-halo-breathe 6s ease-in-out infinite}
+@keyframes core-halo-breathe{0%,100%{opacity:.56;scale:.86}50%{opacity:1;scale:1.13}}
+.cinema-orbit-plane{position:absolute;width:min(88%,366px);aspect-ratio:1;transform-style:preserve-3d;border-radius:50%;border:1px solid #5dccff4d;box-shadow:0 0 19px #0297DE14,inset 0 0 28px #0297DE0f;animation:cinema-plane-spin 33s linear infinite}
+.cinema-orbit-plane::before{content:'';position:absolute;left:10%;top:10%;width:11px;height:11px;border-radius:100%;background:#A9EDFF;box-shadow:0 0 10px 5px #0297DE70,0 0 28px #0297DE55}
+.cinema-orbit-plane::after{content:'';position:absolute;right:12%;bottom:13%;width:6px;height:6px;border-radius:50%;background:#FC734D;box-shadow:0 0 12px 4px #FC734D72}
+.cinema-orbit-plane.plane-a{transform:translateZ(36px) rotateX(70deg) rotateZ(25deg);animation-name:cinema-plane-spin}
+.cinema-orbit-plane.plane-b{width:min(76%,320px);transform:translateZ(-12px) rotateY(73deg) rotateZ(12deg);border-color:#FC734D55;animation:cinema-plane-spin-b 27s linear infinite reverse}
+@keyframes cinema-plane-spin{from{transform:translateZ(36px) rotateX(70deg) rotateZ(0deg)}to{transform:translateZ(36px) rotateX(70deg) rotateZ(360deg)}}
+@keyframes cinema-plane-spin-b{from{transform:translateZ(-12px) rotateY(73deg) rotateZ(0deg)}to{transform:translateZ(-12px) rotateY(73deg) rotateZ(360deg)}}
+.cinema-core-cross{position:absolute;z-index:5;display:grid;place-items:center;width:170px;height:170px;transform:translateZ(70px);pointer-events:none}
+.cinema-core-cross::before,.cinema-core-cross::after{content:'';position:absolute;border-radius:50%;border:1px solid #d6f6ff25}
+.cinema-core-cross::before{width:152px;height:152px;animation:core-twinkle 7s ease-in-out infinite}
+.cinema-core-cross::after{width:192px;height:192px;border-style:dotted;border-color:#8fe6ff22;animation:art-rotate 29s linear infinite}
+@keyframes core-twinkle{0%,100%{opacity:.25;scale:.92}50%{opacity:.8;scale:1.13}}
+.orbital-3d .halo-nucleus{animation:energy-breathe 5s ease-in-out infinite,nucleus-float 7s ease-in-out infinite}
+.orbit-energy-trace{position:absolute;inset:3%;border-radius:50%;border:1px solid #0297DE20;box-shadow:0 0 45px #0297DE15;animation:core-halo-breathe 9s ease-in-out infinite reverse;pointer-events:none}
+.cinema-scroll-note{position:absolute;z-index:5;bottom:7px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;white-space:nowrap;pointer-events:none;letter-spacing:2.8px;font-size:9px;font-weight:900;color:#87b7d0;text-shadow:0 0 12px #001f38}
+.cinema-scroll-note::before,.cinema-scroll-note::after{content:'';height:1px;width:24px;background:linear-gradient(90deg,transparent,#0297DE99)}
+.cinema-scroll-note::after{transform:rotate(180deg)}
+.cinema-scroll-note .scroll-chevron{display:inline-flex;animation:scroll-nudge 2.4s ease-in-out infinite;color:#FC734D}
+@keyframes scroll-nudge{0%,100%{transform:translateY(-4px);opacity:.4}55%{transform:translateY(5px);opacity:1}}
+.cinema-divider{display:flex;align-items:center;gap:16px;margin:17px 0 28px;color:#67a8cb;font-size:9px;font-weight:800;letter-spacing:2.7px;opacity:.8}
+.cinema-divider span{white-space:nowrap}.cinema-divider::before,.cinema-divider::after{content:'';height:1px;flex:1;background:linear-gradient(90deg,transparent,#23506a)}.cinema-divider::after{transform:rotate(180deg)}
+.home-content{margin-top:2px}
+.cinema-stage{transform-origin:50% 20%;opacity:.9;filter:saturate(.86);transition:filter .8s ease,opacity .8s ease}
+.cinema-stage.is-awake{opacity:1;filter:saturate(1);animation:cinema-stage-in .9s var(--cinema-ease) both}
+@keyframes cinema-stage-in{from{opacity:.65;transform:translate3d(0,34px,0) scale(.965);filter:blur(5px)}to{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}}
+.home-stat-row .home-daily-card,.home-stat-row .home-monthly-card{position:relative;isolation:isolate;overflow:hidden}
+.home-daily-card::after,.home-monthly-card::after,.home-trend-card::after,.reflection-card::after{content:'';position:absolute;inset:-30%;background:linear-gradient(112deg,transparent 34%,#c6f3ff0b 45%,#0297DE10 50%,transparent 58%);transform:translateX(-180%) rotate(-7deg);pointer-events:none;animation:card-glint 13s ease-in-out infinite}
+.home-monthly-card::after{animation-delay:-7s}.home-trend-card::after{animation-delay:-4s}.reflection-card::after{animation-delay:-10s}
+@keyframes card-glint{0%,35%{transform:translateX(-170%) rotate(-7deg)}55%,100%{transform:translateX(170%) rotate(-7deg)}}
+.home-daily-card,.home-monthly-card,.home-trend-card,.reflection-card,.milestones-panel{--touch-x:50%;--touch-y:50%;transition:border-color .4s,box-shadow .4s,transform .4s var(--cinema-ease)}
+.home-daily-card:active,.home-monthly-card:active,.home-trend-card:active,.reflection-card:active,.milestones-panel:active{transform:scale(.991);border-color:#47bbf48c}
+.cinema-tap-ripple{position:absolute;width:24px;height:24px;left:var(--tap-x);top:var(--tap-y);z-index:20;pointer-events:none;border:1px solid #96eaffcf;border-radius:50%;box-shadow:0 0 12px #0297DE40;animation:cinema-tap .67s ease-out forwards}
+@keyframes cinema-tap{to{opacity:0;transform:translate(-50%,-50%) scale(12)}}
+.cinema-rail{position:fixed;z-index:20;right:max(10px,env(safe-area-inset-right));top:33vh;width:2px;height:34vh;pointer-events:none;background:linear-gradient(#22516b12,#163b502e,#22516b10);border-radius:8px;opacity:.75;overflow:hidden}
+.cinema-rail-fill{width:100%;height:100%;background:linear-gradient(#0297DE,#83d7ff 50%,#FC734D);box-shadow:0 0 9px #0297DE;transform:scaleY(var(--cinema-progress,0));transform-origin:top center;transition:transform .1s linear;border-radius:5px}
+/* Make the visible space feel like a sequence of scenes on a handheld screen. */
+@media(max-width:770px){
+ .home-scene{padding-bottom:45px}
+ .home-hero{min-height:min(830px,100svh);padding:59px 0 65px;align-content:start;gap:10px;grid-template-rows:auto minmax(230px,1fr)}
+ .home-art{width:100%;max-width:480px;height:clamp(278px,38vh,390px);margin-inline:auto;margin-top:0;align-self:center}
+ .home-copy{max-width:570px}
+ .home-copy h1{margin-top:25px}
+ .home-copy p{margin-top:18px;margin-bottom:18px}
+ .home-actions{gap:5px}
+ .home-hero .orbit-art-caption{bottom:-16px}
+ .cinema-scroll-note{bottom:14px}
+ .cinema-divider{margin:2px 0 25px}
+ .home-content{margin-top:0}
+ .cinema-ambient{left:-20px;right:-20px;top:-40px}
+ .cinema-lightshaft{opacity:.23}
+ .home-stat-row{gap:13px}
+ .home-dial{animation:appear-dial 1.2s var(--cinema-ease) both,core-twinkle 7s ease-in-out infinite}
+}
+@media(max-width:570px){
+ .home-hero{min-height: min(835px, 100svh);padding-top:48px;padding-bottom:58px;gap:1px}
+ .home-copy h1{font-size:clamp(38px,10vw,58px);letter-spacing:-3px;margin-top:27px}
+ .home-mantra{font-size:clamp(47px,12.3vw,75px)}
+ .home-copy p{max-width:315px;margin-top:16px;margin-bottom:13px}
+ .home-art{height:clamp(265px,38vh,390px);margin-top:0}
+ .orb-cinema-glow{width:325px}
+ .cinema-orbit-plane{width:300px}
+ .cinema-orbit-plane.plane-b{width:250px}
+ .orbital-3d .halo-outer{width:min(100%,350px)}
+ .orbital-3d .halo-middle{width:min(77%,265px)}
+ .orbital-3d .halo-inner{width:min(59%,212px)}
+ .orbit-energy-trace{inset:-6%}
+ .cinema-core-cross::after{width:163px;height:163px}
+ .cinema-divider{font-size:8px;gap:11px;letter-spacing:1.6px}
+ .cinema-scroll-note{font-size:8px;bottom:14px;letter-spacing:2px}
+ .cinema-rail{right:max(4px,env(safe-area-inset-right));width:2px;top:41vh;height:24vh;opacity:.5}
+ .home-trend-card,.reflection-card,.milestones-panel{position:relative;isolation:isolate}
+}
+@media(max-width:365px){.home-hero{min-height:690px}.home-art{height:255px}.home-mantra{font-size:46px}.cinema-scroll-note{letter-spacing:1px}}
+@media (prefers-reduced-motion:reduce){
+ .cinema-ambient .ambient-blue,.cinema-ambient .ambient-orange,.cinema-lightshaft,.cinema-dust i,.cinema-orbit-plane,.orb-cinema-glow,.cinema-core-cross::before,.cinema-core-cross::after,.orbit-energy-trace,.home-hero::before,.home-hero::after,.home-daily-card::after,.home-monthly-card::after,.home-trend-card::after,.reflection-card::after{animation:none!important;will-change:auto!important}
+ .home-art,.home-copy,.cinema-grid{transform:none!important;will-change:auto!important}
+ .cinema-stage,.cinema-stage.is-awake{opacity:1!important;filter:none!important;transform:none!important;animation:none!important}
+ .cinema-scroll-note .scroll-chevron{animation:none!important}
+ .cinema-rail-fill{transition:none}
+}
+/* Final handheld containment: ambient bloom must never enlarge the document. */
+@media(max-width:770px){.cinema-ambient{left:0;right:0}}
+@media(max-width:570px){.cinema-scroll-note{left:auto;right:7px;transform:none;letter-spacing:1.4px}.cinema-scroll-note::before,.cinema-scroll-note::after{width:13px}}
+
+/* Pause purely decorative loops when the tab is in the background. */
+body.cinema-paused .cinema-ambient *,body.cinema-paused .cinema-dust i,body.cinema-paused .cinema-orbit-plane,body.cinema-paused .orb-cinema-glow,body.cinema-paused .cinema-core-cross::before,body.cinema-paused .cinema-core-cross::after,body.cinema-paused .home-hero::before,body.cinema-paused .home-hero::after{animation-play-state:paused!important}
+
+/* ORBIT v5.1 — quick daily execution directly beneath the living hero. */
+.home-tasks-section{width:min(100%,1080px);margin:14px auto 70px;scroll-margin-top:20px}
+.home-tasks-overline{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:0 8px 17px}
+.home-tasks-overline .micro-title{letter-spacing:2.2px;color:#92b5cc;font-size:10px}
+.home-tasks-spark{color:#FC734D;font-size:15px;margin-right:8px;text-shadow:0 0 12px #FC734D66}
+.home-tasks-date{font-size:11px;color:#7e9aaf;font-weight:800;letter-spacing:.7px;white-space:nowrap}
+.home-tasks-card{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(135deg,#0c2232 0%,#07131f 49%,#09121a 100%);border:1px solid #28506a;border-radius:27px;padding:30px 32px 23px;box-shadow:0 30px 90px #0007,0 0 65px #0297DE09}
+.home-tasks-card::before{content:'';position:absolute;top:-175px;right:-115px;width:440px;height:330px;border-radius:50%;background:radial-gradient(ellipse,#0297DE20 0%,#0297DE08 36%,transparent 72%);filter:blur(10px);pointer-events:none;z-index:-1;animation:ambient-blue-drift 18s ease-in-out infinite alternate}
+.home-tasks-card::after{content:'';position:absolute;width:310px;height:200px;border-radius:50%;left:-125px;bottom:-135px;background:radial-gradient(ellipse,#FC734D13,transparent 72%);filter:blur(17px);pointer-events:none;z-index:-1;animation:ambient-orange-drift 20s ease-in-out infinite alternate}
+.home-tasks-head{display:flex;gap:20px;align-items:center;justify-content:space-between}
+.home-tasks-kicker{display:block;font-weight:800;font-size:9px;letter-spacing:2.5px;color:#5cc4ff;margin-bottom:12px}
+.home-tasks-intro h2{font-family:Manrope,'DM Sans',sans-serif;font-size:clamp(27px,3.6vw,42px);font-weight:800;letter-spacing:-1.7px;line-height:1.13;margin:0;color:#f1f9ff}
+.home-tasks-intro h2 em{font-family:Georgia,serif;color:#ff947a;font-weight:400;letter-spacing:-1.5px}
+.home-tasks-intro p{font-size:12px;color:#8eafc4;line-height:1.7;margin:11px 0 0}
+.home-tasks-score{display:grid;text-align:right;gap:0;flex-shrink:0}
+.home-tasks-score strong{font-family:Manrope,sans-serif;color:#9cddff;font-size:clamp(28px,4vw,43px);font-weight:800;letter-spacing:-1.7px;line-height:1.12;font-variant-numeric:tabular-nums}
+.home-tasks-score span{font-size:9px;color:#74a3bc;font-weight:800;letter-spacing:1.5px;margin-top:6px}
+.home-tasks-meter{height:5px;border-radius:20px;background:#153446;overflow:hidden;margin-top:27px}
+.home-tasks-meter>div{height:100%;border-radius:20px;background:linear-gradient(90deg,#0297DE 0%,#43C7FF 58%,#FC734D 100%);box-shadow:0 0 22px #0297DE90;transition:width .4s ease}
+.home-tasks-meta{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:12px 0 18px;color:#91b3c8;font-size:11px;font-weight:700}
+.home-tasks-meta span:last-child{color:#ef9e8a}
+.home-tasks-list{display:grid;gap:9px}
+.home-tasks-list .task{min-height:63px;padding:13px 15px;background:#0e2534d9;border:1px solid #21465e;position:relative}
+.home-tasks-list .task:hover{border-color:#367ca5;background:#11334a}
+.home-tasks-list .task.checked{opacity:.6}
+.home-tasks-list .task.just-completed{border-color:#FC734D99;box-shadow:0 0 28px #FC734D1a}
+.home-tasks-list .task-name{font-size:13px;white-space:normal;overflow-wrap:anywhere;line-height:1.45}
+.home-tasks-list .task-note{flex-wrap:wrap;line-height:1.4}
+.home-tasks-list .check-input{flex-basis:25px;width:25px;height:25px}
+.home-tasks-empty{display:flex;gap:16px;align-items:center;background:#0d2635a8;border:1px dashed #35607a;border-radius:17px;padding:27px 20px;margin-top:20px}
+.home-tasks-empty-icon{width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;color:#8fdbff;background:#123a50;border:1px solid #296e90;border-radius:13px}
+.home-tasks-empty strong{font-size:14px;color:#edfaff}
+.home-tasks-empty p{font-size:11px;color:#8eafc4;line-height:1.6;margin:7px 0 0}
+.home-tasks-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:19px;margin-top:17px;border-top:1px solid #224357}
+.home-add-task{display:inline-flex;align-items:center;gap:9px;border-radius:11px;padding:12px 15px;color:#fff;background:#067fb9;font-size:12px;font-weight:800;box-shadow:0 0 25px #0297DE1a;transition:transform .22s,box-shadow .22s,background .22s}
+.home-add-task:hover{background:#0297DE;box-shadow:0 0 30px #0297DE50;transform:translateY(-2px)}
+.home-all-tasks{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#a2c6da;font-size:11px;font-weight:800;padding:12px 8px;white-space:nowrap}
+.home-all-tasks:hover{color:#FC734D}
+@media(max-width:570px){
+ .home-tasks-section{margin:7px auto 45px;scroll-margin-top:12px}
+ .home-tasks-overline{padding:0 3px 13px}
+ .home-tasks-card{border-radius:20px;padding:22px 15px 16px}
+ .home-tasks-head{align-items:start;gap:10px}
+ .home-tasks-intro h2{font-size:clamp(25px,7.2vw,32px);letter-spacing:-1.1px}
+ .home-tasks-intro h2 em{letter-spacing:-1.4px}
+ .home-tasks-intro p{font-size:11px;margin-top:9px;max-width:230px}
+ .home-tasks-score strong{font-size:27px}
+ .home-tasks-score span{font-size:7.5px;letter-spacing:1px}
+ .home-tasks-kicker{font-size:8px;margin-bottom:10px}
+ .home-tasks-meter{margin-top:22px}
+ .home-tasks-meta{font-size:10px}
+ .home-tasks-list .task{padding:13px 10px;gap:10px;min-height:64px}
+ .home-tasks-list .task-name{font-size:12px}
+ .home-tasks-list .task-note{font-size:9px}
+ .home-tasks-list .cat-tag{display:none}
+ .home-tasks-list .task-actions button{width:29px;height:29px}
+ .home-tasks-footer{padding-top:15px;margin-top:15px}
+}
+@media(max-width:355px){.home-tasks-date{font-size:10px}.home-tasks-card{padding-inline:12px}.home-tasks-score strong{font-size:24px}.home-tasks-intro h2{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.home-tasks-card::before,.home-tasks-card::after{animation:none!important}.home-add-task{transition:none!important}}
+/* Keep animated cinematic blooms from creating horizontal document scroll on narrow phones. */
+@media(max-width:570px){.app{overflow-x:clip}}
+</style></head><body><div id="root"></div><script>(function(){
+'use strict';
+const STORAGE='atlas-life-os-v1';
+const dayNames=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const longDays=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const categories=['Personal','Fitness','Career','Learning','Side hustle','Wellbeing'];
+const icons={
+ home:'<path d="M3 11.5 12 4l9 7.5V21h-6v-6H9v6H3z"/>',
+ compass:'<circle cx="12" cy="12" r="9"/><path d="m15.8 8.2-2.5 5.1-5.1 2.5 2.5-5.1z"/>',
+ layers:'<path d="m12 3 9 5-9 5-9-5 9-5ZM3 12l9 5 9-5M3 16l9 5 9-5"/>',
+ calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>',
+ chart:'<path d="M3 3v18h18M7 16l4-5 4 3 5-7"/>',
+ repeat:'<path d="M17 2l4 4-4 4M3 11V9a3 3 0 013-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 01-3 3H3"/>',
+ plus:'<path d="M12 5v14M5 12h14"/>',
+ arrow:'<path d="M5 12h14m-6-6 6 6-6 6"/>',
+ left:'<path d="M15 18l-6-6 6-6"/>',
+ right:'<path d="M9 18l6-6-6-6"/>',
+ spark:'<path d="m12 3 1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8L12 3ZM19 18l.7 1.3L21 20l-1.3.7L19 22l-.7-1.3L17 20l1.3-.7L19 18Z"/>',
+ target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+ flame:'<path d="M12 22c5 0 8-3.2 8-7.5 0-2.8-1.5-5.3-3.7-7-.4 2.5-2 3.3-2.6 3.5C13.9 6 11.7 3.2 9 2c.3 3.4-1.2 5.2-2.7 7C4.7 10.8 4 12.4 4 14.5 4 18.8 7 22 12 22Z"/>',
+ check:'<path d="M5 12l4 4L19 6"/>',
+ edit:'<path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L9 17l-4 1 1-4L16.5 3.5Z"/>',
+ trash:'<path d="M3 6h18M8 6V4h8v2M5 6l1 15h12l1-15M10 10v7M14 10v7"/>',
+ x:'<path d="M18 6 6 18M6 6l12 12"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ shield:'<path d="m12 2 9 4v6c0 5-4 8-9 10-5-2-9-5-9-10V6l9-4Z"/><path d="m9 12 2 2 4-4"/>',
+ settings:'<circle cx="12" cy="12" r="3"/><path d="m19.4 15 .5.9-2 2-.9-.5-1.5.7-.3 1.9h-3l-.3-1.9-1.5-.7-.9.5-2-2 .5-.9-.7-1.5L5 13v-2l1.8-.3.7-1.5-.5-.9 2-2 .9.5 1.5-.7.3-1.9h3l.3 1.9 1.5.7.9-.5 2 2-.5.9.7 1.5 1.8.3v2l-1.8.3-.7 1.5Z"/>',
+ download:'<path d="M12 3v12m-4-4 4 4 4-4M4 17v4h16v-4"/>',
+ upload:'<path d="M12 17V5m-4 4 4-4 4 4M4 17v4h16v-4"/>',
+ sunrise:'<path d="M12 2v2M4.9 4.9l1.4 1.4M2 13h2m16 0h2m-4.9-8.1-1.4 1.4M5 17a7 7 0 0 1 14 0M2 21h20M7 17h10"/>',
+ dots:'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',
+ bolt:'<path d="m13 2-9 12h7l-1 8 10-12h-7l0-8Z"/>'
+};
+const I=(name,size=18)=>`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name]||icons.spark}</svg>`;
+const E=(str)=>String(str??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2)+Date.now().toString(36);
+const fromKey=k=>new Date(k+'T12:00:00');
+const keyOf=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+const today=()=>keyOf(new Date());
+const addDays=(k,n)=>{let d=fromKey(k);d.setDate(d.getDate()+n);return keyOf(d)};
+const dow=k=>fromKey(k).getDay();
+const niceDate=(k,format={weekday:'long',month:'long',day:'numeric'})=>fromKey(k).toLocaleDateString('en-US',format);
+const dayDiff=(a,b)=>Math.round((fromKey(a)-fromKey(b))/86400000);
+const defaultState=()=>({version:1,startedOn:today(),routines:[],days:{},createdAt:new Date().toISOString()});
+let state;
+try{const parsed=JSON.parse(localStorage.getItem(STORAGE));state=parsed?.version===1&&parsed.days&&parsed.routines?parsed:defaultState()}catch{state=defaultState()}
+let currentPage='home',selectedDate=today(),calendarDate=today().slice(0,7),modal=null,toastTimer=null;
+let dockOpen=false, quoteIndex=Math.floor(Date.now()/86400000)%11, navigating=false;
+let paletteOpen=false,paletteQuery='',paletteIndex=0,paletteReturnFocus=null,inspectedDay=today(),lastCompletedId=null;
+const prefersLessMotion=()=>window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false;
+const commandCatalog=()=>[
+ {name:'Go to Home',hint:'Your daily momentum',icon:'compass',kind:'nav',target:'home',terms:'greeting today'},
+ {name:'Open Overview',hint:'Tasks and calendar',icon:'layers',kind:'nav',target:'overview',terms:'focus tasks'},
+ {name:'Daily planner',hint:'Plan another day',icon:'calendar',kind:'nav',target:'planner',terms:'schedule'},
+ {name:'View Insights',hint:'Trends and analytics',icon:'chart',kind:'nav',target:'insights',terms:'graphs statistics'},
+ {name:'Manage routines',hint:'Your recurring tasks',icon:'repeat',kind:'nav',target:'routines',terms:'habits'},
+ {name:'Review past days',hint:'Close out unfinished days',icon:'check',kind:'nav',target:'reviews',terms:'review'},
+ {name:'Open Settings',hint:'Backups and privacy',icon:'settings',kind:'nav',target:'settings',terms:'backup'},
+ {name:'Add a task',hint:'Schedule a one-off commitment',icon:'plus',kind:'action',target:'new-task',terms:'create todo'},
+ {name:'Create a routine',hint:'A task that repeats on chosen days',icon:'repeat',kind:'action',target:'new-routine',terms:'habit recurring'},
+ {name:'Jump to today',hint:'Open today in the planner',icon:'target',kind:'action',target:'jump-today',terms:'current date'},
+ {name:'Export your data',hint:'Download a JSON backup',icon:'download',kind:'action',target:'export',terms:'save local'}
+];
+function availableCommands(){const q=paletteQuery.trim().toLowerCase();return commandCatalog().filter(c=>!q||[c.name,c.hint,c.terms].join(' ').toLowerCase().includes(q))}
+function commandPalette(){const results=availableCommands();paletteIndex=Math.max(0,Math.min(paletteIndex,results.length-1));return `<div class="command-scrim"><div class="command-dialog" role="dialog" aria-modal="true" aria-label="Command palette"><div class="command-search">${I('spark',20)}<input id="command-search" type="search" role="combobox" aria-label="Search Orbit commands" aria-controls="command-results" aria-expanded="true" aria-activedescendant="${results.length?'command-result-'+paletteIndex:''}" placeholder="Where would you like to go?" autocomplete="off" value="${E(paletteQuery)}"><kbd>ESC</kbd></div><div class="command-group">JUMP IN · ${results.length} RESULT${results.length===1?'':'S'}</div><div id="command-results" role="listbox" class="command-results">${results.length?results.map((c,i)=>`<button role="option" id="command-result-${i}" aria-selected="${i===paletteIndex}" class="command-item ${i===paletteIndex?'is-selected':''}" data-command="${i}"><span class="command-item-icon">${I(c.icon,20)}</span><span class="command-item-label"><strong>${E(c.name)}</strong><small>${E(c.hint)}</small></span>${I('arrow',15)}</button>`).join(''):`<div class="command-empty">No matches. Try “task”, “insights” or “routine”.</div>`}</div><div class="command-bottom"><span>↑ ↓ to select · ↵ to open</span><span>ORBIT / QUICK ACCESS</span></div></div></div>`}
+function renderPalette(keepFocus=true){const root=document.getElementById('command-root');if(!root)return;root.innerHTML=paletteOpen?commandPalette():'';if(paletteOpen&&keepFocus){const input=document.getElementById('command-search');input?.focus();input?.setSelectionRange(input.value.length,input.value.length)}}
+function openPalette(){if(paletteOpen)return;paletteReturnFocus=document.activeElement;paletteOpen=true;paletteIndex=0;paletteQuery='';dockOpen=false;document.querySelector('.orbital-nav')?.classList.remove('expanded');renderPalette()}
+function closePalette(){paletteOpen=false;paletteQuery='';renderPalette(false);if(paletteReturnFocus?.isConnected)paletteReturnFocus.focus()}
+function runCommand(index){const c=availableCommands()[index];if(!c)return;closePalette();if(c.kind==='nav')route(c.target);else clickAction(c.target,null)}
+function getMilestones(){const all=Object.entries(state.days).filter(([day])=>day<=today()&&day>=state.startedOn),completed=all.reduce((sum,[,d])=>sum+d.items.filter(t=>t.done).length,0),perfect=all.filter(([day,d])=>d.items.length&&ratio(day)===100).length,planned=all.filter(([,d])=>d.items.length).length;
+ return [
+ {id:'first',icon:'spark',name:'First step',hint:'Finish your first task',current:completed,goal:1},
+ {id:'perfect',icon:'target',name:'Day conquered',hint:'Complete a full day',current:perfect,goal:1},
+ {id:'three',icon:'flame',name:'Momentum',hint:'Reach a 3-day perfect streak',current:streak(),goal:3},
+ {id:'week',icon:'calendar',name:'Showed up',hint:'Plan tasks on 7 days',current:planned,goal:7},
+ {id:'ten',icon:'bolt',name:'Unstoppable',hint:'Finish 25 individual tasks',current:completed,goal:25},
+ {id:'seven',icon:'check',name:'Seven victories',hint:'Earn 7 perfect days',current:perfect,goal:7}
+ ]}
+function milestonesPanel(){const m=getMilestones(),earned=m.filter(a=>a.current>=a.goal||state.earnedMilestones?.includes(a.id)).length;return `<section class="milestones-panel" aria-label="Achievement milestones"><div class="milestone-top"><div><span class="micro-title">YOUR MILESTONES</span><h3>The little wins add up.</h3></div><span class="milestone-earned">${String(earned).padStart(2,'0')} <span>/ ${String(m.length).padStart(2,'0')} UNLOCKED</span></span></div><div class="milestone-grid">${m.map(a=>{const unlocked=a.current>=a.goal||state.earnedMilestones?.includes(a.id),progress=unlocked?100:Math.min(100,a.current/a.goal*100);return `<div class="milestone ${unlocked?'unlocked':'locked'}" title="${E(a.hint)}" aria-label="${E(a.name)}: ${Math.min(a.current,a.goal)} of ${a.goal}${unlocked?', earned':''}"><div class="milestone-icon">${I(a.icon,19)}</div><div class="milestone-copy"><strong>${E(a.name)}</strong><small>${E(a.hint)}</small><div class="milestone-track"><i style="width:${progress}%"></i></div></div><span class="milestone-counter">${unlocked?'EARNED':Math.min(a.current,a.goal)+'/'+a.goal}</span></div>`}).join('')}</div></section>`}
+function persistEarnedMilestones(){const already=new Set(state.earnedMilestones||[]);for(const a of getMilestones())if(a.current>=a.goal)already.add(a.id);state.earnedMilestones=[...already]}
+function chartInspector(){let day=inspectedDay;if(day>today()||day<state.startedOn)day=today();const e=entries(day),done=e.filter(x=>x.done),v=ratio(day);return `<div class="chart-inspector" role="status" aria-live="polite"><span class="chart-inspector-date">${E(niceDate(day,{weekday:'short',month:'short',day:'numeric'}))}</span><strong>${fmt(v)}</strong><span>${done.length} of ${e.length} task${e.length===1?'':'s'} done</span><span class="chart-inspector-note">${v===100?'A perfect day.':v===null?'No planned tasks.':v>=75?'Solid progress.':'Every step contributes.'}</span></div>`}
+function burstAt(x,y,perfect=false){if(prefersLessMotion())return;const el=document.createElement('div');el.className=`celebration-burst ${perfect?'day-perfect-burst':''}`;el.style.setProperty('--burst-x',x+'px');el.style.setProperty('--burst-y',y+'px');el.innerHTML=Array.from({length:perfect?18:9},(_,i)=>`<i style="--i:${i};--n:${perfect?18:9};--color:${i%3?'#0297DE':'#FC734D'}"></i>`).join('');document.body.appendChild(el);setTimeout(()=>el.remove(),1150)}
+function updateInteractiveOrb(){const art=document.querySelector('.orbit-interactive');if(!art)return;const score=ratio(today())||0;art.style.setProperty('--orb-energy',String(score/100));art.setAttribute('aria-label',`Interactive Orbit energy sphere. Today's task completion is ${Math.round(score)} percent. Drag or use arrow keys to rotate.`)}
+function enhanceScene(){updateInteractiveOrb();setupCinema();const cards=document.querySelectorAll('.home-daily-card,.home-monthly-card,.home-trend-card,.reflection-card,.milestones-panel,.insight-card,.unique-calendar-panel');if('IntersectionObserver' in window&&!prefersLessMotion()){const observer=new IntersectionObserver(items=>{for(const e of items){if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}}},{threshold:.08});cards.forEach(c=>{c.classList.add('reveal-ready');observer.observe(c)})}else cards.forEach(c=>c.classList.add('in-view'))}
+
+const save=()=>{try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch(e){showToast('Browser storage unavailable. Export a backup.')}};
+function ensureDay(k){if(k<state.startedOn) return null;let d=state.days[k];if(!d){d=state.days[k]={closed:false,items:[]}}
+ for(const r of state.routines){if(r.effectiveFrom<=k&&(!r.retiredOn||k<r.retiredOn)&&r.days.includes(dow(k))&&!(d.skippedRoutineIds||[]).includes(r.id)&&!d.items.some(e=>e.routineId===r.id)){d.items.push({id:uid(),routineId:r.id,title:r.title,category:r.category,weight:r.weight,done:false,source:'routine',resolution:null})}}
+ return d}
+function materialize(){const now=today();let start=state.startedOn>now?now:state.startedOn;let count=0;for(let k=start;k<=now&&count<1500;k=addDays(k,1),count++)ensureDay(k);save()}
+materialize();
+const entries=k=>ensureDay(k)?.items||[];
+const ratio=k=>{const t=entries(k);if(!t.length)return null;const sum=t.reduce((x,e)=>x+e.weight,0);return Math.round(t.filter(e=>e.done).reduce((x,e)=>x+e.weight,0)/sum*10000)/100};
+const monthlyDays=()=>{const t=today(),m=t.slice(0,7);return Object.keys(state.days).filter(k=>k.startsWith(m)&&k<=t&&k>=state.startedOn&&entries(k).length).sort()};
+const monthAvg=()=>{const ds=monthlyDays();return ds.length?ds.reduce((s,k)=>s+ratio(k),0)/ds.length:null};
+const perfectDays=()=>monthlyDays().filter(k=>ratio(k)===100).length;
+function streak(){let k=today(),length=0;if(ratio(k)!==100)k=addDays(k,-1);let steps=0;while(k>=state.startedOn&&steps++<1500){const v=ratio(k);if(v===null){k=addDays(k,-1);continue}if(v!==100)break;length++;k=addDays(k,-1)}return length}
+const fmt=n=>n===null?'—':`${Math.round(n)}%`;
+const scoreClass=n=>n===null?'no-tasks':n===100?'perfect':n>=75?'good':n>=40?'medium':'low';
+const totalWeight=k=>entries(k).reduce((s,e)=>s+e.weight,0);
+const completedWeight=k=>entries(k).filter(e=>e.done).reduce((s,e)=>s+e.weight,0);
+const pendingDays=()=>Object.keys(state.days).filter(k=>k<today()&&k>=state.startedOn&&entries(k).length&&!state.days[k].closed).sort();
+function showToast(msg){const t=document.getElementById('toast');if(!t)return;t.innerHTML=E(msg);t.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.hidden=true,3400)}
+function title(){const found=navItems.find(([key])=>key===currentPage);return found?found[2]:'Orbit'}
+const navItems=[['home','compass','Home'],['overview','layers','Overview'],['planner','calendar','Daily planner'],['insights','chart','Insights'],['routines','repeat','My routines'],['reviews','check','Day reviews'],['settings','settings','Settings']];
+function shell(){return `<div class="app"><main class="main"><section class="page" id="page-content">${pageContent()}</section><div class="foot-message">${I('shield',13)} Private by design · Saved on this device · Your own orbit.</div></main>${currentPage==='home'?'<div class="cinema-rail" aria-hidden="true"><div class="cinema-rail-fill"></div></div>':''}<button class="quick-command" data-action="open-palette" aria-label="Open command palette" title="Search commands · Ctrl K">${I('bolt',18)}</button><div class="orbital-nav ${dockOpen?'expanded':''}" aria-label="App navigation"><button class="orb-launch" data-action="toggle-dock" aria-label="${dockOpen?'Close navigation':'Open navigation'}" aria-expanded="${dockOpen}"><span class="orb-logo">${I('spark',22)}</span></button><nav class="orb-menu" aria-label="Main navigation">${navItems.map(([key,ico,name],i)=>`<button class="orb-link ${currentPage===key?'active':''}" data-nav="${key}" aria-label="${E(name)}" aria-current="${currentPage===key?'page':'false'}" title="${E(name)}" style="--item:${i}">${I(ico,21)}<span class="orb-tooltip">${E(name)}</span></button>`).join('')}</nav></div></div><div id="modal-root"></div><div id="command-root"></div>`}
+const reflections=[
+ {theme:'STOICISM',label:'THE DISCIPLINE OF CONTROL',words:'Put your energy into what you can influence. Let the rest pass.',by:'Inspired by Epictetus'},
+ {theme:'BUSHIDŌ · COURAGE',label:'勇 · YŪ',words:'Courage is choosing the necessary action, even when it feels uncomfortable.',by:'Inspired by the samurai virtues'},
+ {theme:'KAIZEN',label:'改善 · CONTINUOUS IMPROVEMENT',words:'Improve one small thing today. Tomorrow, do it again.',by:'Japanese philosophy · Kaizen'},
+ {theme:'STOICISM',label:'A PRACTICE, NOT A MOOD',words:'Do not wait to feel ready. Give the next action your full attention.',by:'Inspired by Marcus Aurelius'},
+ {theme:'BUSHIDŌ · INTEGRITY',label:'義 · GI',words:'Let what you do agree with what you say matters.',by:'Inspired by the samurai virtues'},
+ {theme:'STOICISM',label:'PERSISTENCE',words:'Your character is shaped in the ordinary moments when nobody is watching.',by:'Inspired by Seneca'},
+ {theme:'BUSHIDŌ · RESPECT',label:'礼 · REI',words:'Strength without respect is noise. Move with purpose and consideration.',by:'Inspired by the samurai virtues'},
+ {theme:'BUSHIDŌ · HONESTY',label:'誠 · MAKOTO',words:'Be honest with your promises, starting with the ones you make to yourself.',by:'Inspired by the samurai virtues'},
+ {theme:'BUSHIDŌ · HONOR',label:'名誉 · MEIYO',words:'The standard you keep in private becomes the person you are in public.',by:'Inspired by the samurai virtues'},
+ {theme:'BUSHIDŌ · LOYALTY',label:'忠義 · CHŪGI',words:'Return to the commitments you chose, especially when they become difficult.',by:'Inspired by the samurai virtues'},
+ {theme:'BUSHIDŌ · COMPASSION',label:'仁 · JIN',words:'Progress is more meaningful when it leaves room for kindness.',by:'Inspired by the samurai virtues'}
+];
+function quoteCard(){const q=reflections[quoteIndex%reflections.length];return `<div class="reflection-card"><div class="reflection-top"><span class="reflection-sigil">${I('spark',18)}</span><span class="reflection-kind" id="quote-kind">${E(q.theme)}</span><button class="reflection-next" data-action="next-quote" aria-label="Show another reflection" title="Another reflection">${I('arrow',18)}</button></div><div class="reflection-body" id="reflection-body"><div class="reflection-label">${E(q.label)}</div><blockquote>“${E(q.words)}”</blockquote><div class="reflection-by">${E(q.by)}</div></div><div class="reflection-counter">${String((quoteIndex%reflections.length)+1).padStart(2,'0')} <span>/ ${String(reflections.length).padStart(2,'0')}</span></div></div>`}
+
+function cinemaDust(){
+ // Deliberately deterministic so every render preserves the same constellation.
+ const glints=Array.from({length:26},(_,i)=>{
+  const x=(i*47+13+(i*i*7))%96,y=(i*37+11+(i*i*3))%94;
+  return `<i style="--px:${x}%;--py:${y}%;--sz:${i%5===0?3:1.5}px;--dur:${6+i%8*1.9}s;--delay:-${(i*2.2)%11}s"></i>`
+ });
+ return `<div class="cinema-dust" aria-hidden="true">${glints.join('')}</div>`
+}
+function homeDailyTasks(k){
+ const list=entries(k),done=list.filter(item=>item.done).length,score=ratio(k)||0;
+ const closed=!!state.days[k]?.closed;
+ return `<section class="home-tasks-section" id="home-today" aria-labelledby="home-tasks-title">
+ <div class="home-tasks-overline"><span class="micro-title"><span class="home-tasks-spark">✳</span> TODAY'S COMMITMENTS</span><span class="home-tasks-date">${E(niceDate(k,{weekday:'short',month:'short',day:'numeric'}))}</span></div>
+ <div class="home-tasks-card">
+  <div class="home-tasks-head"><div class="home-tasks-intro"><span class="home-tasks-kicker">THE WORK OF TODAY</span><h2 id="home-tasks-title">Your day, <em>in motion.</em></h2><p>Make progress right here. Every check counts.</p></div>
+   <div class="home-tasks-score" aria-label="Today's weighted completion: ${fmt(ratio(k))}"><strong>${fmt(ratio(k))}</strong><span>COMPLETE</span></div>
+  </div>
+  <div class="home-tasks-meter" role="progressbar" aria-label="Today's progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(score)}"><div style="width:${score}%"></div></div>
+  <div class="home-tasks-meta"><span>${done} of ${list.length} finished</span><span>${list.length&&done===list.length?'All done. Day conquered.':list.length?`${list.length-done} still waiting for you`:'A fresh start begins here'}</span></div>
+  ${list.length?`<div class="home-tasks-list" aria-label="Today's tasks">${list.map(item=>taskRow(k,item,closed)).join('')}</div>`:`<div class="home-tasks-empty"><span class="home-tasks-empty-icon">${I('spark',19)}</span><div><strong>Make your first move.</strong><p>Your tasks and daily routines will appear here automatically.</p></div></div>`}
+  <div class="home-tasks-footer"><button class="home-add-task" data-action="new-task">${I('plus',17)} Add task</button><button class="home-all-tasks" data-nav="overview">Full overview ${I('arrow',16)}</button></div>
+ </div></section>`;
+}
+function home(){const k=today(),items=entries(k),daily=ratio(k),monthly=monthAvg(),completed=items.filter(e=>e.done).length,reviewCount=pendingDays().length;return `<div class="home-scene" data-chapter="0"><div class="cinema-ambient" aria-hidden="true"><span class="ambient-blue"></span><span class="ambient-orange"></span><span class="cinema-lightshaft"></span><span class="cinema-grid"></span><span class="cinema-grain"></span></div><div class="home-stars" aria-hidden="true"></div><div class="home-hero">${cinemaDust()}<div class="home-copy"><div class="home-kicker"><span class="pulse-dot"></span> YOUR PERSONAL UNIVERSE <span class="kicker-line"></span> ${E(niceDate(k,{month:'short',day:'numeric',year:'numeric'}).toUpperCase())}</div><h1>${E(greeting())}, <span class="home-person">D.</span></h1><div class="home-mantra">Win the <em>day.</em></div><p>A remarkable life is built in ordinary days. One deliberate choice at a time.</p><div class="home-actions"><button class="home-cta" data-action="jump-to-home-tasks">Start today's focus ${I('arrow',18)}</button><button class="home-secondary" data-nav="insights">Explore your progress ${I('chart',17)}</button></div></div><div class="home-art orbit-interactive" tabindex="0" role="img" style="--orb-energy:${(daily||0)/100}" aria-label="Interactive Orbit energy sphere. Daily completion ${fmt(daily)}. Drag to rotate."><div class="orbital-3d"><div class="orb-cinema-glow" aria-hidden="true"></div><div class="cinema-orbit-plane plane-a" aria-hidden="true"></div><div class="cinema-orbit-plane plane-b" aria-hidden="true"></div><div class="orbit-energy-trace" aria-hidden="true"></div><div class="orb-aurora"></div><div class="halo halo-outer"></div><div class="halo halo-middle"></div><div class="halo halo-inner"></div><div class="cinema-core-cross" aria-hidden="true"></div><div class="halo-nucleus"><span>${I('spark',43)}</span></div><div class="satellite sat-one"></div><div class="satellite sat-two"></div><div class="orb-energy-tag">${I('bolt',12)} ${Math.round(daily||0)}% ENERGY</div></div><div class="orbit-art-caption">DRAG TO EXPLORE <span>·</span> ${(daily||0)===100?'DAY CONQUERED':'KEEP MOVING'}</div></div><div class="cinema-scroll-note" aria-hidden="true"><span>SCROLL TO UNFOLD</span><span class="scroll-chevron">↓</span></div></div><div class="cinema-divider" aria-hidden="true"><span>01 / THE ART OF SHOWING UP</span></div>${homeDailyTasks(k)}<div class="home-content"><div class="home-left"><div class="home-section-head"><span class="micro-title">YOUR MOMENTUM</span><span class="head-rule"></span><span class="micro-number">02 / 03</span></div><div class="home-stat-row"><article class="home-daily-card"><div class="home-card-head"><span>${I('target',17)} TODAY'S PROGRESS</span><span class="card-index">01</span></div><div class="home-progress-inner"><div class="home-dial" style="--score:${daily||0}"><div><strong>${fmt(daily)}</strong><span>COMPLETE</span></div></div><div class="home-dial-detail"><div class="dial-big">${completed}<span> / ${items.length}</span></div><span>TASKS FINISHED</span><p>${items.length?completed===items.length?'A perfect day. You showed up.':'Each tick is a promise kept.':"A blank page. Make it yours."}</p></div></div></article><article class="home-monthly-card"><div class="home-card-head"><span>${I('chart',17)} THIS MONTH</span><span class="card-index">02</span></div><strong class="monthly-big">${fmt(monthly)}</strong><p>AVERAGE COMPLETION</p><div class="home-month-bar"><div style="width:${monthly||0}%"></div></div><div class="home-mini-stats"><div><b>${String(perfectDays()).padStart(2,'0')}</b><small>PERFECT DAYS</small></div><div><b>${String(streak()).padStart(2,'0')}</b><small>DAY STREAK</small></div></div></article></div><article class="home-trend-card"><div class="home-trend-head"><div><span class="micro-title">THE LAST SEVEN DAYS</span><h3>Progress has a rhythm.</h3></div><button class="trend-link" data-nav="insights">All insights ${I('arrow',16)}</button></div>${weeklyChart()}</article>${milestonesPanel()}${reviewCount?`<button class="review-notice" data-nav="reviews">${I('clock',17)} ${reviewCount} past day${reviewCount===1?'':'s'} ready for review ${I('arrow',15)}</button>`:''}</div><div class="home-right"><div class="home-section-head"><span class="micro-title">THOUGHT FOR TODAY</span><span class="head-rule"></span><span class="micro-number">03 / 03</span></div>${quoteCard()}<div class="home-quickline"><span class="quickline-mark">✳</span><div><strong>One day at a time.</strong><span>You don't need to do everything. Just what you promised yourself today.</span></div></div></div></div></div>`}
+function overview(){const k=today(),unfinished=pendingDays().length;return `<div class="overview-scene"><div class="screen-heading"><div><span class="eyebrow">TODAY / EXECUTION</span><h1>Your <em>focus.</em></h1><p>Nothing extra. Just the commitments you made to yourself.</p></div><button class="btn-primary" data-action="new-task">${I('plus',17)} Add a task</button></div>${unfinished?`<button class="review-notice" data-nav="reviews">${I('clock',17)} ${unfinished} day${unfinished===1?'':'s'} awaiting a review ${I('arrow',16)}</button>`:''}<article class="panel overview-task-surface">${tasksPanel(k,false)}</article><div class="overview-calendar-title"><div><div class="eyebrow">THE DATES THAT MATTER</div><h2>On your <em>calendar.</em></h2><p>Only one-off tasks appear here. Recurring routines stay in your daily focus.</p></div></div><article class="panel unique-calendar-panel">${uniqueCalendar()}</article></div>`}
+function uniqueCalendar(){const [year,month]=calendarDate.split('-').map(Number),start=new Date(year,month-1,1).getDay(),count=new Date(year,month,0).getDate(),k=today(),cells=[];for(let i=0;i<start;i++)cells.push('<div class="unique-cell outside" aria-hidden="true"></div>');for(let day=1;day<=count;day++){const key=`${calendarDate}-${String(day).padStart(2,'0')}`,all=entries(key),unique=all.filter(e=>e.source!=='routine'),done=unique.filter(e=>e.done).length;cells.push(`<button class="unique-cell ${key===k?'is-today':''} ${key===selectedDate?'selected':''}" data-action="calendar-select" data-day="${key}" aria-label="${E(niceDate(key))}, ${unique.length} one-off task${unique.length===1?'':'s'}${unique.length?': '+E(unique.slice(0,2).map(e=>e.title).join(', ')):''}" data-preview="${E(unique.length?unique.slice(0,2).map(e=>e.title).join(' · '):'No one-off tasks')}" aria-pressed="${key===selectedDate}"><span class="unique-number">${day}</span>${unique.length?`<span class="unique-markers"><i class="marker-blue"></i>${unique.length>1?'<i class="marker-coral"></i>':''}</span><small>${done}/${unique.length}</small>`:''}</button>`)}const selected=entries(selectedDate).filter(e=>e.source!=='routine');return `<div class="unique-calendar-header"><div><span class="small-overline">YOUR PERSONAL SCHEDULE</span><h3>${E(new Date(year,month-1,1).toLocaleDateString('en-US',{month:'long',year:'numeric'}))}</h3></div><div class="calendar-controls"><button class="icon-button" data-action="calendar-prev" aria-label="Previous month">${I('left',18)}</button><button class="icon-button" data-action="calendar-current" aria-label="Current month">${I('target',17)}</button><button class="icon-button" data-action="calendar-next" aria-label="Next month">${I('right',18)}</button></div></div><div class="unique-weekdays">${dayNames.map(d=>`<span>${d}</span>`).join('')}</div><div class="unique-grid">${cells.join('')}</div><div class="unique-calendar-footer" key="${selectedDate}" data-date="${selectedDate}"><div class="unique-day-heading"><div><span class="small-overline">${E(niceDate(selectedDate,{weekday:'long',month:'long',day:'numeric'})).toUpperCase()}</span><h4>One-off commitments</h4></div><span class="unique-count">${selected.length} TASK${selected.length===1?'':'S'}</span></div>${selected.length?`<div class="unique-items">${selected.map(item=>`<div class="unique-item"><span class="unique-status ${item.done?'is-done':''}">${I(item.done?'check':'target',14)}</span><span class="unique-item-name">${E(item.title)}</span><span class="unique-category">${E(item.category)}</span></div>`).join('')}</div>`:`<div class="unique-empty">${I('spark',20)} No one-off tasks planned for this date.</div>`}<button class="light-link" data-action="open-selected-day">Open in daily planner ${I('arrow',14)}</button></div>`}
+function intro(label,heading,italic,description,button=true){return `<div class="intro"><div><div class="eyebrow">${E(label)}</div><h1>${E(heading)} <em>${E(italic)}</em></h1><p>${E(description)}</p></div>${button?`<button class="btn-primary" data-action="new-task">${I('plus',17)} New task</button>`:''}</div>`}
+function metric(label,value,sub,icon,bottom,extra=''){return `<article class="metric ${extra}"><span class="gradient-orb"></span><div class="metric-top"><span>${E(label)}</span>${I(icon,17)}</div><h2>${value}</h2><div class="metric-sub">${E(sub)}</div>${bottom?`<div class="metric-bottom">${I('arrow',13)} ${E(bottom)}</div>`:''}</article>`}
+function tasksPanel(k,showFooter){const arr=entries(k),r=ratio(k),isToday=k===today(),isPast=k<today(),d=ensureDay(k),readOnly=!!d?.closed||isPast;
+return `<div class="panel-heading"><div><div class="small-overline">${isToday?'THE DAILY PLAN':isPast?'HISTORICAL PLAN':'LOOKING AHEAD'}</div><h2 class="section-title" style="margin-top:7px">${isToday?"Today's focus":niceDate(k,{weekday:'long',month:'short',day:'numeric'})}</h2><p class="section-sub">${isToday?'Show up. Check in. Keep moving.':isPast?'A snapshot of your scheduled work.':'Build tomorrow with intention.'}</p></div><span class="mini-badge">${I('spark',12)} ${arr.length} task${arr.length===1?'':'s'}</span></div><div class="tasks-topline"><b>Daily progress</b><span>${fmt(r)}${r===null?'':` · ${completedWeight(k)}/${totalWeight(k)} pts`}</span></div><div class="progress-track"><div class="progress-fill" style="width:${r||0}%"></div></div>${arr.length?`<div class="tasks-list">${arr.slice().sort((a,b)=>Number(a.done)-Number(b.done)).map(e=>taskRow(k,e,readOnly)).join('')}</div>`:`<div class="empty-state"><div class="empty-icon">${I('spark',22)}</div><h3>Your day is a blank canvas.</h3><p>Add your first task or create a recurring routine and start building momentum.</p><button class="btn-ghost" data-action="new-task">${I('plus',13)} Add your first task</button></div>`}${showFooter?`<div class="tasks-footer"><small>${arr.length?`${arr.filter(e=>!e.done).length} still on your list. You've got this.`:'Every great routine starts somewhere.'}</small><button class="light-link" data-nav="planner">Open planner ${I('arrow',14)}</button></div>`:''}`}
+function taskRow(k,e,locked){return `<div class="task ${e.done?'checked':''} ${e.id===lastCompletedId?'just-completed':''}"><span class="task-sheen" aria-hidden="true"></span><input class="check-input" type="checkbox" aria-label="Complete ${E(e.title)}" data-check="${E(e.id)}" data-day="${k}" ${e.done?'checked':''} ${locked||k>today()?'disabled':''}><div class="task-meta"><div class="task-name">${E(e.title)}</div><div class="task-note">${E(e.source==='routine'?'Recurring routine':e.source==='carryover'?'Rescheduled task':'One-time task')} <span class="dot"></span> ${e.weight} point${e.weight===1?'':'s'} ${e.resolution?`<span class="dot"></span> ${E(e.resolution)}`:''}</div></div><span class="cat-tag">${E(e.category)}</span><div class="task-actions"><button aria-label="Edit task" data-action="edit-task" data-day="${k}" data-id="${E(e.id)}" ${locked?'disabled':''}>${I('edit',14)}</button><button aria-label="Delete task" data-action="delete-task" data-day="${k}" data-id="${E(e.id)}" ${locked?'disabled':''}>${I('trash',14)}</button></div></div>`}
+function calendarPanel(){const k=today(),date=fromKey(k),y=date.getFullYear(),mo=date.getMonth(),start=new Date(y,mo,1).getDay(),count=new Date(y,mo+1,0).getDate();const cells=[];for(let j=0;j<start;j++)cells.push('<div class="calendar-cell blank"></div>');for(let j=1;j<=count;j++){const key=`${y}-${String(mo+1).padStart(2,'0')}-${String(j).padStart(2,'0')}`,r=key<=k?ratio(key):null,future=key>k;cells.push(`<button class="calendar-cell ${future?'future':scoreClass(r)} ${key===k?'today':''}" data-action="select-day" data-day="${key}" title="${E(niceDate(key))}: ${future?'Upcoming':r===null?'No tasks':fmt(r)}">${j}</button>`)}return `<div class="panel-heading"><div><h2 class="section-title">The bigger picture</h2><p class="section-sub">Every day moves the needle.</p></div><span class="month-label">${E(date.toLocaleDateString('en-US',{month:'long',year:'numeric'}))}</span></div><div class="calendar-head">${dayNames.map(d=>`<span>${d[0]}</span>`).join('')}</div><div class="calendar-grid">${cells.join('')}</div><div class="legend"><span>Less</span>${['#352019','#7d3b2c','#0e6b9e','#0297DE'].map(c=>`<span class="legend-tile" style="background:${c}"></span>`).join('')}<span>More</span></div>`}
+function weeklyChart(){const k=today(),d=Array.from({length:7},(_,i)=>addDays(k,i-6));return `<div class="panel-heading"><div><h2 class="section-title">The last 7 days</h2><p class="section-sub">Your consistency, visualized.</p></div><span class="mini-badge">${I('chart',13)} DAILY SCORES</span></div><div class="performance-bars">${d.map(day=>{const v=ratio(day);return `<button class="bar-col ${day===k?'active':''} ${day===inspectedDay?'is-inspected':''}" data-action="inspect-bar" data-day="${day}" aria-label="${E(niceDate(day))}: ${fmt(v)}" aria-pressed="${day===inspectedDay}" title="${E(niceDate(day))}: ${fmt(v)}"><span class="bar-track"><span class="bar-fill" style="height:${Math.max(v||0,0)}%"></span></span><span>${dayNames[dow(day)]}</span></button>`}).join('')}</div>${chartInspector()}`}
+function momentumNote(){const count=entries(today()).filter(e=>e.done).length,all=entries(today()).length;return `<div class="panel-heading"><div><h2 class="section-title">A little perspective</h2><p class="section-sub">Consistency beats intensity.</p></div>${I('spark',20)}</div><div style="border-top:1px solid #2b383d;padding-top:17px"><p style="font-family:Georgia,serif;color:#e1e9db;font-size:22px;line-height:1.47;margin:0 0 20px">${all===0?'Big changes begin with one small commitment.':count===all?'You showed up for every promise you made today.':'You don’t need a perfect day to make meaningful progress.'}</p><div class="mini-badge">${I('check',12)} YOUR PACE, YOUR PROGRESS</div></div>`}
+function planner(){let k=selectedDate;if(k<state.startedOn)k=selectedDate=state.startedOn;const d=entries(k);return `${intro('MAKE A PLAN', 'Own your','everyday.',"Plan your day. Keep it manageable. Follow through.")}<div class="panel page-panel"><div class="panel-heading"><div><h2 class="section-title">Daily planner</h2><p class="section-sub">Choose any day and focus on what needs doing.</p></div><div class="day-nav"><button class="icon-button" data-action="previous-day" aria-label="Previous day">${I('left')}</button><button class="date-btn" data-action="jump-today">Today</button><button class="icon-button" data-action="next-day" aria-label="Next day">${I('right')}</button></div></div><div class="day-pills">${Array.from({length:7},(_,i)=>{let day=addDays(k,i-3),v=day<state.startedOn?null:ratio(day);return `<button class="day-pill ${day===k?'selected':''}" data-action="select-day" data-day="${day}" ${day<state.startedOn?'disabled':''}><small>${dayNames[dow(day)]}</small><strong>${fromKey(day).getDate()}</strong><small>${v===null?'—':fmt(v)}</small></button>`}).join('')}</div>${tasksPanel(k,false)}${k<today()&&!state.days[k]?.closed?`<div class="tasks-footer"><small>You can review and close this past day.</small><button class="btn-soft" data-nav="reviews">Review day ${I('arrow',14)}</button></div>`:''}</div>`}
+function insights(){const days=monthlyDays(),avg=monthAvg(),completed=days.reduce((sum,k)=>sum+entries(k).filter(e=>e.done).length,0),total=days.reduce((sum,k)=>sum+entries(k).length,0),k=today(),past14=Array.from({length:14},(_,i)=>addDays(k,i-13));return `${intro('CONSISTENCY, COMPOUNDED','Measure your','momentum.',"See the wins, notice the patterns, and keep building.",false)}<div class="insight-grid"><div class="insight-card"><small>Monthly completion</small><strong>${fmt(avg)}</strong><div class="section-sub">Average of daily percentages</div></div><div class="insight-card"><small>Tasks completed</small><strong>${completed}<span style="color:#6f8288;font-size:18px"> / ${total}</span></strong><div class="section-sub">All tracked tasks this month</div></div><div class="insight-card"><small>Perfect days</small><strong>${perfectDays()}</strong><div class="section-sub">Days you completed everything</div></div></div><div class="dashboard-grid"><article class="panel"><div class="panel-heading"><div><h2 class="section-title">14-day rhythm</h2><p class="section-sub">A closer look at your follow-through.</p></div><span class="mini-badge">${I('chart',13)} DAILY PROGRESS</span></div><div class="big-chart">${past14.map(day=>{const v=day<state.startedOn?null:ratio(day);return `<button class="bar-col ${day===k?'active':''} ${day===inspectedDay?'is-inspected':''}" data-action="inspect-bar" data-day="${day}" aria-label="${E(niceDate(day))}: ${fmt(v)}" aria-pressed="${day===inspectedDay}" title="${E(niceDate(day))}: ${fmt(v)}"><span class="bar-track"><span class="bar-fill" style="height:${v||0}%"></span></span><span class="bar-label">${fromKey(day).getDate()}</span></button>`}).join('')}</div>${chartInspector()}<p class="tiny-note" style="margin-top:22px">Your monthly score is an average of daily task-weighted completion percentages. Days without tasks are excluded; missed days with scheduled tasks count as 0%.</p></article><article class="panel">${calendarPanel()}</article></div>`}
+function routinesPage(){const active=state.routines.filter(r=>!r.retiredOn||r.retiredOn>today()),display=active.filter(r=>r.effectiveFrom<=addDays(today(),1));return `${intro('THE SYSTEM BEHIND YOUR DAYS','Build lasting','rhythms.',"Recurring tasks appear automatically on the days you choose.",false)}<div class="panel page-panel"><div class="panel-heading"><div><h2 class="section-title">Your recurring routines</h2><p class="section-sub">Change a routine without rewriting your past.</p></div><button class="btn-primary" data-action="new-routine">${I('plus',15)} New routine</button></div>${display.length?`<div class="routine-list">${display.map(r=>`<div class="routine-item"><div class="routine-icon">${I('repeat',18)}</div><div class="routine-info"><strong>${E(r.title)}</strong><small>${E(r.days.map(d=>dayNames[d]).join(' · '))} &nbsp; · &nbsp; ${E(r.category)} &nbsp; · &nbsp; ${r.weight} pt${r.weight===1?'':'s'}${r.effectiveFrom>today?' · Starts tomorrow':''}</small></div><button class="routine-action" data-action="edit-routine" data-id="${r.id}">Edit</button><button class="routine-action" data-action="remove-routine" data-id="${r.id}" aria-label="Delete routine">${I('trash',14)}</button></div>`).join('')}</div>`:`<div class="empty-state"><div class="empty-icon">${I('repeat',23)}</div><h3>Make consistency automatic.</h3><p>Create a routine for studying, exercise, research, or anything you'd like to practice consistently.</p><button class="btn-ghost" data-action="new-routine">Create a routine ${I('arrow',13)}</button></div>`}<div class="sepline"></div><p class="tiny-note">A routine creates a separate, binary task on each scheduled day. Editing schedules applies to future days; historical task scores stay intact.</p></div>`}
+function reviewsPage(){const list=pendingDays();return `${intro('CLOSE THE LOOP','Reflect and','reset.',"A day's score is never reduced by rescheduling or dismissing unfinished tasks.",false)}<div class="panel page-panel"><div class="panel-heading"><div><h2 class="section-title">Days awaiting closure</h2><p class="section-sub">After midnight, review the previous day's unfinished tasks.</p></div><span class="mini-badge">${list.length} open</span></div>${list.length?list.slice(0,12).map(k=>{const incomplete=entries(k).filter(e=>!e.done&&!e.resolution);return `<div style="padding:19px 0;border-top:1px solid #2b363b"><div class="panel-heading"><div><h2 class="section-title">${E(niceDate(k))}</h2><p class="section-sub">${fmt(ratio(k))} completed · ${incomplete.length} decision${incomplete.length===1?'':'s'} remaining</p></div>${incomplete.length?'':`<button class="btn-primary" data-action="close-day" data-day="${k}">${I('check',16)} Close day</button>`}</div>${incomplete.map(e=>`<div class="review-item"><div><strong>${E(e.title)}</strong><small>${e.weight} point${e.weight===1?'':'s'} · ${E(e.category)}</small></div><div class="review-buttons"><button data-action="reschedule" data-day="${k}" data-id="${e.id}">${I('calendar',13)} Reschedule</button><button class="dismiss" data-action="dismiss" data-day="${k}" data-id="${e.id}">${I('x',13)} Dismiss</button></div></div>`).join('')}</div>`}).join(''):`<div class="empty-state"><div class="empty-icon">${I('check',22)}</div><h3>You're all caught up.</h3><p>No days are waiting for review. Your next review becomes available after midnight.</p></div>`}</div>`}
+function settingsPage(){return `${intro('MAKE THIS SPACE YOURS','Your data.','Your rules.',"Privacy, backups, and peace of mind.",false)}<div class="settings-grid"><div class="setting-box"><h2 class="section-title">${I('shield',20)} Saved privately</h2><p>All task data is saved using your browser's local storage. Nothing is uploaded, tracked, or sent to a server.</p><div class="mini-badge">${I('check',12)} LOCAL-FIRST</div></div><div class="setting-box"><h2 class="section-title">${I('download',20)} Export backup</h2><p>Download your tasks, routines, and performance history as a JSON backup file. Recommended before clearing browser data.</p><button class="btn-soft" data-action="export">${I('download',14)} Export JSON</button></div><div class="setting-box"><h2 class="section-title">${I('upload',20)} Restore backup</h2><p>Restore an Orbit backup, replacing all data currently saved in this browser.</p><button class="btn-soft" data-action="import">${I('upload',14)} Import JSON</button><input id="import-file" style="display:none" type="file" accept="application/json,.json"></div><div class="setting-box"><h2 class="section-title">${I('trash',20)} Reset workspace</h2><p>Clear your routines, tasks, and score history. This can't be undone unless you've exported a backup.</p><button class="btn-soft" data-action="reset">${I('trash',14)} Reset all data</button></div></div>`}
+function greeting(){let h=new Date().getHours();return h<12?'Good morning':h<17?'Good afternoon':'Good evening'}
+function pageContent(){return currentPage==='home'?home():currentPage==='overview'?overview():currentPage==='planner'?planner():currentPage==='insights'?insights():currentPage==='routines'?routinesPage():currentPage==='reviews'?reviewsPage():settingsPage()}
+function render(){materialize();persistEarnedMilestones();save();document.getElementById('root').innerHTML=shell();if(!document.getElementById('toast'))document.body.insertAdjacentHTML('beforeend','<div id="toast" class="toast" role="status" hidden></div>');if(modal)renderModal();if(paletteOpen)renderPalette();requestAnimationFrame(enhanceScene);document.title=`${title()} · Orbit Personal OS`}
+function renderModal(){const root=document.getElementById('modal-root');if(!root)return;if(!modal){root.innerHTML='';return}const isTask=modal.kind==='task',isRoutine=modal.kind==='routine',resched=modal.kind==='reschedule',v=modal.value||{},heading=resched?'Reschedule task':isRoutine?(v.id?'Edit routine':'Create a routine'):(v.id?'Edit this task':'Add a new task');const cat=categories.map(c=>`<option value="${E(c)}" ${v.category===c?'selected':''}>${E(c)}</option>`).join('');root.innerHTML=`<div class="modal-backdrop" id="modal-overlay"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><h3 id="modal-title">${E(heading)}</h3><button class="icon-button" data-action="close-modal" aria-label="Close dialog">${I('x',18)}</button></div><form id="editor-form" class="form-grid"><div class="field full"><label for="task-title">Task name</label><input id="task-title" name="title" required maxlength="100" placeholder="e.g. Study for one hour" value="${E(v.title||'')}" ${resched?'readonly':''}></div>${resched?`<p class="tiny-note" style="grid-column:1/-1;margin-top:-5px">The original task stays in its old day. This creates a fresh task on your chosen date.</p>`:''}<div class="field"><label for="task-category">Category</label><select id="task-category" name="category" ${resched?'disabled':''}>${cat}</select></div><div class="field"><label for="task-weight">Importance</label><select id="task-weight" name="weight" ${resched?'disabled':''}>${[1,2,3].map(n=>`<option value="${n}" ${Number(v.weight||1)===n?'selected':''}>${n} point${n===1?'':'s'}${n===1?' · Standard':n===2?' · Important':' · Essential'}</option>`).join('')}</select></div>${isRoutine?`<div class="field full"><label>Repeat on these days</label><div class="weekday-picker">${dayNames.map((name,i)=>`<label><input type="checkbox" name="weekday" value="${i}" ${(v.days||[0,1,2,3,4,5,6]).includes(i)?'checked':''}><span>${name.slice(0,2)}</span></label>`).join('')}</div><p class="tiny-note">Pick at least one day. ${v.id?'Changes apply from tomorrow.':'Tasks begin today if scheduled.'}</p></div>`:`<div class="field full"><label for="task-date">Scheduled date</label><input id="task-date" type="date" name="date" value="${E(v.date||selectedDate)}" min="${today()}" ${v.id&&!resched?'disabled':''}></div>`}<div class="field full"><div class="modal-footer"><button type="button" class="btn-soft" data-action="close-modal">Cancel</button><button type="submit" class="btn-primary">${I('check',15)} ${resched?'Reschedule':v.id?'Save changes':isRoutine?'Create routine':'Add task'}</button></div></div></form></div></div>`;const el=document.getElementById('task-title');if(el&&!resched)el.focus()}
+function addTask(data,date,source='one-off'){const d=ensureDay(date)|| (state.days[date]={items:[],closed:false});d.items.push({id:uid(),routineId:null,title:data.title,category:data.category,weight:data.weight,done:false,source,resolution:null});save()}
+function submitEditor(form){const fd=new FormData(form),name=String(fd.get('title')||'').trim();if(!name)return showToast('Give the task a name.');if(name.length>100)return showToast('Keep names under 100 characters.');const category=categories.includes(fd.get('category'))?fd.get('category'):(modal.value?.category||'Personal'),weight=Math.min(3,Math.max(1,Number(fd.get('weight')||modal.value?.weight||1)));const v=modal.value||{};
+if(modal.kind==='routine'){const days=fd.getAll('weekday').map(Number);if(!days.length)return showToast('Choose at least one day.');if(v.id){const orig=state.routines.find(r=>r.id===v.id);if(orig){const nextDay=addDays(today(),1);orig.retiredOn=nextDay;state.routines.push({id:uid(),title:name,category,weight,days,effectiveFrom:nextDay,retiredOn:null});showToast('Routine updated for future days.')}}else{state.routines.push({id:uid(),title:name,category,weight,days,effectiveFrom:today(),retiredOn:null});ensureDay(today());showToast('Recurring routine created.')}}
+else if(modal.kind==='reschedule'){const newDate=String(fd.get('date')||today());if(newDate<today())return showToast('Choose today or a future day.');addTask(v,newDate,'carryover');const d=state.days[modal.day],item=d?.items.find(e=>e.id===v.id);if(item)item.resolution='rescheduled';showToast('Task rescheduled. Original score preserved.')}
+else if(v.id){const d=state.days[modal.day];const e=d?.items.find(e=>e.id===v.id);if(e){e.title=name;e.category=category;e.weight=weight;showToast('Task updated.')}}else{const date=String(fd.get('date')||today());if(date<today())return showToast('Choose today or a future day.');addTask({title:name,category,weight},date);selectedDate=date;showToast('Task added to your day.')}
+modal=null;save();render()}
+function route(page){if(!navItems.some(x=>x[0]===page)||navigating)return;dockOpen=false;modal=null;if(page===currentPage){render();return}const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;navigating=true;const veil=document.createElement('div');veil.className=`travel-veil travel-${page}`;veil.setAttribute('aria-hidden','true');veil.innerHTML=`<div class="travel-emblem"><span class="travel-pulse"></span><span class="travel-orbit">${I(navItems.find(x=>x[0]===page)?.[1]||'spark',36)}</span><span class="travel-ring ring-a"></span><span class="travel-ring ring-b"></span><span class="travel-ring ring-c"></span></div><div class="travel-caption"><span>ENTERING</span><strong>${E(navItems.find(x=>x[0]===page)?.[2]||'Orbit')}</strong></div><div class="travel-bars"><i></i><i></i><i></i><i></i><i></i></div>`;document.body.appendChild(veil);requestAnimationFrame(()=>veil.classList.add('shown'));setTimeout(()=>{currentPage=page;if(page==='overview'){calendarDate=today().slice(0,7);selectedDate=today()}render();window.scrollTo({top:0,behavior:'instant'});veil.classList.add('leaving');setTimeout(()=>{veil.remove();navigating=false},reduced?10:380)},reduced?10:610)}
+function clickAction(action,button){const date=button?.dataset.day,id=button?.dataset.id;switch(action){case 'jump-to-home-tasks':{document.getElementById('home-today')?.scrollIntoView({behavior:prefersLessMotion()?'instant':'smooth',block:'start'});return}case 'toggle-dock':dockOpen=!dockOpen;render();return;case 'open-palette':openPalette();return;case 'close-palette':closePalette();return;case 'inspect-bar':inspectedDay=date;render();return;case 'next-quote':quoteIndex=(quoteIndex+1)%reflections.length;document.getElementById('reflection-body')?.classList.add('quote-out');setTimeout(()=>{document.getElementById('reflection-body')?.classList.remove('quote-out');render()},160);return;case 'calendar-prev':{const [y,m]=calendarDate.split('-').map(Number);calendarDate=keyOf(new Date(y,m-2,1)).slice(0,7);break}case 'calendar-next':{const [y,m]=calendarDate.split('-').map(Number);calendarDate=keyOf(new Date(y,m,1)).slice(0,7);break}case 'calendar-current':calendarDate=today().slice(0,7);selectedDate=today();break;case 'calendar-select':selectedDate=date;break;case 'open-selected-day':currentPage='planner';dockOpen=false;break;case 'new-task':modal={kind:'task',value:{category:'Personal',weight:1,date:currentPage==='planner'?selectedDate:today()}};break;case 'new-routine':modal={kind:'routine',value:{category:'Personal',weight:1,days:[0,1,2,3,4,5,6]}};break;case 'edit-task':{const e=state.days[date]?.items.find(x=>x.id===id);if(e&&!state.days[date].closed&&date>=today())modal={kind:'task',day:date,value:{...e,date}};break}case 'edit-routine':{const e=state.routines.find(x=>x.id===id);if(e)modal={kind:'routine',value:{...e}};break}case 'delete-task':{if(!confirm('Remove this task from the day? This may change that day’s score.'))return;let d=state.days[date];if(d&&!d.closed&&date>=today()){const item=d.items.find(x=>x.id===id);if(item?.routineId)(d.skippedRoutineIds??=[]).push(item.routineId);d.items=d.items.filter(x=>x.id!==id);showToast('Task removed.')}break}case 'remove-routine':{if(!confirm('Stop this routine from tomorrow? Historical tasks remain unchanged.'))return;const r=state.routines.find(x=>x.id===id);if(r){r.retiredOn=addDays(today(),1);showToast('Routine stopped for future days.')}break}case 'previous-day':selectedDate=addDays(selectedDate,-1);if(selectedDate<state.startedOn)selectedDate=state.startedOn;currentPage='planner';break;case 'next-day':selectedDate=addDays(selectedDate,1);currentPage='planner';break;case 'jump-today':selectedDate=today();currentPage='planner';break;case 'select-day':if(date<state.startedOn){showToast('Tracking began on '+state.startedOn);return}selectedDate=date;currentPage='planner';break;case 'close-modal':modal=null;break;case 'reschedule':{const e=state.days[date]?.items.find(x=>x.id===id);if(e)modal={kind:'reschedule',day:date,value:{...e,date:today()}};break}case 'dismiss':{const e=state.days[date]?.items.find(x=>x.id===id);if(e&&!e.done){e.resolution='dismissed';showToast('Unfinished task dismissed. Score unchanged.')}break}case 'close-day':{const d=state.days[date];if(d){if(d.items.some(e=>!e.done&&!e.resolution))return showToast('Resolve unfinished tasks before closing.');d.closed=true;showToast('Day closed. Your score is locked.')}break}case 'export':{const file=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(file),a=document.createElement('a');a.href=url;a.download=`orbit-backup-${today()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500);showToast('Backup downloaded.');return}case 'import':document.getElementById('import-file')?.click();return;case 'reset':if(!confirm('Delete ALL tasks and history on this device? Export a backup first.'))return;state=defaultState();selectedDate=today();save();showToast('Workspace reset.');break}
+save();render()}
+document.addEventListener('click',event=>{if(event.target.classList?.contains('command-scrim')){closePalette();return}const cmd=event.target.closest('[data-command]');if(cmd){runCommand(Number(cmd.dataset.command));return}const nav=event.target.closest('[data-nav]');if(nav){route(nav.dataset.nav);return}const btn=event.target.closest('[data-action]');if(btn){clickAction(btn.dataset.action,btn);return}if(event.target.id==='modal-overlay'){modal=null;renderModal()}if(dockOpen&&!event.target.closest('.orbital-nav')){dockOpen=false;render()}});
+document.addEventListener('input',event=>{if(event.target.id==='command-search'){paletteQuery=event.target.value;paletteIndex=0;const sel=event.target.selectionStart;renderPalette();try{document.getElementById('command-search')?.setSelectionRange(sel,sel)}catch{}}});
+document.addEventListener('change',event=>{const el=event.target;if(el.matches('[data-check]')){const d=state.days[el.dataset.day];if(d&&!d.closed&&el.dataset.day===today()){const e=d.items.find(x=>x.id===el.dataset.check);if(e){const oldAwards=getMilestones().filter(a=>a.current>=a.goal||state.earnedMilestones?.includes(a.id)).map(a=>a.id),oldScore=ratio(today());const r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+e.done=el.checked;e.resolution=null;lastCompletedId=el.checked?e.id:null;persistEarnedMilestones();save();render();
+if(el.checked){burstAt(cx,cy,ratio(today())===100&&oldScore!==100);const unlocked=getMilestones().filter(a=>a.current>=a.goal&&!oldAwards.includes(a.id));showToast(unlocked.length?'Milestone unlocked: '+unlocked.map(a=>a.name).join(', '):ratio(today())===100&&oldScore!==100?'Day conquered. Every promise kept.':'One more step forward.')}else showToast('Task marked unfinished.');
+setTimeout(()=>{lastCompletedId=null;document.querySelectorAll('.just-completed').forEach(node=>node.classList.remove('just-completed'))},900);}}return}
+if(el.id==='import-file'){const file=el.files?.[0];if(!file)return;file.text().then(str=>{try{const data=JSON.parse(str);if(data.version!==1||typeof data.days!=='object'||!Array.isArray(data.routines)||!/\d{4}-\d{2}-\d{2}/.test(data.startedOn))throw Error('Invalid backup');if(!confirm('Replace all current browser data with this backup?'))return;state=data;selectedDate=today();save();render();showToast('Backup restored.')}catch{showToast('Invalid Orbit backup file.')}})}});
+document.addEventListener('submit',e=>{if(e.target.id==='editor-form'){e.preventDefault();submitEditor(e.target)}});
+document.addEventListener('keydown',e=>{
+ const writing=['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)||document.activeElement?.isContentEditable;
+ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();paletteOpen?closePalette():openPalette();return}
+ if(paletteOpen){if(e.key==='Escape'){e.preventDefault();closePalette();return}if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();const n=availableCommands().length;if(n){paletteIndex=(paletteIndex+(e.key==='ArrowDown'?1:-1)+n)%n;renderPalette()}return}if(e.key==='Enter'){e.preventDefault();runCommand(paletteIndex);return}return}
+ if(e.key==='Escape'&&modal){modal=null;renderModal();return}if(e.key==='Escape'&&dockOpen){dockOpen=false;render();return}
+ if(e.key==='/'&&!writing&&!modal){e.preventDefault();openPalette();return}
+ if(document.activeElement?.matches('.orbit-interactive')&&['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();const el=document.activeElement;const x=Number(el.dataset.orbX||0)+(e.key==='ArrowLeft'?-8:e.key==='ArrowRight'?8:0),y=Number(el.dataset.orbY||0)+(e.key==='ArrowUp'?8:e.key==='ArrowDown'?-8:0);el.dataset.orbX=String(x);el.dataset.orbY=String(y);el.style.setProperty('--orb-y',x+'deg');el.style.setProperty('--orb-x',y+'deg')}
+});
+// Pointer-based depth effects: one rAF per frame, no heavy WebGL or network requests.
+let pointerFrame=0,lastPointer=null,orbDrag=null;
+document.addEventListener('pointermove',e=>{
+ const art=e.target.closest('.orbit-interactive');if(art){const r=art.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;art.style.setProperty('--orb-x',(y*-19)+'deg');art.style.setProperty('--orb-y',(x*24)+'deg');art.style.setProperty('--orb-light-x',((x+.5)*100)+'%');art.style.setProperty('--orb-light-y',((y+.5)*100)+'%')}
+ if(e.pointerType!=='mouse'||prefersLessMotion())return;lastPointer={x:e.clientX,y:e.clientY};if(pointerFrame)return;
+ pointerFrame=requestAnimationFrame(()=>{pointerFrame=0;const p=lastPointer,app=document.querySelector('.app');if(app&&p){app.style.setProperty('--pointer-x',p.x+'px');app.style.setProperty('--pointer-y',p.y+'px')}})
+},{passive:true});
+document.addEventListener('pointerdown',e=>{if(e.target.closest('.orbit-interactive')){const art=e.target.closest('.orbit-interactive');orbDrag={startX:e.clientX,startY:e.clientY,art};art.classList.add('is-grabbing')}});
+document.addEventListener('pointerup',e=>{if(orbDrag){const {art,startX,startY}=orbDrag;art?.classList.remove('is-grabbing');if(Math.abs(e.clientX-startX)<8&&Math.abs(e.clientY-startY)<8){art?.classList.add('orb-awakened');setTimeout(()=>art?.classList.remove('orb-awakened'),1050)}orbDrag=null}});
+document.addEventListener('pointercancel',()=>{orbDrag?.art?.classList.remove('is-grabbing');orbDrag=null});
+document.addEventListener('pointerout',e=>{const art=e.target.closest('.orbit-interactive');if(art&&!art.contains(e.relatedTarget)&&!orbDrag){art.style.setProperty('--orb-x','0deg');art.style.setProperty('--orb-y','0deg')}});
+// Gesture navigation is confined to dedicated horizontal controls; vertical scrolling is untouched.
+let swipeStart=null;
+document.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;const target=e.target.closest('.unique-grid,.day-pills,.big-chart,.performance-bars');if(target)swipeStart={target,x:e.touches[0].clientX,y:e.touches[0].clientY}},{passive:true});
+document.addEventListener('touchend',e=>{if(!swipeStart||!e.changedTouches.length)return;const {target,x,y}=swipeStart;swipeStart=null;const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;if(Math.abs(dx)<64||Math.abs(dx)<Math.abs(dy)*1.5)return;
+ if(target.matches('.unique-grid'))clickAction(dx<0?'calendar-next':'calendar-prev',null);
+ else if(target.matches('.day-pills'))clickAction(dx<0?'next-day':'previous-day',null);
+ else if(target.matches('.performance-bars,.big-chart')){inspectedDay=addDays(inspectedDay,dx<0?1:-1);if(inspectedDay>today())inspectedDay=today();if(inspectedDay<state.startedOn)inspectedDay=state.startedOn;render()}
+},{passive:true});
+
+// Scene-based motion: one passive scroll listener and at most one style update per frame.
+// The default presentation remains usable with JavaScript motion disabled.
+let cinemaFrame=0,cinemaObserver=null;
+const limit=(n,a,b)=>Math.min(b,Math.max(a,n));
+function updateCinema(){
+ cinemaFrame=0;
+ const scene=document.querySelector('.home-scene');if(!scene)return;
+ const hero=scene.querySelector('.home-hero');if(!hero)return;
+ const reduced=prefersLessMotion()||document.hidden;
+ const viewport=Math.max(window.innerHeight,1);
+ const rect=hero.getBoundingClientRect(),whole=scene.getBoundingClientRect();
+ const heroProgress=limit(-rect.top/Math.max(rect.height*.9,1),0,1);
+ const traveled=limit((viewport*.65-whole.top)/Math.max(whole.height-viewport*.36,1),0,1);
+ scene.style.setProperty('--cinema-progress',traveled.toFixed(3));
+ scene.style.setProperty('--scene-copy-shift',(reduced?0:-Math.round(heroProgress*29))+'px');
+ scene.style.setProperty('--scene-orb-shift',(reduced?0:-Math.round(heroProgress*66))+'px');
+ scene.style.setProperty('--scene-orb-scale',String(reduced?1:(1-heroProgress*.11).toFixed(3)));
+ scene.style.setProperty('--ambient-pan',(reduced?0:Math.round(traveled*86))+'px');
+ scene.dataset.chapter=String(traveled<.35?0:traveled<.7?1:2);
+ const rail=document.querySelector('.cinema-rail');if(rail)rail.style.setProperty('--cinema-progress',traveled.toFixed(3));
+}
+function scheduleCinema(){if(cinemaFrame||document.hidden)return;cinemaFrame=requestAnimationFrame(updateCinema)}
+function setupCinema(){
+ cinemaObserver?.disconnect();cinemaObserver=null;
+ const scene=document.querySelector('.home-scene');if(!scene)return;
+ const stages=scene.querySelectorAll('.home-stat-row,.home-trend-card,.milestones-panel,.reflection-card,.home-quickline');
+ for(const stage of stages)stage.classList.add('cinema-stage');
+ if('IntersectionObserver' in window&&!prefersLessMotion()){
+  cinemaObserver=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){entry.target.classList.add('is-awake');cinemaObserver?.unobserve(entry.target)}},{threshold:.12,rootMargin:'0px 0px -3% 0px'});
+  stages.forEach(s=>cinemaObserver.observe(s));
+ }else stages.forEach(s=>s.classList.add('is-awake'));
+ scheduleCinema();
+}
+window.addEventListener('scroll',scheduleCinema,{passive:true});
+window.addEventListener('resize',scheduleCinema,{passive:true});
+document.addEventListener('visibilitychange',()=>{document.body.classList.toggle('cinema-paused',document.hidden);if(!document.hidden)scheduleCinema()});
+// Lightweight tactile feedback on non-button dashboard surfaces. No click hijacking.
+document.addEventListener('pointerdown',event=>{
+ if(event.pointerType==='mouse'||prefersLessMotion())return;
+ const surface=event.target.closest('.home-daily-card,.home-monthly-card,.home-trend-card,.reflection-card,.milestones-panel');
+ if(!surface||event.target.closest('button,input,select,a'))return;
+ const rect=surface.getBoundingClientRect(),ripple=document.createElement('i');
+ ripple.className='cinema-tap-ripple';ripple.setAttribute('aria-hidden','true');
+ ripple.style.setProperty('--tap-x',(event.clientX-rect.left)+'px');
+ ripple.style.setProperty('--tap-y',(event.clientY-rect.top)+'px');
+ surface.appendChild(ripple);setTimeout(()=>ripple.remove(),730);
+},{passive:true});
+
+// When the date changes while the tab stays open, generate the new day's tasks and refresh.
+setInterval(()=>{if(window.__orbitRenderedDate!==today()){window.__orbitRenderedDate=today();selectedDate=today();render()}},15000);
+window.__orbitRenderedDate=today();
+setInterval(()=>{if(currentPage==='home'&&!modal&&!navigating&&!prefersLessMotion()&&!document.hidden){quoteIndex=(quoteIndex+1)%reflections.length;const body=document.getElementById('reflection-body'),q=reflections[quoteIndex];if(body){body.classList.add('quote-out');setTimeout(()=>{const live=document.getElementById('reflection-body');if(!live)return;live.innerHTML=`<div class="reflection-label">${E(q.label)}</div><blockquote>“${E(q.words)}”</blockquote><div class="reflection-by">${E(q.by)}</div>`;live.classList.remove('quote-out');const kind=document.getElementById('quote-kind');if(kind)kind.textContent=q.theme;const counter=document.querySelector('.reflection-counter');if(counter)counter.innerHTML=`${String((quoteIndex%reflections.length)+1).padStart(2,'0')} <span>/ ${String(reflections.length).padStart(2,'0')}</span>`},220)}}},15000);
+render();
+})();
+</script></body></html>
