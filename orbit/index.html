@@ -822,6 +822,31 @@ function ensureDay(k){if(k<state.startedOn) return null;let d=state.days[k];if(!
  return d}
 function materialize(){const now=today();let start=state.startedOn>now?now:state.startedOn;let count=0;for(let k=start;k<=now&&count<1500;k=addDays(k,1),count++)ensureDay(k);save()}
 materialize();
+// One-time, local-only task import. The URL fragment is never sent to GitHub Pages.
+// This deliberately does not bake personal task contents into the public source.
+function importTasksFromLink(){
+ const prefix='#add-tasks=';
+ if(!window.location.hash.startsWith(prefix))return 0;
+ let added=0;
+ try{
+  const payload=JSON.parse(decodeURIComponent(window.location.hash.slice(prefix.length)));
+  if(!Array.isArray(payload)||payload.length===0||payload.length>30||!payload.every(x=>typeof x==='string'&&x.trim().length>0&&x.trim().length<=100))throw Error('Invalid task list');
+  const d=ensureDay(today());
+  if(!d||d.closed)throw Error('Day unavailable');
+  const existing=new Set(d.items.map(x=>String(x.title||'').trim().toLocaleLowerCase()));
+  for(const value of payload){
+   const name=value.trim(),key=name.toLocaleLowerCase();
+   if(existing.has(key))continue;
+   d.items.push({id:uid(),routineId:null,title:name,category:'Personal',weight:1,done:false,source:'one-off',resolution:null});
+   existing.add(key);added++;
+  }
+  save();
+ }catch(e){/* Ignore an invalid link without changing existing tasks. */}
+ // Remove personal task names from the address bar once processed.
+ window.history.replaceState(null,'',window.location.pathname+window.location.search);
+ return added;
+}
+const importedTaskCount=importTasksFromLink();
 const entries=k=>ensureDay(k)?.items||[];
 const ratio=k=>{const t=entries(k);if(!t.length)return null;const sum=t.reduce((x,e)=>x+e.weight,0);return Math.round(t.filter(e=>e.done).reduce((x,e)=>x+e.weight,0)/sum*10000)/100};
 const monthlyDays=()=>{const t=today(),m=t.slice(0,7);return Object.keys(state.days).filter(k=>k.startsWith(m)&&k<=t&&k>=state.startedOn&&entries(k).length).sort()};
@@ -993,5 +1018,6 @@ setInterval(()=>{if(window.__orbitRenderedDate!==today()){window.__orbitRendered
 window.__orbitRenderedDate=today();
 setInterval(()=>{if(currentPage==='home'&&!modal&&!navigating&&!prefersLessMotion()&&!document.hidden){quoteIndex=(quoteIndex+1)%reflections.length;const body=document.getElementById('reflection-body'),q=reflections[quoteIndex];if(body){body.classList.add('quote-out');setTimeout(()=>{const live=document.getElementById('reflection-body');if(!live)return;live.innerHTML=`<div class="reflection-label">${E(q.label)}</div><blockquote>“${E(q.words)}”</blockquote><div class="reflection-by">${E(q.by)}</div>`;live.classList.remove('quote-out');const kind=document.getElementById('quote-kind');if(kind)kind.textContent=q.theme;const counter=document.querySelector('.reflection-counter');if(counter)counter.innerHTML=`${String((quoteIndex%reflections.length)+1).padStart(2,'0')} <span>/ ${String(reflections.length).padStart(2,'0')}</span>`},220)}}},15000);
 render();
+if(importedTaskCount)showToast(importedTaskCount+' task'+(importedTaskCount===1?'':'s')+' added to today.');
 })();
 </script></body></html>
