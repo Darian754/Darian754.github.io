@@ -985,7 +985,7 @@ function importPlanFromLink(){
   const tasks=plan?.tasks??[],routines=plan?.routines??[];
   if(!Array.isArray(tasks)||!Array.isArray(routines)||tasks.length+routines.length===0||tasks.length>30||routines.length>15)throw Error('Invalid plan size');
   const validName=t=>typeof t==='string'&&t.trim().length>0&&t.trim().length<=100;
-  const validDate=d=>typeof d==='string'&&/^\\d{4}-\\d{2}-\\d{2}$/.test(d)&&keyOf(fromKey(d))===d&&d>=today();
+  const validDate=d=>typeof d==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(d)&&keyOf(fromKey(d))===d&&d>=today();
   const validFields=x=>x&&validName(x.title)&&categories.includes(x.category)&&[1,2,3].includes(x.weight);
   if(!tasks.every(t=>validFields(t)&&validDate(t.date))||
      !routines.every(r=>validFields(r)&&validDate(r.effectiveFrom)&&Array.isArray(r.days)&&r.days.length>0&&r.days.length<=7&&r.days.every(d=>Number.isInteger(d)&&d>=0&&d<=6)))throw Error('Invalid plan fields');
